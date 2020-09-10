@@ -1,0 +1,41 @@
+#section--about {
+  padding: 250px 150px;
+  z-index: 40;
+
+  .about__layout {
+    text-align: center;
+
+    h2 {
+      margin-bottom: 2rem;
+    }
+  }
+
+  .staff__layout {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .block--staff {
+    text-align: center;
+    flex: 1 50%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img {
+      border: 7px solid rgba(255, 255, 255, 0.25);
+      border-radius: 50%;
+      width: 110px;
+      margin-bottom: 1rem;
+    }
+
+    h3 {
+      margin-bottom: 1rem;
+    }
+
+    p {
+      color: lightgray;
+    }
+  }
+}

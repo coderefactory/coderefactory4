@@ -1,12 +1,12 @@
 {
-  "name": "eleventastic",
-  "version": "1.0.0",
-  "description": "A boilerplate for eleventy websites",
+  "name": "coderefactory",
+  "version": "4.0.0",
+  "description": "CodeRefactory.com",
   "browserslist": [
     "defaults"
   ],
   "scripts": {
-    "start": "npm run dev",
+    "start": "yarn run dev",
     "dev": "run-s clean eleventy:dev --print-label",
     "build": "run-s clean eleventy:prod --print-label",
     "eleventy:dev": "cross-env ELEVENTY_ENV=development eleventy --serve",
@@ -16,9 +16,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "http://github.com/maxboeck/eleventastic"
+    "url": "http://github.com/webakimbo/coderefactory4"
   },
-  "author": "Max Böck",
+  "author": "Code Refactory",
   "license": "MIT",
   "dependencies": {
     "@11ty/eleventy": "^0.11.0",

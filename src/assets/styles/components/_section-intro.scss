@@ -1,0 +1,29 @@
+@keyframes float {
+  from { transform: translateY(0); }
+  to   { transform: translateY(20px); }
+}
+
+#section--intro {
+  padding: 250px 150px;
+  z-index: 10;
+
+  .intro__layout {
+    height: 100%;
+
+    h2 {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+
+      span {
+        &:first-child {
+          flex: 1;
+        }
+
+        &:last-child {
+          animation: 1.5s ease-in-out 0s infinite alternate float;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Gregg Butensky",
+    "bio": "Mauris et fermentum neque. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque rutrum viverra orci, vitae pharetra metus consequat sed. Ut nec fringilla velit, in semper quam.",
+    "headshot": "TEMP-headshot.jpg"
+  },
+  {
+    "name": "Andrew dePasquale",
+    "bio": "Fusce laoreet ipsum sit amet pretium volutpat. Sed sit amet ligula at justo rhoncus lacinia. Nulla ullamcorper sollicitudin ex quis posuere. Duis ac consectetur orci. Suspendisse efficitur lorem eu est pellentesque, sed tincidunt mauris aliquet.",
+    "headshot": "TEMP-headshot.jpg"
+  },
+  {
+    "name": "Fabrice Armisen",
+    "bio": "Sed non justo fringilla ipsum rhoncus rutrum. Donec nec euismod nisl, eget finibus arcu. Pellentesque rutrum gravida placerat. Proin gravida justo in iaculis imperdiet. Curabitur ac molestie ex.",
+    "headshot": "TEMP-headshot.jpg"
+  },
+  {
+    "name": "Lynda Greenberg",
+    "bio": "Donec congue, lorem in convallis accumsan, lorem nibh convallis augue, eget euismod mauris dui sit amet turpis. Aenean commodo libero vel ante rhoncus, vel molestie nunc finibus. Nunc consectetur elementum massa.",
+    "headshot": "TEMP-headshot.jpg"
+  }
+]

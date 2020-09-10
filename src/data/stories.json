@@ -1,0 +1,22 @@
+[
+  {
+    "client": "Daily Kos",
+    "summary": "Lorem ipsum dolor sit amet consectetuer adipiscing nonummy elit.",
+    "imageDir": "dailykos"
+  },
+  {
+    "client": "Prometheus",
+    "summary": "Premium West Coast apartments. The only thing easier than the living is the searching.",
+    "imageDir": "prometheus"
+  },
+  {
+    "client": "Balyasny Asset Management",
+    "summary": "Smart investing: telling the story, and providing the tools.",
+    "imageDir": "bam"
+  },
+  {
+    "client": "Another Client",
+    "summary": "Lorem ipsum dolor sit amet consectetuer adipiscing nonummy elit.",
+    "imageDir": "TEMP"
+  }
+]

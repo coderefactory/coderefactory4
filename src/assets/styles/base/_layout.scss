@@ -1,38 +1,111 @@
 // Main Site Layout
 
-body {
-    overflow-x: hidden;
+html {
+  overflow-y: hidden;
+  background-color: #17172f;
 }
 
-.layout {
-    display: flex;
-    flex-direction: column;
-    min-height: 100%;
-    min-height: 100vh;
+body {
+  // overflow-x: hidden;
+  height: 100vh;
+  background-color: transparent;
+  overflow: hidden;
+
+  .layout {
+    // display: flex;
+    // flex-direction: column;
+    // min-height: 100%;
+    // min-height: 100vh;
+    background-color: transparent;
+
     position: relative;
+
+    &:before {
+      content: '';
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-position: 100% 0%;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-image: radial-gradient(transparent 0%, rgba(0, 8, 47, 0.87) 70%), url(/assets/images/sf_map2.png);
+      transform-origin: 100% 0%;
+      // transform: scale(2) translate(17vw, -14vh);
+      transform: scale(2) translate(calc((var(--scroll, 0) * 30vw) + 17vw), calc((var(--scroll, 0) * -30vh) - 14vh));
+      // transition: 0.2s ease-in-out transform, 0.2s linear filter;
+      filter: hue-rotate(calc(var(--scroll, 0) * 360deg)) saturate(0.7) opacity(0.4);
+      z-index: -1;
+    }
 
     .header,
     .footer {
-        flex: none;
+      flex: none;
     }
 
     .main {
-        display: flex;
-        flex-direction: column;
-        flex: 1 0 auto;
+      // display: flex;
+      // flex-direction: column;
+      // flex: 1 0 auto;
+      z-index: 5;
+      height: 100vh;
+      overflow-x: hidden;
+      // overflow-y: scroll;
+      @include scrollable;
+      scroll-snap-type: y mandatory;
+      background-color: transparent;
 
-        &::after {
-            content: '';
-            display: block;
-            height: 0px;
-            visibility: hidden;
-        }
+      &::after {
+        content: '';
+        display: block;
+        height: 0px;
+        visibility: hidden;
+      }
+
+      // scrollbar customizations
+      // https://css-tricks.com/the-current-state-of-styling-scrollbars/#an-updated-version-of-a-fairly-consistently-styled-scrollbar-across-firefox-safari-chrome
+      scrollbar-width: auto;
+      scrollbar-color: rgba(128,128,128,0.5) transparent;
+
+      &::-webkit-scrollbar {
+        width: 15px;
+      }
+      &::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: rgba(128,128,128,0.5);
+        background-clip: content-box;   // transparent border won't work without this
+        border: 3px solid transparent;  // border: 3px solid #17172f;
+        border-radius: 15px;
+      }
     }
+  }
 }
 
 .container {
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: $container-max-width;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: $container-max-width;
+}
+
+section {
+  color: white;
+  position: relative;
+  // position: fixed;
+  // top: 100vh;   // below the viewport, out of view
+  // left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  // transition-duration: 0s;
+  // transition-timing-function: ease-in-out;
+  // transition-property: top;
+  scroll-snap-align: start;
+
+  // &.transitioning {
+  //   transition-duration: 0.2s;
+  // }
 }

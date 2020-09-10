@@ -1,0 +1,18 @@
+#section--clients-tools {
+  padding: 250px 150px;
+  z-index: 30;
+
+  .clients-tools__layout {
+    display: flex;
+  }
+
+  .block--clients {
+    flex: 1;
+    padding-right: 50px;
+  }
+
+  .block--tools {
+    flex: 1;
+    padding-left: 50px;
+  }
+}

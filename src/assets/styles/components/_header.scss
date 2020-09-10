@@ -1,9 +1,21 @@
 .header {
-    padding: $spacing-y 0;
+  width: 100%;
+  padding: $spacing-y 0;
+  position: fixed;
+  z-index: 100;
 
-    &__inner {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    svg {
+      width: 80px;
+      height: 80px;
+
+      path {
+        fill: white;
+      }
     }
+  }
 }

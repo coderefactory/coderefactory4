@@ -4,6 +4,98 @@ eleventyNavigation:
   key: Home
 ---
 
-<div class="container">
-    <h1>A blank 11ty project.</h1>
-</div>
+<section id="section--intro">
+  <div class="intro__layout container">
+    <h1 class="sr-only">Code Refactory</h1>
+    <h2>
+      <span>Code Refactory is a small collective of web software developers who emphasize craftsmanship and close collaboration in delivering high-value software.</span>
+      <span>This is how we solve problems.</span>
+      <span>👇</span>
+    </h2>
+  </div>
+</section>
+
+<section id="section--stories">
+  <div class="stories__layout">
+    {% for story in stories %}
+      <style>
+        #section--stories .block--story.story{{ loop.index }}:before {
+          background-image: linear-gradient(rgba(0, 8, 27, 0.87) 0%, transparent 45%), url(/assets/images/stories/{{ story.imageDir }}/hero.jpg);
+        }
+      </style>
+      <div class="block--story story{{ loop.index }}">
+        <div class="story-content">
+          <div class="story-content__intro">
+            <h4>{{ story.client }}</h4>
+            <h2>{{ story.summary }}</h2>
+            <button class="open-story">Learn more</button>
+          </div>
+          <div class="story-content__carousel">
+            <button class="close-story">&times;</button>
+            <ul>
+              <li>story panels go inside this overlay.</li>
+              <li>carousel is similar to current site.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section id="section--clients-tools">
+  <div class="container">
+    <div class="clients-tools__layout">
+      <div class="block--clients">
+        <h2>We've built things for</h2>
+        <ul>
+          <li>Daily Kos logo</li>
+          <li>Prometheus logo</li>
+          <li>BAM logo</li>
+          <li>The Melt logo</li>
+          <li>GE logo</li>
+        </ul>
+      </div>
+      <div class="block--tools">
+        <h2>Using tools like</h2>
+        <ul>
+          <li>React logo</li>
+          <li>JS logo</li>
+          <li>CSS logo</li>
+          <li>Rails logo</li>
+          <li>11ty logo</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="section--about">
+  <div class="container">
+    <div class="about__layout">
+      <h2>Experienced, adaptable, local. Meet your team.</h2>
+      <div class="staff__layout">
+        {% for staff in about %}
+          <div class="block--staff">
+            <img src="/assets/images/about/{{ staff.headshot }}" alt="{{ staff.name }}" />
+            <h3>{{ staff.name }}</h3>
+            <p>{{ staff.bio }}</p>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="section--contact">
+  <div class="container">
+    <div class="contact__layout">
+      <h2>Say hey.</h2>
+      <p class="emphasize">Let us know how we can partner with you to help move your project forward expertly and quickly.</p>
+      <p class="contact">
+        <a href="mailto:info@coderefactory.com"><span class="envelope"><svg height="78px" version="1.1" viewBox="0 0 78 78" width="78px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="enable-background:new 0 0 78 78" class=""><path d="M1,12c-0.553,0-1,0.447-1,1v52c0,0.553,0.447,1,1,1h76c0.553,0,1-0.447,1-1V13c0-0.553-0.447-1-1-1H1  z M69.816,18L39,40.594L8.184,18H69.816z M72,60H6V23.839l29.452,21.594L39,48.033l3.548-2.601L72,23.839V60z" style="fill:#333f4f"></path></svg></span> <span>info@coderefactory.com</span></a>
+      </p>
+    </div>
+  </div>
+  {% include "footer.njk" %}
+</section>
