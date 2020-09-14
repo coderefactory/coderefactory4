@@ -47,7 +47,13 @@ $preview-width: 70vw;
                 opacity: 1;
               }
 
-              button {
+              button.open-story {
+                opacity: 0;
+                transition-delay: 0s;
+                z-index: -1;
+              }
+
+              button.close-story {
                 opacity: 1;
               }
             }
@@ -105,13 +111,26 @@ $preview-width: 70vw;
         flex: 1;
         padding: 3rem 0;
 
-        button {
-          color: black;
+        h3 {
+          @include text-shadow;
+        }
+
+        h5 {
+          color: #203333;
+          background-color: rgba(174,255,154,0.7);
+          display: inline-block;
+          padding: 5px 5px 3px;
+        }
+
+        p {
+          @include text-shadow(0.7);
+          font-size: 1.125rem;
+          margin-bottom: 2.5rem;
         }
       }
 
       .story-content__carousel {
-        flex: 3;
+        flex: 4;
         position: relative;
 
         &:before {
@@ -137,8 +156,19 @@ $preview-width: 70vw;
           transition-delay: 0.4s;
         }
 
-        button {
-          color: black;
+        button.open-story {
+          position: absolute;
+          top: 0;
+          left: 0;
+          opacity: 1;
+          transition-timing-function: ease-out;
+          transition-property: opacity;
+          transition-duration: 0.2s;
+          transition-delay: 0.4s;
+          z-index: 6;
+        }
+
+        button.close-story {
           position: absolute;
           top: 2rem;
           right: 2rem;

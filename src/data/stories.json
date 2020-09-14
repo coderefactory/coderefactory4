@@ -1,22 +1,26 @@
 [
   {
     "client": "Daily Kos",
-    "summary": "Lorem ipsum dolor sit amet consectetuer adipiscing nonummy elit.",
+    "summary": "Community, News, Activism. With a new face.",
+    "narrative": "We need some kind of narrative here that ties our DK work together.",
     "imageDir": "dailykos"
   },
   {
     "client": "Prometheus",
-    "summary": "Premium West Coast apartments. The only thing easier than the living is the searching.",
+    "summary": "Premium West Coast apartments.<br/>The only thing easier than the living is the searching.",
+    "narrative": "Bringing creativity to technology for a leader in luxury rentals.",
     "imageDir": "prometheus"
   },
   {
     "client": "Balyasny Asset Management",
     "summary": "Smart investing: telling the story, and providing the tools.",
+    "narrative": "Helping a premier asset management company speak to all their audiences.",
     "imageDir": "bam"
   },
   {
-    "client": "Another Client",
-    "summary": "Lorem ipsum dolor sit amet consectetuer adipiscing nonummy elit.",
-    "imageDir": "TEMP"
+    "client": "ChefsFeed",
+    "summary": "The hottest restaurants and dishes never looked so good.",
+    "narrative": "Connecting the \"Anti-Yelp\"s legacy systems to the modern world.",
+    "imageDir": "chefsfeed"
   }
 ]

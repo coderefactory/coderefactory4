@@ -6,11 +6,20 @@ eleventyNavigation:
 
 <section id="section--intro">
   <div class="intro__layout container">
-    <h1 class="sr-only">Code Refactory</h1>
+    <h1>Code Refactory</h1>
     <h2>
-      <span>Code Refactory is a small collective of web software developers who emphasize craftsmanship and close collaboration in delivering high-value software.</span>
+      <span>
+        Code Refactory is a small collective of 
+        <br/>
+        web software developers who emphasize 
+        <br/>
+        craftsmanship and close collaboration 
+        <br/>
+        in delivering high-value software.
+      </span>
       <span>This is how we solve problems.</span>
-      <span>👇</span>
+      <!-- <span>👇</span> -->
+      <span>{% icon "icon-down-arrow" %}</span>
     </h2>
   </div>
 </section>
@@ -20,17 +29,18 @@ eleventyNavigation:
     {% for story in stories %}
       <style>
         #section--stories .block--story.story{{ loop.index }}:before {
-          background-image: linear-gradient(rgba(0, 8, 27, 0.87) 0%, transparent 45%), url(/assets/images/stories/{{ story.imageDir }}/hero.jpg);
+          background-image: linear-gradient(rgba(0, 8, 27, 0.87) 0%, transparent 85%), url(/assets/images/stories/{{ story.imageDir }}/hero.jpg);
         }
       </style>
       <div class="block--story story{{ loop.index }}">
         <div class="story-content">
           <div class="story-content__intro">
-            <h4>{{ story.client }}</h4>
-            <h2>{{ story.summary }}</h2>
-            <button class="open-story">Learn more</button>
+            <h5>{{ story.client }}</h5>
+            <h3>{{ story.summary | safe }}</h3>
+            <p>{{ story.narrative }}</p>
           </div>
           <div class="story-content__carousel">
+            <button class="open-story">Learn more</button>
             <button class="close-story">&times;</button>
             <ul>
               <li>story panels go inside this overlay.</li>
@@ -78,7 +88,7 @@ eleventyNavigation:
         {% for staff in about %}
           <div class="block--staff">
             <img src="/assets/images/about/{{ staff.headshot }}" alt="{{ staff.name }}" />
-            <h3>{{ staff.name }}</h3>
+            <h4>{{ staff.name }}</h4>
             <p>{{ staff.bio }}</p>
           </div>
         {% endfor %}
