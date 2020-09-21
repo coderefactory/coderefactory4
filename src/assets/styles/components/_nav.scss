@@ -1,33 +1,139 @@
+@keyframes nav-selected-stretch {
+  0%, 100% {
+    width: 4px;
+  }
+  50%, 80% {
+    width: 45%;
+  }
+}
+@keyframes nav-selected-move {
+  0% {
+    left: 0;
+  }
+  82% {
+    left: 6px;
+  }
+  100% {
+    left: calc(50% - 2px);
+  }
+}
+
+@mixin nav-selected-animation {
+  animation-name: nav-selected-stretch, nav-selected-move;
+  animation-duration: .3s;
+  animation-timing-function: cubic-bezier(1,0,.6,1);
+  animation-delay: .05s;
+  animation-fill-mode: both;
+  animation-iteration-count: 1;
+}
+
 .nav {
-    &__menu {
-        display: none;
-        position: absolute;
-        left: 0;
-        right: 0;
-        background-color: #fff;
-    }
-    &__link {
+  &__menu {
+    background-color: #fff;
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+  }
+
+  &__item {
+  }
+
+  &__link {
+    @include f_label;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.125rem;
+    line-height: 1;
+    padding: 0.875rem 1.5rem;
+    display: block;
+    opacity: 0.88;
+    transition: 0.2s ease-in-out opacity;
+
+    &__indicator {
+      width: 100%;
+      height: 4px;
+      display: block;
+      position: relative;
+      top: 4px;
+      left: 0;
+      opacity: 0;
+      transition: opacity .3s step-end;
+
+      &:after {
+        content: '';
         display: block;
-        padding: 0.5em 1em;
+        width: 4px;
+        height: 100%;
+        background-color: #79ff7d;
+        border-radius: 2px;
+        position: relative;
+        top: 0;
+        left: 0;
+      }
     }
+
+    @include hover-focus {
+      text-decoration: none;
+      opacity: 1;
+    }
+
+    // selected link is to the left
+    &[data-face-left="true"] &__indicator {
+      transform: rotateY(0deg);
+    }
+
+    // selected link is to the right
+    &[data-face-left="false"] &__indicator {
+      transform: rotateY(180deg);
+    }
+
+    // selected link
+    &[aria-current="true"] {
+      opacity: 1;
+
+      .nav__link__indicator {
+        transition-timing-function: step-start;
+        opacity: 1;
+
+        &:after {
+          @include nav-selected-animation;
+          animation-direction: normal;
+          opacity: 1;
+        }
+      }
+    }
+
+    // non-selected link
+    &[aria-current="false"] {
+      .nav__link__indicator {
+        &:after {
+          @include nav-selected-animation;
+          animation-direction: reverse;
+        }
+      }
+    }
+  }
+
+  &__toggle {
+    @include button-reset;
+  }
+
+  @include mq-down(lg) {
+    &.is-open &__menu {
+      display: block;
+    }
+  }
+
+  @include mq(lg) {
     &__toggle {
-        @include button-reset;
+      display: none;
     }
 
-    @include mq-down(lg) {
-        &.is-open &__menu {
-            display: block;
-        }
+    &__menu {
+      display: flex;
+      position: static;
+      background-color: transparent;
     }
-
-    @include mq(lg) {
-        &__toggle {
-            display: none;
-        }
-        &__menu {
-            display: flex;
-            position: static;
-            background-color: transparent;
-        }
-    }
+  }
 }

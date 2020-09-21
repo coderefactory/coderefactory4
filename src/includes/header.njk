@@ -2,7 +2,10 @@
   <div class="header__inner container">
     <div class="header__left">
       <div id="header-logo-viewport"><span></span></div>
-      {% include "../assets/images/cr-logo.svg" %}
+      <a class="header__logo" href="/" aria-current="true">
+        <span class="sr-only">Code Refactory</span>
+        {% include "../assets/images/cr-logo.svg" %}
+      </a>
     </div>
     <div class="header__right">
       {% include "navigation.njk" %}

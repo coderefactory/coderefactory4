@@ -13,34 +13,44 @@
   &__left {
     position: relative;
 
-    &:before {
-      content: '';
-      position: absolute;
-      width: calc(100% + 30px);
-      height: calc(100% + 3rem + 15px);
-      background-color: #132c38; // #182631, #610000, #4c1e35, darkred, lightslategray, skyblue, steelblue
-      left: -15px;
-      top: -3rem;
-      box-shadow: 0px 0px 24px 4px rgba(255,255,255, 0.6);
-      border: 1px solid rgba(0,0,0,0.35);
-      border-top-width: 0;
-      display: block;
-    }
-
     #header-logo-viewport {
       display: none;
     }
 
-    svg {
-      width: $header-logo-width;
-      height: $header-logo-width;
-      display: block;
-      position: relative;
-      left: 0;
-      top: 0;
+    .header__logo {
+      &:before {
+        content: '';
+        position: absolute;
+        width: calc(100% + 30px);
+        height: calc(100% + 3rem + 15px);
+        background-color: #132c38; // #182631, #610000, #4c1e35, darkred, lightslategray, skyblue, steelblue
+        left: 0;
+        top: -3rem;
+        box-shadow: 0px 0px 24px 4px rgba(255,255,255, 0.6);
+        border: 1px solid rgba(0,0,0,0.35);
+        border-top-width: 0;
+        display: block;
 
-      path {
-        fill: white;
+        @include mq(lg) {
+          left: -15px;
+        }
+      }
+
+      svg {
+        width: $header-logo-width;
+        height: $header-logo-width;
+        display: block;
+        position: relative;
+        left: 15px;
+        top: 0;
+
+        @include mq(lg) {
+          left: 0;
+        }
+
+        path {
+          fill: white;
+        }
       }
     }
   }

@@ -17,10 +17,6 @@
     position: absolute;
 
     &__left {
-      &:before {
-        display: none;
-      }
-      
       #header-logo-viewport {
         width: $header-logo-viewport-width;
         height: $header-logo-viewport-width;
@@ -57,22 +53,28 @@
         }
       }
 
-      svg {
-        left: calc(40vw - #{$header-logo-width / 2});
-        top: calc(50vh - #{$spacing-y} - #{$header-logo-width / 2});
-        transform: rotate(0);
-        opacity: 1;
-        transition-timing-function: cubic-bezier(.49,0,.88,.16), linear;
-        // transition-timing-function: ease-in-out;
-        transition-property: transform, opacity;
-        transition-duration: 0.45s, 0.3s;
-        transition-delay: 0s, 0.45s;
+      .header__logo {
+        &:before {
+          display: none;
+        }
+
+        svg {
+          left: calc(40vw - #{$header-logo-width / 2});
+          top: calc(50vh - #{$spacing-y} - #{$header-logo-width / 2});
+          transform: rotate(0);
+          opacity: 1;
+          transition-timing-function: cubic-bezier(.49,0,.88,.16), linear;
+          // transition-timing-function: ease-in-out;
+          transition-property: transform, opacity;
+          transition-duration: 0.45s, 0.3s;
+          transition-delay: 0s, 0.45s;
+        }
       }
     }
   }
 
   // styles for intro panel
-  #section--intro .intro__layout {
+  #home .intro__layout {
     display: none;
   }
 
@@ -92,7 +94,7 @@
         }
       }
 
-      svg {
+      .header__logo svg {
         transform: rotate(720deg);
         opacity: 0;
         // animation-duration: 0.25s;
