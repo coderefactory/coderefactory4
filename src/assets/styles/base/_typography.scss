@@ -12,12 +12,12 @@ h6 {
 
 h1 {
   @include sr-only;
-  font-size: 4rem;
+  font-size: 4.5rem;
   // text-rendering: optimizeLegibility;
 }
 
 h2 {
-  font-size: 3.25rem;
+  font-size: 3.75rem;
   @include smooth-font;
 }
 
@@ -39,6 +39,16 @@ h5 {
 
 p {
   margin: 0 0 1rem;
+}
+
+a {
+  color: rgba(#aeff9a, 0.85);
+  transition: color 0.2s ease-in-out;
+
+  &:hover,
+  &:focus {
+    color: rgba(#aeff9a, 1);
+  }
 }
 
 // .lead {

@@ -6,7 +6,7 @@ eleventyNavigation:
 
 <section id="home" data-anchor="home">
   <div class="intro__layout container">
-    <h1>Code Refactory</h1>
+    <h1>{{ build.orgName }}</h1>
     <h2>
       <span>
         Code Refactory is a small collective of 
@@ -53,24 +53,28 @@ eleventyNavigation:
 </section>
 
 <section id="experience" data-anchor="experience">
-  <div class="container">
-    <div class="experience__layout">
-      <div class="block--clients">
-        <h2>We've built things for</h2>
-        <ul>
-          {% for clientLogo in experience.clients %}
-            <li>{% include "../src/assets/images/logos/" + clientLogo + ".svg" %}</li>
-          {% endfor %}
-        </ul>
-      </div>
-      <div class="block--tools">
-        <h2>Using tools like</h2>
-        <ul>
-          {% for toolLogo in experience.tools %}
-            <li>{% include "../src/assets/images/logos/" + toolLogo + ".svg" %}</li>
-          {% endfor %}
-        </ul>
-      </div>
+  <div class="experience__layout container">
+    <div class="block--clients">
+      <h2>We've built things for</h2>
+      <ul>
+        {% for clientLogo in experience.clients %}
+          <li>
+            {% include "../src/assets/images/logos/" + clientLogo.filename + ".svg" %}
+            <span class="sr-only">{{ clientLogo.title }}</span>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="block--tools">
+      <h2>Using tools like</h2>
+      <ul>
+        {% for toolLogo in experience.tools %}
+          <li>
+            {% include "../src/assets/images/logos/" + toolLogo.filename + ".svg" %}
+            <span class="sr-only">{{ toolLogo.title }}</span>
+          </li>
+        {% endfor %}
+      </ul>
     </div>
   </div>
 </section>
@@ -96,9 +100,12 @@ eleventyNavigation:
   <div class="container">
     <div class="contact__layout">
       <h2>Say hey.</h2>
-      <p class="emphasize">Let us know how we can partner with you to help move your project forward expertly and quickly.</p>
+      <p>Let us know how we can partner with you to help move your project forward expertly and quickly.</p>
       <p class="contact">
-        <a href="mailto:info@coderefactory.com"><span class="envelope"><svg height="78px" version="1.1" viewBox="0 0 78 78" width="78px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="enable-background:new 0 0 78 78" class=""><path d="M1,12c-0.553,0-1,0.447-1,1v52c0,0.553,0.447,1,1,1h76c0.553,0,1-0.447,1-1V13c0-0.553-0.447-1-1-1H1  z M69.816,18L39,40.594L8.184,18H69.816z M72,60H6V23.839l29.452,21.594L39,48.033l3.548-2.601L72,23.839V60z" style="fill:#333f4f"></path></svg></span> <span>info@coderefactory.com</span></a>
+        <a href="mailto:info@coderefactory.com">
+          <span class="envelope">{% icon "icon-envelope" %}</span>
+          <span>info@coderefactory.com</span>
+        </a>
       </p>
     </div>
   </div>

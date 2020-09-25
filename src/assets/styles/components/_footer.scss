@@ -7,11 +7,47 @@
   width: 100%;
   left: 0;
   bottom: 0;
-  background-color: rgba(255,255,255,0.3);
+  background-color: rgba(114,162,185,0.3);
 
   &__inner {
     display: flex;
-    justify-content: space-between;
     align-items: center;
   }
+
+  &__logo {
+    padding-right: 2rem;
+
+    svg {
+      width: $header-logo-width;
+      height: $header-logo-width;
+      display: block;
+      position: relative;
+      left: 15px;
+      top: 0;
+
+      // filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.7));
+      filter: invert(1);
+
+      @include mq(lg) {
+        left: 0;
+      }
+
+      path {
+        fill: white;
+      }
+    }
+  }
+
+  &__content {
+    .tagline {
+      font-size: 1.8rem;
+      margin: 0;
+    }
+
+    p {
+      margin: 0;
+      opacity: 0.6;
+    }
+  }
+
 }

@@ -1,4 +1,24 @@
 {
-  "clients": [],
-  "tools": ["react", "rails", "nodejs", "html5", "js", "css3"]
+  "clients": [
+    { "filename": "prometheus", "title": "Prometheus Apartments" },
+    { "filename": "dailykos",   "title": "Daily Kos" },
+    { "filename": "ge",         "title": "GE" },
+    { "filename": "bam",        "title": "Balyasny Asset Management" },
+    { "filename": "themelt",    "title": "The Melt" },
+    { "filename": "cisco",      "title": "Cisco" },
+    { "filename": "chefsfeed",  "title": "ChefsFeed" },
+    { "filename": "medtronic",  "title": "Medtronic" },
+    { "filename": "anki",       "title": "Anki" },
+    { "filename": "prosper",    "title": "Prosper" }
+  ],
+  "tools": [
+    { "filename": "react",      "title": "ReactJS" },
+    { "filename": "js",         "title": "JavaScript" },
+    { "filename": "nodejs",     "title": "NodeJS" },
+    { "filename": "eleventy",   "title": "Eleventy" },
+    { "filename": "rails",      "title": "Ruby on Rails" },
+    { "filename": "html5",      "title": "HTML5" },
+    { "filename": "css3",       "title": "CSS3" },
+    { "filename": "contentful", "title": "Contentful" }
+  ]
 }

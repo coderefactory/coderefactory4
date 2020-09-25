@@ -1,7 +1,11 @@
 <footer class="footer" role="contentinfo">
   <div class="footer__inner container">
-    {% include "../assets/images/cr-logo.svg" %}
-    <p class="emphasize tagline">Hand-crafted software from San Francisco, California.</p>
-    <p class="legal">© <span id="footer-date">{{ build.timestamp | dateToFormat('yyyy') }}</span> Code Refactory. All Rights Reserved.</p>
+    <div class="footer__logo">
+      {% include "../assets/images/cr-logo.svg" %}
+    </div>
+    <div class="footer__content">
+      <h6 class="tagline">Hand-crafted software from San Francisco, California.</h6>
+      <p class="legal">© <span id="footer-date">{{ build.timestamp | dateToFormat('yyyy') }}</span> {{ build.orgName }}. All Rights Reserved.</p>
+    </div>
   </div>
 </footer>

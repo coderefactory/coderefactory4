@@ -5,6 +5,20 @@
 
   .contact__layout {
     // display: flex;
+    text-align: center;
+
+    p {
+      font-size: 1.125rem;
+
+      &.contact a {
+        display: flex;
+        justify-content: center;
+
+        .envelope {
+          margin-right: 0.5rem;
+        }
+      }
+    }
   }
 
   // .clients-tools__block {
