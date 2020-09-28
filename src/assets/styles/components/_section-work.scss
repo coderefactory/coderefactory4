@@ -43,7 +43,7 @@ $preview-width: 70vw;
                 width: 100vw;
               }
 
-              ul {
+              .story-content__slides {
                 opacity: 1;
               }
 
@@ -148,12 +148,132 @@ $preview-width: 70vw;
           transition-delay: 0.2s;
         }
 
-        ul {
+        .story-content__slides {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          // overflow: hidden;
           opacity: 0;
           transition-timing-function: ease-out;
           transition-property: opacity;
           transition-duration: 0.2s;
           transition-delay: 0.4s;
+
+          ul {
+            width: 100%;
+            height: calc(100% - 8rem);
+            position: relative;
+            top: 4rem;
+            left: 0;
+            overflow: hidden;
+
+            li {
+              width: 100%;
+              height: 100%;
+              position: absolute;
+              top: 0;
+              left: 0;
+              display: flex;
+              opacity: 0;
+              transition: opacity 0.15s ease-out 0s;
+
+              .story-slide__image {
+                flex: 1 0.5;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                img {
+                  max-width: 100%;
+                }
+              }
+
+              .story-slide__text {
+                padding: 0 5%;
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+              }
+
+              &.active {
+                opacity: 1;
+                transition-delay: 0.15s;
+              }
+            }
+          }
+
+          $slide-nav-btn-width: 80px;
+          button.slide-nav {
+            width: $slide-nav-btn-width;
+            height: $slide-nav-btn-width;
+            position: absolute;
+            top: calc(50% - #{$slide-nav-btn-width / 2});
+            background-color: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            opacity: 1;
+            transition: background-color 0.2s ease-out, opacity 0.2s ease-out;
+
+            &:hover {
+              background-color: rgba(255,255,255,0.35);
+            }
+
+            &[disabled="disabled"] {
+              opacity: 0;
+            }
+
+            &.prev-slide {
+              left: calc(-5vw - #{$slide-nav-btn-width / 2});
+
+              svg {
+                transform: rotate(90deg);
+              }
+            }
+
+            &.next-slide {
+              right: calc(-5vw - #{$slide-nav-btn-width / 2});
+
+              svg {
+                transform: rotate(-90deg);
+              }
+            }
+          }
+
+          .progress-indicator {
+            width: 99vw;
+            height: 6px;
+            position: absolute;
+            top: 0;
+            left: -9vw;
+            background-color: rgba(174, 255, 154, 0.3);
+
+            span {
+              overflow: hidden;
+              text-indent: -100%;
+              width: 0;
+              height: 100%;
+              position: absolute;
+              top: 0;
+              left: 0;
+              background-color: rgba(174, 255, 154, 0.6);
+              transition: width 0.3s ease-out;
+            }
+
+            // border: 1px solid green;
+            // position: absolute;
+            // height: 24px;
+            // width: 120px;
+            // bottom: calc(2rem - 12px);
+            // left: calc(50% - 60px);
+
+            // background-image: radial-gradient(#fafafa 4px, transparent 5px);
+            // background-position: 0 0;
+            // background-repeat-x: repeat;
+            // background-repeat-y: no-repeat;
+            // background-size: 24px 24px;
+          }
         }
 
         button.open-story {
@@ -169,9 +289,12 @@ $preview-width: 70vw;
         }
 
         button.close-story {
+          font-size: 2rem;
+          line-height: 1;
+          padding: 7px 18px 9px;
           position: absolute;
-          top: 2rem;
-          right: 2rem;
+          top: 2vw;
+          right: -7vw;
           opacity: 0;
           transition-timing-function: ease-out;
           transition-property: opacity;

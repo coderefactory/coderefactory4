@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // get elements
   const storyLayout = document.querySelector('.stories__layout');
   const stories = Array.from(storyLayout.getElementsByClassName('block--story'));
+  const carousels = Array.from(storyLayout.getElementsByClassName('story-content__slides'));
 
   // set flags
   let isPanelOpen = false;
@@ -47,30 +48,67 @@ document.addEventListener('DOMContentLoaded', () => {
     story.getElementsByClassName('close-story')[0].addEventListener('click', e => closeStory(e, (i + 1)));
   });
 
+  carousels.forEach((carousel, i) => {
+    // get elements
+    const slides = Array.from(carousel.getElementsByTagName('li'));
+    const progressIndicator = carousel.querySelector('.progress-indicator span');
+    const btnPrev = carousel.querySelector('.prev-slide');
+    const btnNext = carousel.querySelector('.next-slide');
+
+    // set variables
+    const coefficient = 1/slides.length;
+    const activeClass = 'active';
+
+    // set flags
+    let activeSlide = 0;
+
+    // define behaviors
+    const gotoPrev = () => {
+      goto(activeSlide - 1);
+    }
+
+    const gotoNext = () => {
+      goto(activeSlide + 1);
+    }
+
+    const goto = slide => {
+      // validate
+      if ((slide < 0) || slide >= slides.length) {
+        return false;
+      }
+
+      // previous button
+      if (slide === 0) {
+        btnPrev.setAttribute('disabled', 'disabled');
+      } else {
+        btnPrev.removeAttribute('disabled');
+      }
+
+      // next button
+      if (slide === slides.length - 1) {
+        btnNext.setAttribute('disabled', 'disabled');
+      } else {
+        btnNext.removeAttribute('disabled');
+      }
+
+      // slide transition
+      slides[activeSlide].classList.remove(activeClass);
+      activeSlide = slide;
+      slides[activeSlide].classList.add(activeClass);
+
+      // progress indicator transition
+      progressIndicator.style.width = `${(slide + 1) * coefficient * 100}%`;
+    }
+
+    // attach behaviors
+    btnPrev.addEventListener('click', gotoPrev);
+    btnNext.addEventListener('click', gotoNext);
+
+    // init
+    goto(activeSlide);
+  });
+
   // default preview to first story if nothing else has been previewed/opened
   stories[0].dispatchEvent(new Event('mouseover'));
 
-
-
-
-
-
-  // const root = document.body.style;
-  // // console.log(root);
-  // const main = document.getElementsByTagName('main')[0];
-  // let mainH = main.scrollHeight;
-
-  // // define scroll event
-  // const scroll = () => {
-  //   // root.setProperty('--scroll', window.pageYOffset / (document.body.offsetHeight - window.innerHeight));
-  //   // console.log(`${window.pageYOffset}, ${document.body.offsetHeight}, ${window.innerHeight}`);
-  //   root.setProperty('--scroll', main.scrollTop / mainH);
-  //   // console.log(`${main.scrollTop}, ${main.scrollHeight}`);
-  // };
-
-  // // attach
-  // main.addEventListener('scroll', scroll, false);
-
-  // // initialize
-  // main.dispatchEvent(new Event('scroll'));
 });

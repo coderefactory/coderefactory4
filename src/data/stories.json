@@ -3,24 +3,52 @@
     "client": "Daily Kos",
     "summary": "Community, News, Activism. With a new face.",
     "narrative": "Building sophisticated, world-class software applications.",
-    "imageDir": "dailykos"
+    "imageDir": "dailykos",
+    "slides": [
+    ]
   },
   {
     "client": "Prometheus",
     "summary": "Premium West Coast apartments.<br/>The only thing easier than the living is the searching.",
     "narrative": "Bringing creativity to technology for a leader in luxury rentals.",
-    "imageDir": "prometheus"
+    "imageDir": "prometheus",
+    "slides": [
+      {
+        "filename": "prometheus_1.gif",
+        "html": "<p>Founded in 1965, Prometheus is the largest privately owned multifamily developer in the San Francisco Bay Area. Their portfolio includes dozens of properties in the Bay Area, Portland, and Seattle.</p><p>These are no garden-variety apartments. Constructed with a curator's eye, they apply a boutique design sensibility, while committing to a larger sense of community.</p><p>We partnered with Cibo to bring a more modern Prometheus web presence to life: new look, new features.</p>"
+      },
+      {
+        "filename": "prometheus_2.gif",
+        "html": "<p>Cibo intuited that a beautiful, immersive experience would best serve the goal of lead generation. The site is replete with bold photography, both to highlight the design touches and to give the user a truer feel for the properties.</p><p>A comprehensive responsive image strategy was employed to keep the site highly performant across all devices without sacrificing visual impact. A super-fast CDN serves images sized and art-directed appropriately for the user's screen.</p>"
+      },
+      {
+        "filename": "prometheus_3.jpg",
+        "html": "<p>Apartment hunters know what they want. Any search functionality needs to balance a robust tool set, a visually engaging experience, location awareness, and minimal clutter.</p><p>The result was an Airbnb-style interface that checked all the boxes: predictive natural-language search, filter/sort options, image-rich results, a clear information hierarchy, and two-way interactivity with a map. Responsive across all devices.</p>"
+      },
+      {
+        "filename": "prometheus_4.jpg",
+        "html": "<p>In order to facilitate easy maintenance of the site, we designed and developed a custom CMS. A bespoke approach meant we could include sophisticated features such as precision control of image weighting for responsive display on the customer-facing web site.</p>"
+      },
+      {
+        "filename": "prometheus_5.jpg",
+        "html": "<p>For many apartment sites, lead generation ends with a catch-all email address.</p><p>Prometheus takes it a step further. We implemented a tour scheduler with real-time appointment availability, providing more qualified prospective renters with an easy-to-use tool for seeing a property up close.</p>"
+      }
+    ]
   },
   {
     "client": "Balyasny Asset Management",
     "summary": "Smart investing: telling the story, and providing the tools.",
     "narrative": "Helping a premier asset management company speak to all their audiences.",
-    "imageDir": "bam"
+    "imageDir": "bam",
+    "slides": [
+    ]
   },
   {
     "client": "ChefsFeed",
     "summary": "The hottest restaurants and dishes never looked so good.",
     "narrative": "Connecting the \"Anti-Yelp\"s legacy systems to the modern world.",
-    "imageDir": "chefsfeed"
+    "imageDir": "chefsfeed",
+    "slides": [
+    ]
   }
 ]

@@ -41,10 +41,25 @@ eleventyNavigation:
           <div class="story-content__carousel">
             <button class="open-story">Learn more</button>
             <button class="close-story">&times;</button>
-            <ul>
-              <li>story panels go inside this overlay.</li>
-              <li>carousel is similar to current site.</li>
-            </ul>
+            <div class="story-content__slides">
+              <ul>
+                {% for slide in story.slides %}
+                  <li>
+                    <div class="story-slide__image">
+                      <img src="/assets/images/stories/{{ story.imageDir }}/{{ slide.filename }}" />
+                    </div>
+                    <div class="story-slide__text">
+                      {{ slide.html | safe }}
+                    </div>
+                  </li>
+                {% endfor %}
+              </ul>
+              <button class="slide-nav prev-slide" disabled="disabled">{% icon "icon-down-arrow" %}</button>
+              <button class="slide-nav next-slide">{% icon "icon-down-arrow" %}</button>
+              <div class="progress-indicator" data-count="{{ story.slides | length }}">
+                <span>slide 1</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
