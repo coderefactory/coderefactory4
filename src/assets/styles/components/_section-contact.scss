@@ -4,25 +4,31 @@
   z-index: 50;
 
   .contact__layout {
-    // display: flex;
     text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h2 {
+      margin-bottom: 5rem;
+    }
 
     p {
       font-size: 1.125rem;
 
-      &.contact a {
-        display: flex;
-        justify-content: center;
+      &.contact {
+        margin: 5rem 0;
+        
+        a {
+          display: flex;
+          justify-content: center;
 
-        .envelope {
-          margin-right: 0.5rem;
+          .envelope {
+            margin-right: 0.5rem;
+          }
         }
       }
     }
   }
-
-  // .clients-tools__block {
-  //   flex: 1;
-  //   padding-right: 50px;
-  // }
 }
