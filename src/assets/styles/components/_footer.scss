@@ -1,6 +1,6 @@
 .footer {
   font-size: 0.875rem;
-  padding: $spacing-y 0;
+  padding: #{$spacing-y / 2} 0;
   // background-color: $gray-lightest;
 
   position: absolute;
@@ -9,6 +9,10 @@
   bottom: 0;
   background-color: rgba(114,162,185,0.3);
 
+  @include mq(md) {
+    padding: $spacing-y 0;
+  }
+
   &__inner {
     display: flex;
     align-items: center;
@@ -16,6 +20,7 @@
 
   &__logo {
     padding-right: 2rem;
+    display: none;
 
     svg {
       width: $header-logo-width;
@@ -36,17 +41,30 @@
         fill: white;
       }
     }
+
+    @include mq(md) {
+      display: block;
+    }
   }
 
   &__content {
     .tagline {
-      font-size: 1.8rem;
-      margin: 0;
+      font-size: 1.2rem;
+      margin: 0 0 6px;
+
+      @include mq(md) {
+        font-size: 1.8rem;
+        margin: 0;
+      }
     }
 
     p {
       margin: 0;
       opacity: 0.6;
+
+      @include mq-down(md) {
+        font-size: 0.75rem;
+      }
     }
   }
 

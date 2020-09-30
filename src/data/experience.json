@@ -4,11 +4,11 @@
     { "filename": "dailykos",   "title": "Daily Kos" },
     { "filename": "ge",         "title": "GE" },
     { "filename": "bam",        "title": "Balyasny Asset Management" },
+    { "filename": "anki",       "title": "Anki" },
     { "filename": "themelt",    "title": "The Melt" },
-    { "filename": "cisco",      "title": "Cisco" },
     { "filename": "chefsfeed",  "title": "ChefsFeed" },
     { "filename": "medtronic",  "title": "Medtronic" },
-    { "filename": "anki",       "title": "Anki" },
+    { "filename": "cisco",      "title": "Cisco" },
     { "filename": "prosper",    "title": "Prosper" }
   ],
   "tools": [

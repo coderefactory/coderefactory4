@@ -2,8 +2,6 @@
 // SCSS MIXINS
 //--------------------
 
-// @use "sass:math";
-
 @mixin mq($name) {
   $min: breakpoint-min($name, $breakpoints);
   @if $min {

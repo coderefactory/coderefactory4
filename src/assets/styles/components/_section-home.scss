@@ -15,14 +15,12 @@
 }
 
 #home {
-  padding: 250px 0;
   z-index: 10;
 
   .intro__layout {
     height: 100%;
 
     h2 {
-      font-size: 3.25rem;
       height: 100%;
       display: flex;
       flex-direction: column;
@@ -41,6 +39,12 @@
             height: auto;
             animation: 2s infinite bounce;
           }
+        }
+      }
+
+      @include mq-down(md) {
+        br {
+          display: none;
         }
       }
     }
