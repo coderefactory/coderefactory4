@@ -1,4 +1,5 @@
 import createFocusTrap from 'focus-trap'
+import 'waypoints/lib/noframework.waypoints'
 
 const SELECTORS = {
   nav: '.js-nav',
@@ -9,6 +10,36 @@ const CLASSES = {
   open: 'is-open'
 }
 
+class Navigation {
+  constructor() {
+    this.isOpen = false
+
+    this.nav = document.querySelector(SELECTORS.nav)
+    this.toggleBtn = this.nav.querySelector(SELECTORS.toggleBtn)
+    this.focusTrap = createFocusTrap(this.nav)
+
+    this.toggleBtn.addEventListener('click', () => this.toggleMenu())
+  }
+
+  toggleMenu(force) {
+    this.isOpen = typeof force === 'boolean' ? force : !this.isOpen
+
+    this.nav.classList.toggle(CLASSES.open, this.isOpen)
+    this.toggleBtn.setAttribute('aria-expanded', String(this.isOpen))
+
+    if (this.isOpen) {
+      this.focusTrap.activate()
+    } else {
+      this.focusTrap.deactivate()
+    }
+  }
+}
+
+if (document.querySelector(SELECTORS.nav)) {
+  new Navigation()
+}
+
+
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -16,12 +47,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const navLinks = Array.from(document.getElementsByClassName('nav__link'));
   const logo = document.querySelector('.header__logo');
   const main = document.getElementsByTagName('main')[0];
+  const sections = Array.from(document.getElementsByTagName('section'));
 
   // set flags
   let selectedIndex = -1; // CR logo (#home)
 
   // define behaviors
   const navigate = toIndex => {
+    if (toIndex === selectedIndex) {
+      return;
+    }
+
     // update flags
     const oldIndex = selectedIndex;
     selectedIndex = toIndex;
@@ -57,6 +93,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  const updateTitle = navLink => {
+    const tokens = ['Code Refactory'];
+    if (navLink) {
+      tokens.push(navLink.text.trim());
+    }
+    document.title = tokens.join(' | ');
+  }
+
   // attach behaviors to nav links
   navLinks.forEach((navLink, i) => {
     const index = navLinks.indexOf(navLink);
@@ -65,6 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return false;
       }
       navigate(index);
+      updateTitle(navLink);
     });
   });
 
@@ -76,8 +121,52 @@ document.addEventListener('DOMContentLoaded', () => {
       return false;
     }
     navigate(index);
+    updateTitle(null);
     history.pushState(null, document.title, window.location.href.split('#')[0]);
     main.scrollTo({ top: 0 });
+  });
+
+  // waypoints: update nav as user scrolls through sections, 
+  // but don't push to history
+  // if the user is blowing past sections, don't bother animating
+  sections.forEach((section, i) => {
+    const delay = 200;
+    const offset = 10;
+    let stDown, stUp;
+
+    const wp1 = new Waypoint({
+      context: main,
+      element: section,
+      handler: direction => {
+        // console.log(`${section.id} (${i}), wp1 ${direction}`);
+        if (direction === 'down') {
+          stDown = setTimeout(() => { navigate(i - 1); }, delay);
+        } else {
+          if (stUp) {
+            clearTimeout(stUp);
+            stUp = undefined;
+          }
+        }
+      },
+      offset: offset
+    });
+
+    const wp2 = new Waypoint({
+      context: main,
+      element: section,
+      handler: direction => {
+        // console.log(`${section.id} (${i}), wp2 ${direction}`);
+        if (direction === 'down') {
+          if (stDown) {
+            clearTimeout(stDown);
+            stDown = undefined;
+          }
+        } else {
+          stUp = setTimeout(() => { navigate(i - 1); }, delay);
+        }
+      },
+      offset: -offset
+    });
   });
 
   // on load, default to Home, unless a valid hash is present
@@ -90,35 +179,3 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-
-
-
-
-class Navigation {
-  constructor() {
-    this.isOpen = false
-
-    this.nav = document.querySelector(SELECTORS.nav)
-    this.toggleBtn = this.nav.querySelector(SELECTORS.toggleBtn)
-    this.focusTrap = createFocusTrap(this.nav)
-
-    this.toggleBtn.addEventListener('click', () => this.toggleMenu())
-  }
-
-  toggleMenu(force) {
-    this.isOpen = typeof force === 'boolean' ? force : !this.isOpen
-
-    this.nav.classList.toggle(CLASSES.open, this.isOpen)
-    this.toggleBtn.setAttribute('aria-expanded', String(this.isOpen))
-
-    if (this.isOpen) {
-      this.focusTrap.activate()
-    } else {
-      this.focusTrap.deactivate()
-    }
-  }
-}
-
-if (document.querySelector(SELECTORS.nav)) {
-  new Navigation()
-}
