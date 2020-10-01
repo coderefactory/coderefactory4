@@ -1,6 +1,10 @@
 #contact {
   z-index: 50;
 
+  @include mq(lg) {
+    padding-bottom: 150px;
+  }
+
   .contact__layout {
     text-align: center;
     height: 100%;
@@ -13,7 +17,9 @@
     }
 
     p {
-      // font-size: 1.125rem;
+      @include mq(lg) {
+        font-size: 1.125rem;
+      }
 
       &.contact {
         margin: 5rem 0;
@@ -25,6 +31,84 @@
           .envelope {
             margin-right: 0.5rem;
           }
+        }
+      }
+    }
+
+    form {
+      text-align: left;
+      width: 40%;
+      margin: 4rem auto 0;
+    }
+
+    #contact-form__label {
+      margin-bottom: 1rem;
+      padding-top: 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.8);
+      display: block;
+      position: relative;
+
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 1px;
+        background-color: white;
+        transition-property: width, left;
+        transition-duration: 0.3s;
+        transition-timing-function: ease-in-out;
+      }
+
+      & > span {
+        position: absolute;
+        top: -0.5rem;
+        left: -2rem;
+        opacity: 0;
+        font-family: $font-family-label;
+        transform: rotate(-15deg);
+        transition: opacity 0.3s linear;
+
+        &:after {
+          content: '⤾';
+          font-size: 1.25rem;
+          display: inline-block;
+          position: absolute;
+          top: 2px;
+          right: -18px;
+          transform: rotate(-85deg);
+        }
+      }
+
+      #contact-form__input {
+        // height: 1.625rem;  // = 1 line-height
+        min-height: calc(1.625rem * 2);
+        max-height: calc(1.625rem * 8);
+        padding: 0.5rem;
+        background-color: rgba(255,255,255,0);
+        outline: none;
+        overflow-x: hidden;
+        overflow-y: auto;
+        transition-property: min-height, background-color;
+        transition-duration: 0.3s;
+        transition-timing-function: ease-in-out;
+        cursor: text;
+
+        &:empty + span {
+          opacity: 0.6;
+        }
+      }
+
+      &:focus-within {
+        &:after {
+          width: 100%;
+          left: 0;
+        }
+
+        #contact-form__input {
+          min-height: calc(1.625rem * 8);
+          background-color: rgba(255,255,255,0.3);
         }
       }
     }
