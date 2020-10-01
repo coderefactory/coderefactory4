@@ -51,11 +51,22 @@ $brand-color-primary-offset: darken($brand-red, 6%);
 //
 // Font, line-height, and color for body text, headings, and more.
 
-$font-family-sans-serif: 'Roboto', 'Arial', -apple-system, sans-serif;
-// $font-family-serif: 'Times New Roman', Georgia, Times, serif;
-// $font-family-headline: 'Oswald', 'Helvetica Neue', -apple-system, sans-serif;
-$font-family-headline: 'Pathway Gothic One', AvenirNextCondensed-DemiBold, HelveticaNeue-CondensedBold, 'Helvetica Neue', Helvetica, sans-serif;
-$font-family-label: 'Hammersmith One', Helvetica, -apple-system, sans-serif;
+// $hf: 'Pathway Gothic One';
+// $hf: 'DM Serif Display';
+// $hf: 'Merriweather';
+$hf: 'Bitter';
+
+// $lf: 'Hammersmith One';
+// $lf: 'Share Tech Mono';
+$lf: 'Share Tech';
+
+// $font-family-sans-serif: 'Roboto', 'Arial', -apple-system, sans-serif;
+$font-family-sans-serif: 'Source Sans Pro', 'Arial', -apple-system, sans-serif;
+
+$font-family-headline: $hf, AvenirNextCondensed-DemiBold, HelveticaNeue-CondensedBold, 'Helvetica Neue', Helvetica, sans-serif;
+
+$font-family-label: $lf, Helvetica, -apple-system, sans-serif;
+
 $font-family-monospace: Menlo, Monaco, Consolas, 'Andale Mono', 'Courier New', monospace;
 $font-family-base: $font-family-sans-serif;
 

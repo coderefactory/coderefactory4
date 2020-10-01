@@ -49,11 +49,14 @@
 
   &__content {
     .tagline {
-      font-size: 1.2rem;
+      font-size: 0.8125rem;
       margin: 0 0 6px;
 
+      @include mq(sm) {
+        font-size: 1rem;
+      }
+
       @include mq(md) {
-        font-size: 1.8rem;
         margin: 0;
       }
     }

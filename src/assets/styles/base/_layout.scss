@@ -107,13 +107,16 @@ section {
 
   padding: 150px 0 20px;
 
-  @include mq(md) {
-    padding: 200px 0 100px;
-  }
+  // @media (min-height: breakpoint-min(lg, $breakpoints)) {
+  //   @include mq(md) {
+  //     padding: 200px 0 100px;
 
-  @include mq(lg) {
-    padding: 250px 0;
-  }
+  //   }
+
+  //   @include mq(lg) {
+  //     padding: 250px 0;
+  //   }
+  // }
 
   // &.transitioning {
   //   transition-duration: 0.2s;

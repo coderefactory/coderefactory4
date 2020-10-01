@@ -35,7 +35,7 @@ eleventyNavigation:
         <div class="story-content">
           <div class="story-content__intro">
             <h5>{{ story.client }}</h5>
-            <h3>{{ story.summary | safe }}</h3>
+            <h2>{{ story.summary | safe }}</h2>
             <p>{{ story.narrative }}</p>
           </div>
           <div class="story-content__carousel">
@@ -72,7 +72,7 @@ eleventyNavigation:
 <section id="experience" data-anchor="experience">
   <div class="experience__layout container">
     <div class="block--clients">
-      <h2>We've built things for</h2>
+      <h2 class="h3">We've built things for</h2>
       <ul>
         {% for clientLogo in experience.clients %}
           <li>
@@ -83,7 +83,7 @@ eleventyNavigation:
       </ul>
     </div>
     <div class="block--tools">
-      <h2>Using tools like</h2>
+      <h2 class="h3">Using tools like</h2>
       <ul>
         {% for toolLogo in experience.tools %}
           <li>
@@ -98,7 +98,7 @@ eleventyNavigation:
 
 <section id="about" data-anchor="about">
   <div class="about__layout container">
-    <h2>Experienced, adaptable, local. <br />Meet your team.</h2>
+    <h2 class="h3">Experienced, adaptable, local. <br />Meet your team.</h2>
     <div class="staff__layout">
       {% for staff in about %}
         <div class="block--staff">
@@ -114,7 +114,7 @@ eleventyNavigation:
 <section id="contact" data-anchor="contact">
   <div class="contact__layout container">
     <h2>Say hey.</h2>
-    <h4>Got an ambitious project in mind? Let's talk.</h4>
+    <h3>Got an ambitious project in mind?<br />Let's talk.</h3>
     <p>Partner with us to help bring your ideas to market expertly and quickly.</p>
     <p class="contact">
       <a href="mailto:info@coderefactory.com">
