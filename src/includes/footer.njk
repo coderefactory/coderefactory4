@@ -4,7 +4,7 @@
       {% include "../assets/images/cr-logo.svg" %}
     </div>
     <div class="footer__content">
-      <h6 class="tagline">Hand-crafted software from San Francisco, California.</h6>
+      <h6 class="tagline">{{ meta.description }}</h6>
       <p class="legal">© <span id="footer-date">{{ build.timestamp | dateToFormat('yyyy') }}</span> {{ build.orgName }}. All Rights Reserved.</p>
     </div>
   </div>

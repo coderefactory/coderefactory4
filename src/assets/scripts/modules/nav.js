@@ -1,5 +1,5 @@
-import createFocusTrap from 'focus-trap'
-import 'waypoints/lib/noframework.waypoints'
+import createFocusTrap from 'focus-trap';
+import 'waypoints/lib/noframework.waypoints';
 
 const SELECTORS = {
   nav: '.js-nav',
@@ -10,49 +10,72 @@ const CLASSES = {
   open: 'is-open'
 }
 
-class Navigation {
-  constructor() {
-    this.isOpen = false
+// class Navigation {
+//   constructor() {
+//     this.isOpen = false;
 
-    this.nav = document.querySelector(SELECTORS.nav)
-    this.toggleBtn = this.nav.querySelector(SELECTORS.toggleBtn)
-    this.focusTrap = createFocusTrap(this.nav)
+//     this.nav = document.querySelector(SELECTORS.nav);
+//     this.toggleBtn = this.nav.querySelector(SELECTORS.toggleBtn);
+//     this.focusTrap = createFocusTrap(this.nav);
 
-    this.toggleBtn.addEventListener('click', () => this.toggleMenu())
-  }
+//     this.toggleBtn.addEventListener('click', () => this.toggleMenu());
+//   }
 
-  toggleMenu(force) {
-    this.isOpen = typeof force === 'boolean' ? force : !this.isOpen
+//   toggleMenu(force) {
+//     this.isOpen = typeof force === 'boolean' ? force : !this.isOpen;
+//     debugger;
+//     this.nav.classList.toggle(CLASSES.open, this.isOpen);
+//     this.toggleBtn.setAttribute('aria-expanded', String(this.isOpen));
 
-    this.nav.classList.toggle(CLASSES.open, this.isOpen)
-    this.toggleBtn.setAttribute('aria-expanded', String(this.isOpen))
+//     if (this.isOpen) {
+//       this.focusTrap.activate();
+//     } else {
+//       this.focusTrap.deactivate();
+//       // this.nav.classList.toggle(CLASSES.open, this.isOpen);
+//     }
+//   }
+// }
 
-    if (this.isOpen) {
-      this.focusTrap.activate()
-    } else {
-      this.focusTrap.deactivate()
-    }
-  }
-}
-
-if (document.querySelector(SELECTORS.nav)) {
-  new Navigation()
-}
+// if (document.querySelector(SELECTORS.nav)) {
+//   new Navigation();
+// }
 
 
 
 
 document.addEventListener('DOMContentLoaded', () => {
   // get elements
+  const nav = document.querySelector(SELECTORS.nav);
   const navLinks = Array.from(document.getElementsByClassName('nav__link'));
   const logo = document.querySelector('.header__logo');
+  const toggleBtn = document.querySelector(SELECTORS.toggleBtn);
   const main = document.getElementsByTagName('main')[0];
   const sections = Array.from(document.getElementsByTagName('section'));
 
   // set flags
-  let selectedIndex = -1; // CR logo (#home)
+  let selectedIndex = 0; // CR logo (#home)
+  let isOpen = false;
+
+  // focus trap
+  const focusTrap = createFocusTrap(nav, {
+    returnFocusOnDeactivate: false
+  });
 
   // define behaviors
+  const toggleMenu = force => {
+    isOpen = typeof force === 'boolean' ? force : !isOpen;
+
+    if (isOpen) {
+      focusTrap.activate();
+    } else {
+      focusTrap.deactivate();
+    }
+
+    nav.classList.toggle(CLASSES.open, isOpen);
+    console.log(`force ${String(force)}, isOpen ${isOpen}, nav.classList ${nav.classList}`);
+    toggleBtn.setAttribute('aria-expanded', String(isOpen));
+  }
+
   const navigate = toIndex => {
     if (toIndex === selectedIndex) {
       return;
@@ -65,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // update facing for each link
     navLinks.forEach((nl, j) => {
       let faceLeft;
-      if (j == selectedIndex) {
+      if (j === selectedIndex) {
         faceLeft = selectedIndex > oldIndex;
       } else {
         faceLeft = j > selectedIndex;
@@ -75,11 +98,11 @@ document.addEventListener('DOMContentLoaded', () => {
       // unset, then set (see notes about restarting css animations), the class that governs animations
       let current = null;
       // deselect old (if not Home)
-      if (j == oldIndex) {
+      if (j === oldIndex) {
         current = false;
       }
       // select new
-      else if (j == selectedIndex) {
+      else if (j === selectedIndex) {
         current = true;
       }
 
@@ -101,13 +124,18 @@ document.addEventListener('DOMContentLoaded', () => {
     document.title = tokens.join(' | ');
   }
 
+  // attach behavior to hamburger menu
+  toggleBtn.addEventListener('click', () => toggleMenu());
+
   // attach behaviors to nav links
   navLinks.forEach((navLink, i) => {
     const index = navLinks.indexOf(navLink);
     navLink.addEventListener('click', e => {
-      if (index == selectedIndex) {
+      console.log(`index ${index}, selectedIndex ${selectedIndex}`);
+      if (index === selectedIndex) {
         return false;
       }
+      toggleMenu(false);
       navigate(index);
       updateTitle(navLink);
     });
@@ -116,8 +144,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // attach behavior to logo
   logo.addEventListener('click', e => {
     e.preventDefault();
-    const index = -1;
-    if (index == selectedIndex) {
+    const index = 0;
+    if (index === selectedIndex) {
       return false;
     }
     navigate(index);
@@ -140,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
       handler: direction => {
         // console.log(`${section.id} (${i}), wp1 ${direction}`);
         if (direction === 'down') {
-          stDown = setTimeout(() => { navigate(i - 1); }, delay);
+          stDown = setTimeout(() => { navigate(i); }, delay);
         } else {
           if (stUp) {
             clearTimeout(stUp);
@@ -162,7 +190,7 @@ document.addEventListener('DOMContentLoaded', () => {
             stDown = undefined;
           }
         } else {
-          stUp = setTimeout(() => { navigate(i - 1); }, delay);
+          stUp = setTimeout(() => { navigate(i); }, delay);
         }
       },
       offset: -offset

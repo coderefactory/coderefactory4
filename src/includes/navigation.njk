@@ -24,7 +24,13 @@
         {%- set isParent = item.url != '/' and item.url in page.url -%}
       {%- endfor -%}
     %#}
-    <li class="nav__item{% if false %} nav__item--active{% endif %}">
+    <li class="nav__item">
+      <a class="nav__link" href="#home" aria-current="true">
+        <span>Home</span>
+        <span class="nav__link__indicator"></span>
+      </a>
+    </li>
+    <li class="nav__item">
       <a class="nav__link" href="#work" aria-current="false">
         <span>Work</span>
         <span class="nav__link__indicator"></span>

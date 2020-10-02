@@ -98,14 +98,23 @@ section {
   // top: 100vh;   // below the viewport, out of view
   // left: 0;
   width: 100vw;
-  height: 100vh;
-  z-index: 1;
-  // transition-duration: 0s;
-  // transition-timing-function: ease-in-out;
-  // transition-property: top;
-  scroll-snap-align: start;
-
   padding: 150px 0 20px;
+
+  // if the viewport is tall enough, do the full-page-height slide effect
+  min-height: 100vh;
+  @media (min-height: breakpoint-min(md, $breakpoints)) {
+    height: 100vh;
+  }
+  // otherwise normal flow, but make sure contents are vertically centered
+  @media (max-height: breakpoint-min(md, $breakpoints) - 1px) {
+    display: flex;
+    flex-direction: column;
+
+    & > * {
+      flex: 1;
+    }
+  }
+
 
   // @media (min-height: breakpoint-min(lg, $breakpoints)) {
   //   @include mq(md) {
@@ -117,6 +126,13 @@ section {
   //     padding: 250px 0;
   //   }
   // }
+
+
+  z-index: 1;
+  // transition-duration: 0s;
+  // transition-timing-function: ease-in-out;
+  // transition-property: top;
+  scroll-snap-align: start;
 
   // &.transitioning {
   //   transition-duration: 0.2s;

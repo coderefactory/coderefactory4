@@ -29,14 +29,27 @@
 
 .nav {
   &__menu {
-    background-color: #fff;
     display: none;
     position: absolute;
     left: 0;
     right: 0;
+
+    &:before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.85);
+      z-index: 0;
+      display: none;
+    }
   }
 
   &__item {
+    position: relative;
+    z-index: 1;
   }
 
   &__link {
@@ -122,16 +135,30 @@
 
   &__toggle {
     @include button-reset;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
   }
 
-  @include mq-down(lg) {
+  // mobile menu appearance
+  @include mq-down(md) {
+    &__item {
+      text-align: center;
+    }
+
     &.is-open &__menu {
       display: block;
+
+      &:before {
+        display: block;
+      }
     }
   }
 
-  @include mq(lg) {
-    &__toggle {
+  // desktop menu appearance
+  @include mq(md) {
+    &__toggle,
+    &__item:first-child {
       display: none;
     }
 
