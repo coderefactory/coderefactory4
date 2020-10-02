@@ -53,6 +53,7 @@ body {
       overflow-x: hidden;
       // overflow-y: scroll;
       @include scrollable;
+      @include custom-scrollbar(rgba(128,128,128,0.5));
       scroll-snap-type: y mandatory;
       background-color: transparent;
 
@@ -61,24 +62,6 @@ body {
         display: block;
         height: 0px;
         visibility: hidden;
-      }
-
-      // scrollbar customizations
-      // https://css-tricks.com/the-current-state-of-styling-scrollbars/#an-updated-version-of-a-fairly-consistently-styled-scrollbar-across-firefox-safari-chrome
-      scrollbar-width: auto;
-      scrollbar-color: rgba(128,128,128,0.5) transparent;
-
-      &::-webkit-scrollbar {
-        width: 15px;
-      }
-      &::-webkit-scrollbar-track {
-        background: transparent;
-      }
-      &::-webkit-scrollbar-thumb {
-        background-color: rgba(128,128,128,0.5);
-        background-clip: content-box;   // transparent border won't work without this
-        border: 3px solid transparent;  // border: 3px solid #17172f;
-        border-radius: 15px;
       }
     }
   }
@@ -99,6 +82,11 @@ section {
   // left: 0;
   width: 100vw;
   padding: 150px 0 20px;
+
+  // reconfigure for iPhone landscape
+  @include phone-landscape {
+    padding: 80px 0 20px;
+  }
 
   // if the viewport is tall enough, do the full-page-height slide effect
   min-height: 100vh;

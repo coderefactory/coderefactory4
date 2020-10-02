@@ -1,8 +1,12 @@
 .header {
   width: 100%;
-  padding: $spacing-y 0;
+  padding: #{$spacing-y / 2} 0;
   position: fixed;
   z-index: 100;
+
+  @include mq(md) {
+    padding: $spacing-y 0;
+  }
 
   &__inner {
     display: flex;
@@ -21,8 +25,8 @@
       &:before {
         content: '';
         position: absolute;
-        width: calc(100% + 30px);
-        height: calc(100% + 3rem + 15px);
+        width: calc(100% + 20px);
+        height: calc(100% + 3rem + 10px);
         background-color: #132c38; // #182631, #610000, #4c1e35, darkred, lightslategray, skyblue, steelblue
         left: 0;
         top: -3rem;
@@ -31,19 +35,30 @@
         border-top-width: 0;
         display: block;
 
+        @include mq(md) {
+          width: calc(100% + 30px);
+          height: calc(100% + 3rem + 15px);
+        }
+
         @include mq(lg) {
           left: -15px;
         }
       }
 
       svg {
-        width: $header-logo-width;
-        height: $header-logo-width;
+        width: #{$header-logo-width * 5 / 8};
+        height: #{$header-logo-width * 5 / 8};
         display: block;
         position: relative;
-        left: 15px;
+        left: 10px;
         top: 0;
         // filter: drop-shadow(0px 0px 6px rgba(0,0,0,0.7));
+
+        @include mq(md) {
+          width: $header-logo-width;
+          height: $header-logo-width;
+          left: 15px;
+        }
 
         @include mq(lg) {
           left: 0;

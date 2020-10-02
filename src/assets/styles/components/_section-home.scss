@@ -40,6 +40,10 @@
       span {
         padding: 30px 0;
 
+        @include phone-landscape {
+          padding-bottom: 0;
+        }
+
         &:last-child {
           // animation: 1.5s ease-in-out 0s infinite alternate float;
 

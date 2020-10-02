@@ -24,6 +24,14 @@
   }
 }
 
+@mixin phone-landscape {
+  @include mq-down(md) {
+    @media (orientation: landscape) {
+      @content;
+    }
+  }
+}
+
 @mixin hover-focus {
   &:hover,
   &:focus {
@@ -72,6 +80,26 @@
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
+}
+
+@mixin custom-scrollbar($color) {
+  // scrollbar customizations
+  // https://css-tricks.com/the-current-state-of-styling-scrollbars/#an-updated-version-of-a-fairly-consistently-styled-scrollbar-across-firefox-safari-chrome
+  scrollbar-width: auto;
+  scrollbar-color: $color transparent;
+
+  &::-webkit-scrollbar {
+    width: 15px;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: $color;
+    background-clip: content-box;   // transparent border won't work without this
+    border: 3px solid transparent;
+    border-radius: 15px;
+  }
 }
 
 @mixin button-reset() {

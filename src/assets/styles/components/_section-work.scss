@@ -111,7 +111,7 @@ $preview-width: 70vw;
 
       .story-content__intro {
         flex: 1;
-        padding: 3rem 0;
+        padding: 4.5rem 0 0;
 
         h2 {
           @include text-shadow;
@@ -127,7 +127,30 @@ $preview-width: 70vw;
         p {
           @include text-shadow(0.7);
           font-size: 1.125rem;
-          margin-bottom: 2.5rem;
+          line-height: 1.375rem;
+          margin-bottom: 1.8rem;
+        }
+
+        @include mq(md) {
+          padding: 3rem 0;
+
+          p {
+            margin-bottom: 2.5rem;
+          }
+        }
+      }
+
+      // make some room on iPhone landscape
+      @include phone-landscape {
+        width: calc(100% - 10vw);
+        left: 5vw;
+
+        .story-content__intro {
+          padding-top: 2.2rem;
+
+          p {
+            margin-bottom: 1.2rem;
+          }
         }
       }
 

@@ -81,7 +81,7 @@
         transition-timing-function: ease-in-out;
       }
 
-      & > span {
+      #contact-form__label-text {
         position: absolute;
         top: -0.5rem;
         left: -2rem;
@@ -106,17 +106,23 @@
         min-height: calc(1.625rem * 2);
         max-height: calc(1.625rem * 8);
         padding: 0.5rem;
-        background-color: rgba(255,255,255,0);
+        background-color: rgba(255,255,255,0.3);
         outline: none;
         overflow-x: hidden;
         overflow-y: auto;
+        @include custom-scrollbar(rgba(255,255,255,0.5));
         transition-property: min-height, background-color;
         transition-duration: 0.3s;
         transition-timing-function: ease-in-out;
         cursor: text;
+        display: block;
 
-        &:empty + span {
-          opacity: 0.6;
+        &:empty {
+          background-color: rgba(255,255,255,0);
+
+          #contact-form__label-text {
+            opacity: 0.6;
+          }
         }
       }
 

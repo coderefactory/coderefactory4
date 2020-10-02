@@ -120,6 +120,7 @@ eleventyNavigation:
       <br />
       Tell us about your project, and how we can reach you.
     </p>
+    <!-- 
     <p>
       We can help bring your ideas to market expertly and quickly. 
       <br />
@@ -135,6 +136,7 @@ eleventyNavigation:
       <br />
       Tell us about your project, and how we can reach you.
     </p>
+    -->
     <!-- 
     <p class="contact">
       <a href="mailto:info@coderefactory.com">
@@ -145,8 +147,8 @@ eleventyNavigation:
     -->
     <form id="contact-form">
       <label id="contact-form__label" for="contact-form__message">
-        <div id="contact-form__input" contenteditable="true"></div>
-        <span>Type here</span>
+        <span id="contact-form__input" contenteditable="true" role="textbox" aria-labelledby="contact-form__label-text"><span contenteditable="false"></span></span>
+        <span id="contact-form__label-text">Type here</span>
       </label>
       <input type="hidden" name="message" id="contact-form__message" />
       <button type="submit">Send</button>
