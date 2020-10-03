@@ -145,13 +145,19 @@ eleventyNavigation:
       </a>
     </p>
     -->
-    <form id="contact-form">
+    <form id="contact-form" method="post" action="/contact">
       <label id="contact-form__label" for="contact-form__message">
-        <span id="contact-form__input" contenteditable="true" role="textbox" aria-labelledby="contact-form__label-text"><span contenteditable="false"></span></span>
+        <textarea name="message" id="contact-form__message" required></textarea>
         <span id="contact-form__label-text">Type here</span>
+        <textarea id="contact-form__message-measure" disabled readonly></textarea>
       </label>
-      <input type="hidden" name="message" id="contact-form__message" />
-      <button type="submit">Send</button>
+      <div class="contact-form-cta">
+        <button type="submit" class="has-loading-animation">
+          <span class="button-text">Send</span>
+          {% include "loading-animation.njk" %}
+        </button>
+        <div id="contact-form__notification"></div>
+      </div>
     </form>
   </div>
   {% include "footer.njk" %}

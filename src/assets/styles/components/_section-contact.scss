@@ -101,29 +101,47 @@
         }
       }
 
-      #contact-form__input {
-        // height: 1.625rem;  // = 1 line-height
-        min-height: calc(1.625rem * 2);
-        max-height: calc(1.625rem * 8);
+      #contact-form__message {
+        // min-height: calc(1.625rem * 2);
+        // max-height: calc(1.625rem * 8);
+        width: 100%;
+        height: calc(1.625rem * 2);
         padding: 0.5rem;
         background-color: rgba(255,255,255,0.3);
+        border: none;
         outline: none;
         overflow-x: hidden;
         overflow-y: auto;
         @include custom-scrollbar(rgba(255,255,255,0.5));
-        transition-property: min-height, background-color;
+        // transition-property: height, min-height, background-color;
+        transition-property: height, background-color;
         transition-duration: 0.3s;
         transition-timing-function: ease-in-out;
         cursor: text;
         display: block;
+        resize: none;
+        z-index: 1;
 
-        &:empty {
+        // neat trick for targeting empty <textarea>s: https://stackoverflow.com/a/7072737
+        &:invalid {
           background-color: rgba(255,255,255,0);
 
-          #contact-form__label-text {
+          & + #contact-form__label-text {
             opacity: 0.6;
           }
         }
+      }
+
+      #contact-form__message-measure {
+        width: 100%;
+        min-height: calc(1.625rem * 2);
+        max-height: calc(1.625rem * 8);
+        padding: 0.5rem;
+        position: absolute;
+        top: 1rem;
+        left: 0;
+        opacity: 0;
+        z-index: -1;
       }
 
       &:focus-within {
@@ -132,9 +150,32 @@
           left: 0;
         }
 
-        #contact-form__input {
-          min-height: calc(1.625rem * 8);
+        #contact-form__message {
+          // min-height: calc(1.625rem * 8);
+          height: calc(1.625rem * 8);
           background-color: rgba(255,255,255,0.3);
+        }
+      }
+    }
+
+    .contact-form-cta {
+      display: flex;
+
+      & > button {
+        flex: none;
+        margin-right: 2rem;
+      }
+
+      #contact-form__notification {
+        color: $green;
+        text-align: right;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        &.error {
+          color: $red;
         }
       }
     }

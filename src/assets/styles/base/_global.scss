@@ -1,5 +1,6 @@
 // globally available elements
 
+// buttons
 button,
 [role='button'] {
   @include f_button;
@@ -11,7 +12,7 @@ button,
   vertical-align: middle;
   height: 46px;
   padding: 12px 18px 9px;
-  background-color: #b1300c;
+  background-color: $red;
   background-image: none;
   border: 0;
   border-radius: 0;
@@ -19,4 +20,64 @@ button,
   white-space: nowrap;
   display: inline-block;
   user-select: none;
+
+  &[disabled] {
+    background-color: $gray;
+  }
+
+  &.has-loading-animation {
+    position: relative;
+
+    &.loading {
+      .button-text {
+        visibility: hidden;
+      }
+
+      .loading-animation {
+        display: flex;
+      }
+    }
+  }
+}
+
+// loading animation
+@keyframes loading-circles {
+  0%{
+    top: 10px;
+    transform: scaleX(1.7);
+    opacity: 0.8;
+  }
+  40%{
+    transform: scaleX(1);
+  }
+  100%{
+    top: -10px;
+  }
+}
+
+.loading-animation {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  display: none;
+
+  span {
+    position: relative;
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+    margin: 0 4px;
+    background-color: #ffffff;
+    opacity: 0.5;
+
+    @for $i from 1 through 3 {
+      &:nth-child(#{$i}) {
+        animation: loading-circles .5s #{$i / 10}s ease infinite alternate;
+      }
+    }
+  }
 }
