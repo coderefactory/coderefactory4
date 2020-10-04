@@ -72,13 +72,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     nav.classList.toggle(CLASSES.open, isOpen);
-    console.log(`force ${String(force)}, isOpen ${isOpen}, nav.classList ${nav.classList}`);
+    // console.log(`force ${String(force)}, isOpen ${isOpen}, nav.classList ${nav.classList}`);
     toggleBtn.setAttribute('aria-expanded', String(isOpen));
   }
 
   const navigate = toIndex => {
     if (toIndex === selectedIndex) {
       return;
+    }
+
+    // housekeeping: reset Stories view
+    if (toIndex !== 1) {
+      document.body.dispatchEvent(new Event('stories.reset'));
     }
 
     // update flags
@@ -131,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
   navLinks.forEach((navLink, i) => {
     const index = navLinks.indexOf(navLink);
     navLink.addEventListener('click', e => {
-      console.log(`index ${index}, selectedIndex ${selectedIndex}`);
+      // console.log(`index ${index}, selectedIndex ${selectedIndex}`);
       if (index === selectedIndex) {
         return false;
       }

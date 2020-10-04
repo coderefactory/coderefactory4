@@ -76,5 +76,21 @@
       font-size: inherit;
       }
     }
+    
+    @include tablet-landscape {
+      padding: 20px;
+      flex-basis: 25%;
+
+      img {
+        width: 120px;
+        border-width: 5px;
+      }
+
+      p {
+        display: block;
+        font-size: 0.75rem;
+      }
+    }
+
   }
 }

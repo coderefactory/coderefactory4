@@ -1,8 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
   // get elements
+  const body = document.body;
   const storyLayout = document.querySelector('.stories__layout');
   const stories = Array.from(storyLayout.getElementsByClassName('block--story'));
   const carousels = Array.from(storyLayout.getElementsByClassName('story-content__slides'));
+
+  // define variables
+  const classModalOpen = 'modal-open';
 
   // set flags
   let isPanelOpen = false;
@@ -23,15 +27,23 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const openStory = (e, panel) => {
-    e.target.blur();
     isPanelOpen = true;
     storyLayout.setAttribute('data-open', panel);
+    body.classList.add(classModalOpen);
   };
 
-  const closeStory = (e, panel) => {
-    e.target.blur();
+  const closeStory = (e, carouselIndex) => {
     storyLayout.removeAttribute('data-open');
+    carousels[carouselIndex].dispatchEvent(new Event('stories.reset'));
     isPanelOpen = false;
+    body.classList.remove(classModalOpen);
+  };
+
+  const fixFocusScroll = el => {
+    // fix bug where a focused button causes flexbox animation issues with previewing other stories
+    const fix = e => e.target.blur();
+    el.addEventListener('click', fix);
+    el.addEventListener('contextmenu', fix);
   };
 
   // attach behaviors
@@ -42,10 +54,14 @@ document.addEventListener('DOMContentLoaded', () => {
     storyLayout.addEventListener('mouseout', e => previewStory(1));
 
     // open
-    story.getElementsByClassName('open-story')[0].addEventListener('click', e => openStory(e, (i + 1)));
+    const btnOpenStory = story.getElementsByClassName('open-story')[0];
+    fixFocusScroll(btnOpenStory);
+    btnOpenStory.addEventListener('click', e => openStory(e, (i + 1)));
 
     // close
-    story.getElementsByClassName('close-story')[0].addEventListener('click', e => closeStory(e, (i + 1)));
+    const btnCloseStory = story.getElementsByClassName('close-story')[0];
+    fixFocusScroll(btnCloseStory);
+    btnCloseStory.addEventListener('click', e => closeStory(e, i));
   });
 
   carousels.forEach((carousel, i) => {
@@ -65,11 +81,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // define behaviors
     const gotoPrev = () => {
       goto(activeSlide - 1);
-    }
+    };
 
     const gotoNext = () => {
       goto(activeSlide + 1);
-    }
+    };
 
     const goto = slide => {
       // validate
@@ -100,9 +116,15 @@ document.addEventListener('DOMContentLoaded', () => {
       progressIndicator.style.width = `${(slide + 1) * coefficient * 100}%`;
     }
 
+    const reset = () => {
+      carousel.scrollTop = 0;
+      goto(0);
+    };
+
     // attach behaviors
     btnPrev.addEventListener('click', gotoPrev);
     btnNext.addEventListener('click', gotoNext);
+    carousel.addEventListener('stories.reset', reset);
 
     // init
     goto(activeSlide);
@@ -111,4 +133,13 @@ document.addEventListener('DOMContentLoaded', () => {
   // default preview to first story if nothing else has been previewed/opened
   stories[0].dispatchEvent(new Event('mouseover'));
 
+  // reset the stories if the user has scrolled away
+  // define a custom event here and attach to the body, 
+  // so the nav module can reference it
+  body.addEventListener('stories.reset', () => {
+    carousels.forEach((carousel, i) => {
+      carousel.dispatchEvent(new Event('stories.reset'));
+    });
+    storyLayout.removeAttribute('data-open');
+  });
 });

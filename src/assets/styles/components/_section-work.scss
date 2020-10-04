@@ -47,6 +47,7 @@ $preview-width: 70vw;
 
               .story-content__slides {
                 opacity: 1;
+                transition-delay: 0.4s;
               }
 
               button.open-story {
@@ -57,6 +58,69 @@ $preview-width: 70vw;
 
               button.close-story {
                 opacity: 1;
+                z-index: 6;
+                transition-delay: 0.4s;
+              }
+
+              // if not enough vertical space, make it look like a modal
+              @include short-touchscreen {
+                &:before {
+                  position: fixed;
+                  height: 100vh;
+                  right: -10vw;
+                  top: -10vw;
+                  z-index: 100;
+                }
+
+                button.close-story {
+                  z-index: 102;
+                  position: fixed;
+                  top: -4vw;
+                  right: -3vw;
+                }
+
+                .story-content__slides {
+                  position: fixed;
+                  background-color: black;
+                  z-index: 101;
+                  width: calc(100% + 10vw);
+                  height: calc(100% + 10vw);
+                  top: -5vw;
+                  left: -5vw;
+                  padding: 5vw;
+                  overflow-x: hidden;
+                  @include scrollable;
+                  @include custom-scrollbar(rgba(128,128,128,0.5));
+
+                  & > button,
+                  .progress-indicator {
+                    display: none;
+                  }
+
+                  ul {
+                    top: 0;
+                    height: auto;
+
+                    li {
+                      position: relative;
+                      height: auto;
+                      margin-bottom: 6rem;
+                      opacity: 1;
+
+                      @include mq-down(sm) {
+                        display: block;
+
+                        .story-slide__image {
+                          margin-bottom: 1.5rem;
+                        }
+                      }
+
+                      &:last-child {
+                        margin-bottom: 0;
+                      }
+                    }
+                  }
+                }
               }
             }
           }
@@ -137,6 +201,12 @@ $preview-width: 70vw;
           p {
             margin-bottom: 2.5rem;
           }
+
+          @include mq-down(lg) {
+            @media (orientation: portrait) {
+              padding: 5rem 0 0;
+            }
+          }
         }
       }
 
@@ -179,12 +249,13 @@ $preview-width: 70vw;
           position: absolute;
           top: 0;
           left: 0;
+          z-index: 1;
           // overflow: hidden;
           opacity: 0;
           transition-timing-function: ease-out;
           transition-property: opacity;
           transition-duration: 0.2s;
-          transition-delay: 0.4s;
+          transition-delay: 0s;
 
           ul {
             width: 100%;
@@ -321,11 +392,12 @@ $preview-width: 70vw;
           position: absolute;
           top: 2vw;
           right: -7vw;
+          z-index: -1;
           opacity: 0;
           transition-timing-function: ease-out;
           transition-property: opacity;
           transition-duration: 0.2s;
-          transition-delay: 0.4s;
+          transition-delay: 0s;
         }
       }
     }

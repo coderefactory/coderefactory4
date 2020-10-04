@@ -20,6 +20,13 @@
       }
     }
 
+    @include tablet-landscape {
+      h2,
+      h3 {
+        margin-bottom: 1.25rem;
+      }
+    }
+    
     p {
       @include mq(lg) {
         font-size: 1.125rem;
@@ -111,7 +118,7 @@
         border: none;
         outline: none;
         overflow-x: hidden;
-        overflow-y: auto;
+        @include scrollable;
         @include custom-scrollbar(rgba(255,255,255,0.5));
         // transition-property: height, min-height, background-color;
         transition-property: height, background-color;

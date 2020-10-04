@@ -47,6 +47,10 @@
           padding: 1rem 1.5rem;
         }
 
+        @include tablet-landscape {
+          padding: 0 1.5rem 1.8rem;
+        }
+
         svg {
           width: 100%;
           height: auto;
@@ -62,6 +66,10 @@
 
     @include mq(lg) {
       padding-bottom: 150px;
+    }
+
+    @include tablet-landscape {
+      padding-bottom: 50px;
     }
   }
 
@@ -91,6 +99,10 @@
           width: calc(100% / 8);
           padding: 0 1rem 0.2rem;
         }
+      }
+
+      @include tablet-landscape {
+        padding: 0 10%;
       }
     }
   }

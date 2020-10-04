@@ -32,6 +32,20 @@
   }
 }
 
+@mixin tablet-landscape {
+  @include mq(lg) {
+    @media (orientation: landscape) and (hover: none) and (pointer: coarse) {
+      @content;
+    }
+  }
+}
+
+@mixin short-touchscreen {
+  @media (hover: none) and (pointer: coarse) and (max-height: breakpoint-min(lg, $breakpoints) - 1px) {
+    @content;
+  }
+}
+
 @mixin hover-focus {
   &:hover,
   &:focus {

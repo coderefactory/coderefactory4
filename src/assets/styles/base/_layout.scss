@@ -56,12 +56,24 @@ body {
       @include custom-scrollbar(rgba(128,128,128,0.5));
       scroll-snap-type: y mandatory;
       background-color: transparent;
+      position: relative;
 
       &::after {
         content: '';
         display: block;
         height: 0px;
         visibility: hidden;
+      }
+    }
+  }
+
+  // if we're making an interior element look/act like a pseudo-modal,
+  // .main has to be in front of .header
+  @include short-touchscreen {
+    &.modal-open {
+      .layout .main {
+        overflow: hidden;
+        z-index: 101;
       }
     }
   }
