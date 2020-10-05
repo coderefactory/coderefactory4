@@ -81,3 +81,20 @@ button,
     }
   }
 }
+
+// reveal animations
+[data-revealable] {
+  opacity: 1;
+  transform: translateY(0px);
+  transition-timing-function: ease-out;
+  transition-property: opacity, transform;
+  transition-duration: 0.35s;
+  // transition-delay: 0.2s;
+}
+
+.unrevealed {
+  [data-revealable] {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+}

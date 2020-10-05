@@ -7,7 +7,8 @@ const SELECTORS = {
 }
 
 const CLASSES = {
-  open: 'is-open'
+  open: 'is-open',
+  unrevealed: 'unrevealed'
 }
 
 // class Navigation {
@@ -163,10 +164,22 @@ document.addEventListener('DOMContentLoaded', () => {
   // but don't push to history
   // if the user is blowing past sections, don't bother animating
   sections.forEach((section, i) => {
-    const delay = 200;
+    // set up reveals
+    const revealables = section.querySelectorAll('[data-revealable]');
+    if (revealables.length > 0) {
+      revealables.forEach((revealable, j) => {
+        revealable.style.transitionDelay = `${j * 0.15}s`;
+      });
+      section.classList.add(CLASSES.unrevealed);
+    }
+
+    // set variables
+    const delay = 100;
     const offset = 10;
     let stDown, stUp;
 
+    // set up waypoints
+    //  - first one for when a section is just about completely in view
     const wp1 = new Waypoint({
       context: main,
       element: section,
@@ -184,6 +197,7 @@ document.addEventListener('DOMContentLoaded', () => {
       offset: offset
     });
 
+    //  - next one for when a section is moving out of view
     const wp2 = new Waypoint({
       context: main,
       element: section,
@@ -199,6 +213,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       },
       offset: -offset
+    });
+
+    //  - third one for reveals
+    const revealDelay = i === 0 ? 200 : 1;
+    const wp3 = new Waypoint({
+      context: main,
+      element: section,
+      handler: direction => {
+        setTimeout(() => section.classList.remove(CLASSES.unrevealed), revealDelay);
+      },
+      offset: offset
     });
   });
 

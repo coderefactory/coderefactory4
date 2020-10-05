@@ -3,10 +3,11 @@
   padding: #{$spacing-y / 2} 0;
   // background-color: $gray-lightest;
 
-  position: absolute;
+  // position: absolute;
+  position: relative;
   width: 100%;
-  left: 0;
-  bottom: 0;
+  // left: 0;
+  // bottom: 0;
   background-color: rgba(114,162,185,0.3);
 
   @include mq(md) {

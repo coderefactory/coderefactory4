@@ -1,3 +1,5 @@
+import Hammer from 'hammerjs';
+
 document.addEventListener('DOMContentLoaded', () => {
   // get elements
   const body = document.body;
@@ -9,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const classModalOpen = 'modal-open';
 
   // set flags
+  let previewingPanel = 0;
   let isPanelOpen = false;
 
   // define behaviors
@@ -24,6 +27,24 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
     storyLayout.removeAttribute('data-preview');
+  };
+
+  const previewPrevious = () => {
+    if (isPanelOpen || previewingPanel <= 0) {
+      return;
+    }
+    stories[previewingPanel].dispatchEvent(new Event('mouseout'));
+    previewingPanel = previewingPanel - 1;
+    stories[previewingPanel].dispatchEvent(new Event('mouseover'));
+  };
+
+  const previewNext = () => {
+    if (isPanelOpen || previewingPanel >= stories.length - 1) {
+      return;
+    }
+    stories[previewingPanel].dispatchEvent(new Event('mouseout'));
+    previewingPanel = previewingPanel + 1;
+    stories[previewingPanel].dispatchEvent(new Event('mouseover'));
   };
 
   const openStory = (e, panel) => {
@@ -132,6 +153,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // default preview to first story if nothing else has been previewed/opened
   stories[0].dispatchEvent(new Event('mouseover'));
+
+  // add gesture handling
+  if (document.querySelector('html').classList.contains('touchevents')) {
+    const gestures = new Hammer(storyLayout);
+    gestures.on('swipeleft', e => {
+      previewNext();
+    }).on('swiperight', e => {
+      previewPrevious();
+    });
+  }
 
   // reset the stories if the user has scrolled away
   // define a custom event here and attach to the body, 

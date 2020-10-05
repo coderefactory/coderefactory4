@@ -1,14 +1,20 @@
 #contact {
-  padding-bottom: 75px;
+  height: auto;
+  min-height: 100vh;
+  padding-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  // padding-bottom: 75px;
   z-index: 50;
 
-  @include mq(md) {
-    padding-bottom: 150px;
-  }
+  // @include mq(md) {
+  //   padding-bottom: 150px;
+  // }
 
   .contact__layout {
     text-align: center;
-    height: 100%;
+    // height: 100%;
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;

@@ -34,6 +34,7 @@
     "del-cli": "^3.0.1",
     "focus-trap": "^5.1.0",
     "focus-visible": "^5.1.0",
+    "hammerjs": "^2.0.8",
     "html-minifier": "^4.0.0",
     "luxon": "^1.24.1",
     "markdown-it": "^11.0.0",
