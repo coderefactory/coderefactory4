@@ -1,5 +1,6 @@
 import createFocusTrap from 'focus-trap';
 import 'waypoints/lib/noframework.waypoints';
+import hotkeys from 'hotkeys-js';
 
 const SELECTORS = {
   nav: '.js-nav',
@@ -63,6 +64,8 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // define behaviors
+
+  //  - hamburger menu
   const toggleMenu = force => {
     isOpen = typeof force === 'boolean' ? force : !isOpen;
 
@@ -75,8 +78,32 @@ document.addEventListener('DOMContentLoaded', () => {
     nav.classList.toggle(CLASSES.open, isOpen);
     // console.log(`force ${String(force)}, isOpen ${isOpen}, nav.classList ${nav.classList}`);
     toggleBtn.setAttribute('aria-expanded', String(isOpen));
-  }
+  };
 
+  //  - scroll triggering
+  const moveTo = panelIndex => {
+    main.scrollTo({ top: sections[panelIndex].offsetTop });
+  };
+
+  const navigatePrevious = () => {
+    if (selectedIndex <= 0) {
+      return;
+    }
+    const i = selectedIndex - 1;
+    navigate(i);
+    moveTo(i);
+  };
+
+  const navigateNext = () => {
+    if (selectedIndex >= sections.length - 1) {
+      return;
+    }
+    const i = selectedIndex + 1;
+    navigate(i);
+    moveTo(i);
+  };
+
+  //  - handle section changes
   const navigate = toIndex => {
     if (toIndex === selectedIndex) {
       return;
@@ -120,20 +147,23 @@ document.addEventListener('DOMContentLoaded', () => {
       void nl.offsetWidth;
       nl.setAttribute('aria-current', current);
     });
-  }
+  };
 
+  //  - update page title when section changes
   const updateTitle = navLink => {
     const tokens = ['Code Refactory'];
     if (navLink) {
       tokens.push(navLink.text.trim());
     }
     document.title = tokens.join(' | ');
-  }
+  };
 
-  // attach behavior to hamburger menu
+  // attach behaviors
+
+  //  - hamburger menu
   toggleBtn.addEventListener('click', () => toggleMenu());
 
-  // attach behaviors to nav links
+  //  - nav links
   navLinks.forEach((navLink, i) => {
     const index = navLinks.indexOf(navLink);
     navLink.addEventListener('click', e => {
@@ -147,7 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // attach behavior to logo
+  //  - logo
   logo.addEventListener('click', e => {
     e.preventDefault();
     const index = 0;
@@ -155,14 +185,15 @@ document.addEventListener('DOMContentLoaded', () => {
       return false;
     }
     navigate(index);
+    moveTo(index);
     updateTitle(null);
     history.pushState(null, document.title, window.location.href.split('#')[0]);
-    main.scrollTo({ top: 0 });
   });
 
-  // waypoints: update nav as user scrolls through sections, 
-  // but don't push to history
-  // if the user is blowing past sections, don't bother animating
+  //  - waypoints
+  //    update nav as user scrolls through sections, 
+  //    but don't push to history
+  //    if the user is blowing past sections, don't bother animating
   sections.forEach((section, i) => {
     // set up reveals
     const revealables = section.querySelectorAll('[data-revealable]');
@@ -227,7 +258,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // on load, default to Home, unless a valid hash is present
+  //  - on load, default to Home, unless a valid hash is present
   const anchors = navLinks.map(navLink => navLink.getAttribute('href'));
   const linkMatch = anchors.indexOf(window.location.hash);
   if (linkMatch > -1) {
@@ -235,5 +266,16 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     logo.click();
   }
+
+  //  - add keystroke handling so user can scroll with keyboard instead of mouse/touch
+  hotkeys('up', (e, handler) => {
+    e.preventDefault(); // Prevent the default refresh event under WINDOWS system
+    navigatePrevious();
+  });
+
+  hotkeys('down', (e, handler) => {
+    e.preventDefault(); // Prevent the default refresh event under WINDOWS system
+    navigateNext();
+  });
 });
 

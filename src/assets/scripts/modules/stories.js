@@ -1,4 +1,5 @@
 import Hammer from 'hammerjs';
+import hotkeys from 'hotkeys-js';
 
 document.addEventListener('DOMContentLoaded', () => {
   // get elements
@@ -163,6 +164,17 @@ document.addEventListener('DOMContentLoaded', () => {
       previewPrevious();
     });
   }
+
+  // add keystroke handling so user can navigate with keyboard instead of mouse/touch
+  hotkeys('left', (e, handler) => {
+    e.preventDefault(); // Prevent the default refresh event under WINDOWS system
+    previewPrevious();
+  });
+
+  hotkeys('right', (e, handler) => {
+    e.preventDefault(); // Prevent the default refresh event under WINDOWS system
+    previewNext();
+  });
 
   // reset the stories if the user has scrolled away
   // define a custom event here and attach to the body, 
