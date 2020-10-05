@@ -1,3 +1,5 @@
+import 'whatwg-fetch';
+
 document.addEventListener('DOMContentLoaded', () => {
   // get elements
   const form = document.getElementById('contact-form');
@@ -30,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
       case 'loading':
         submitBtn.setAttribute('disabled', 'disabled');
         submitBtn.classList.add('loading');
-        notification.textContent = '';
+        notification.innerHTML = '';
         notification.classList.remove('error');
         break;
       case 'response':
@@ -38,11 +40,11 @@ document.addEventListener('DOMContentLoaded', () => {
         submitBtn.classList.remove('loading');
         break;
       case 'success':
-        notification.textContent = msg;
+        notification.innerHTML = msg;
         break;
       case 'error':
         notification.classList.add('error');
-        notification.textContent = msg;
+        notification.innerHTML = msg;
         break;
       default:
         // do nothing
@@ -58,11 +60,13 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const onSuccess = data => {
-    updateUI('success', data);
+    // console.log(data);
+    updateUI('success', `<span>${data}</span>`);
   };
 
   const onError = error => {
-    updateUI('error', error.statusText);
+    // console.log(error.statusText);
+    updateUI('error', `<span>Dangit. Error. You can also email us directly at <a href="mailto:info@coderefactory.com">info@coderefactory.com</a>.</span>`);
   };
 
   const onSubmit = e => {
@@ -73,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // send
     console.log('TODO: integrate');
-    fetch(endpoint, {
+    window.fetch(endpoint, {
       method: 'POST',
       body: new FormData(event.target),
     })
