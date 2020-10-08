@@ -31,8 +31,17 @@ body {
       background-position: 100% 0%;
       background-size: cover;
       background-repeat: no-repeat;
-      // background-image: radial-gradient(transparent 0%, rgba(0, 8, 47, 0.87) 70%), url(/assets/images/sf_map2.png);
-      background-image: radial-gradient(transparent 0%, rgba(56, 21, 58, 0.87) 70%), url(/assets/images/sf_map2.png);
+
+      // + MAP CONCEPT: uncomment any one of these
+      // background-image: radial-gradient(transparent 0%, rgba(56, 21, 58, 0.87) 70%), url(/assets/images/sf_map2.png);
+      // background-image: radial-gradient(transparent 0%, rgba(56, 21, 58, 0.87) 70%), url(/assets/images/bayarea-hi-res-cropped.png);
+      // background-image: radial-gradient(transparent 0%, rgba(56, 21, 58, 0.87) 70%), url(/assets/images/zendrive-sf-bike-collision-map.png);
+      // background-image: radial-gradient(transparent 0%, rgba(56, 21, 58, 0.87) 70%), url(/assets/images/sf_from_above2.jpg);
+      // background-image: radial-gradient(transparent 0%, rgba(56, 21, 58, 0.87) 70%), url(/assets/images/ikonos-san-francisco-california.jpg);
+      background-image: radial-gradient(transparent 0%, rgba(56, 21, 58, 0.87) 70%), url(/assets/images/san_francisco_1915.jpg);
+
+      // + FALLING CUBES CONCEPT: not complete
+      // background-image: radial-gradient(transparent 0%, rgba(56, 21, 58, 0.87) 70%), url(/assets/images/cubes.png);
 
       // transform: scale(2) translate(17vw, -14vh);
       // transform-origin: 100% 0%;
