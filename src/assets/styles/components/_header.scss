@@ -27,7 +27,7 @@
         position: absolute;
         width: calc(100% + 20px);
         height: calc(100% + 3rem + 10px);
-        background-color: #132c38; // #182631, #610000, #4c1e35, darkred, lightslategray, skyblue, steelblue
+        background-color: $brand-blue; // #182631, #610000, #4c1e35, darkred, lightslategray, skyblue, steelblue
         left: 0;
         top: -3rem;
         box-shadow: 0px 0px 24px 4px rgba(255,255,255, 0.6);
