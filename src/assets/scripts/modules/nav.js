@@ -2,6 +2,10 @@ import createFocusTrap from 'focus-trap';
 import 'waypoints/lib/noframework.waypoints';
 import hotkeys from 'hotkeys-js';
 
+// scroll-behavior polyfill
+// load only if certain features not supported
+import smoothscroll from 'smoothscroll-polyfill';
+
 const SELECTORS = {
   nav: '.js-nav',
   toggleBtn: '.js-nav-toggle'
@@ -46,6 +50,9 @@ const CLASSES = {
 
 
 document.addEventListener('DOMContentLoaded', () => {
+  const needsScrollPolyfill = !('scrollBehavior' in document.documentElement.style);
+  smoothscroll.polyfill();
+
   // get elements
   const nav = document.querySelector(SELECTORS.nav);
   const navLinks = Array.from(document.getElementsByClassName('nav__link'));
@@ -57,6 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // set flags
   let selectedIndex = 0; // CR logo (#home)
   let isOpen = false;
+  const isScrollSnapCapable = document.querySelector('html.scrollsnappoints');
 
   // focus trap
   const focusTrap = createFocusTrap(nav, {
@@ -82,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   //  - scroll triggering
   const moveTo = panelIndex => {
-    main.scrollTo({ top: sections[panelIndex].offsetTop });
+    main.scrollTo({ behavior: 'smooth', left: 0, top: sections[panelIndex].offsetTop });
   };
 
   const navigatePrevious = () => {
@@ -171,8 +179,14 @@ document.addEventListener('DOMContentLoaded', () => {
       if (index === selectedIndex) {
         return false;
       }
+      if (needsScrollPolyfill) {
+        e.preventDefault();
+      }
       toggleMenu(false);
       navigate(index);
+      if (needsScrollPolyfill) {
+        moveTo(index);
+      }
       updateTitle(navLink);
     });
   });
@@ -206,7 +220,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // set variables
     const delay = 100;
-    const offset = 10;
+    const offset = isScrollSnapCapable ? '10px' : '10vh'; // bigger scroll target for browsers where scroll-snap doesn't scroll perfectly to the panel
     let stDown, stUp;
 
     // set up waypoints
@@ -243,7 +257,7 @@ document.addEventListener('DOMContentLoaded', () => {
           stUp = setTimeout(() => { navigate(i); }, delay);
         }
       },
-      offset: -offset
+      offset: `-${offset}`
     });
 
     //  - third one for reveals

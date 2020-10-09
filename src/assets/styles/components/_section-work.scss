@@ -403,3 +403,32 @@ $preview-width: 70vw;
     }
   }
 }
+
+// fallback for no-cssfilters and no-cssvariables
+html.no-cssfilters,
+html.no-cssvariables {
+  #work {
+    &:before {
+      background-image: linear-gradient($hue-rotate-stop1 0%, $hue-rotate-stop2 100%);
+    }
+
+    .block--story {
+      background-color: #151313;
+
+      &:before {
+        transition-property: opacity;
+        opacity: 0.2;
+      }
+    }
+
+    .stories__layout {
+      @for $i from 1 through $story-count {
+        &[data-preview="#{$i}"] {
+          .block--story.story#{$i}:before {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}

@@ -96,5 +96,9 @@ button,
   [data-revealable] {
     opacity: 0;
     transform: translateY(30px);
+
+    @media (prefers-reduced-motion: reduce) {
+      transform: translateY(0px);
+    }
   }
 }

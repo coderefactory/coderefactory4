@@ -76,7 +76,7 @@
       font-size: inherit;
       }
     }
-    
+
     @include tablet-landscape {
       padding: 20px;
       flex-basis: 25%;
@@ -92,5 +92,13 @@
       }
     }
 
+  }
+}
+
+// fallback for no-cssfilters and no-cssvariables
+html.no-cssfilters,
+html.no-cssvariables {
+  #about:before {
+    background-image: linear-gradient($hue-rotate-stop3 0%, $hue-rotate-stop4 100%);
   }
 }

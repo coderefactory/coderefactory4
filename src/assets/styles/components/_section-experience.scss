@@ -79,6 +79,7 @@
         width: calc(100% / 5);
         // filter: hue-rotate(30deg) saturate(0.4);
         // opacity: 0.7;
+        align-items: center;
       }
 
       @include mq(md) {
@@ -105,5 +106,13 @@
         padding: 0 10%;
       }
     }
+  }
+}
+
+// fallback for no-cssfilters and no-cssvariables
+html.no-cssfilters,
+html.no-cssvariables {
+  #experience:before {
+    background-image: linear-gradient($hue-rotate-stop2 0%, $hue-rotate-stop3 100%);
   }
 }

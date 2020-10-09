@@ -9,6 +9,14 @@
   to   { transform: scale(var(--viewport-scale-end, 30)); }
 }
 
+// fallback for no-cssvariables
+html.no-cssvariables {
+  @keyframes viewport {
+    from { transform: scale(1); }
+    to   { transform: scale(30); }
+  }
+}
+
 .layout.setup-interstitial {
   // --viewport-scale-end: 30;
 

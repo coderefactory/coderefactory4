@@ -45,6 +45,15 @@ $brand-blue: #15293a;
 $red: #b1300c;
 $green: #35bf35;
 
+// color stops (for mimicking hue-rotate in filter-incapable browsers)
+
+$hue-rotate-stop0: rgba(24, 31, 51, 0.7);
+$hue-rotate-stop1: rgba(30, 55, 56, 0.7);
+$hue-rotate-stop2: rgba(23, 39, 16, 0.7);
+$hue-rotate-stop3: rgba(37, 51, 30, 0.7);
+$hue-rotate-stop4: rgba(44, 51, 31, 0.7);
+$hue-rotate-stop5: rgba(58, 32, 32, 0.7);
+
 // Color Mappings
 
 $bg-color: #fff;

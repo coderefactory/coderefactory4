@@ -49,6 +49,10 @@ body {
       transform-origin: calc(100% - (var(--scroll, 0) * 100%)) calc(var(--scroll, 0) * 100%);
       transform: scale(2);
 
+      @media (prefers-reduced-motion: reduce) {
+        transform-origin: 0% 100%;
+      }
+
       // transition: 0.2s ease-in-out transform, 0.2s linear filter;
 
       // filter: hue-rotate(calc(var(--scroll, 0) * 360deg)) saturate(0.7) opacity(0.4);
@@ -155,4 +159,27 @@ section {
   // &.transitioning {
   //   transition-duration: 0.2s;
   // }
+
+
+  // without either CSS variables or filters, 
+  // bg color tween effect won't work,
+  // so let's build a comparable fallback
+  &:before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    display: none;
+  }
+}
+
+// fallback for no-cssfilters and no-cssvariables
+html.no-cssfilters,
+html.no-cssvariables {
+  section:before {
+    display: block;
+  }
 }
