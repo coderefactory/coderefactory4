@@ -6,14 +6,21 @@ document.addEventListener('DOMContentLoaded', () => {
   const layout = document.getElementsByClassName('layout')[0];
   const logoViewport = document.getElementById('header-logo-viewport');
 
-  // FIXME: TEST ONLY: interstitial optional with query string flag
-  const searchParams = new URLSearchParams(window.location.search);
-  if (searchParams.has('interstitial')) {
-    layout.classList.add('setup-interstitial');
-  }
+  // class names
+  const CLASSES = {
+    setup: 'setup-interstitial',
+    run: 'run-interstitial'
+  };
 
+  // interstitial suppressed in development unless query string flag is present
+  const searchParams = new URLSearchParams(window.location.search);
+  const showInterstitial = (process.env.ELEVENTY_ENV !== 'development') || ((process.env.ELEVENTY_ENV === 'development') && searchParams.has('interstitial'));
+
+  if (showInterstitial) {
+    layout.classList.add(CLASSES.setup);
+  }
   // if not set up for interstitial, return out
-  else if (!layout.classList.contains('setup-interstitial')) {
+  else if (!layout.classList.contains(CLASSES.setup)) {
     return;
   }
 
@@ -26,11 +33,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // clean up UI after animation
     logoViewport.addEventListener('transitionend', () => {
       logoViewport.remove();
-      layout.classList.remove('setup-interstitial', 'run-interstitial');
+      layout.classList.remove(CLASSES.setup, CLASSES.run);
     });
 
     // start animation
-    layout.classList.add('run-interstitial');
+    layout.classList.add(CLASSES.run);
     window.clearTimeout(st);
   }, 1000);
 });

@@ -59,6 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const logo = document.querySelector('.header__logo');
   const toggleBtn = document.querySelector(SELECTORS.toggleBtn);
   const main = document.getElementsByTagName('main')[0];
+  const layout = document.getElementsByClassName('layout')[0];
   const sections = Array.from(document.getElementsByTagName('section'));
 
   // set flags
@@ -261,7 +262,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     //  - third one for reveals
-    const revealDelay = i === 0 ? 200 : 1;
+    //    delay for home page if interstitial is present
+    const revealDelay = i === 0
+      ? (layout.classList.contains('setup-interstitial') ? 2000 : 200)
+      : 1;
     const wp3 = new Waypoint({
       context: main,
       element: section,

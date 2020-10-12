@@ -23,16 +23,18 @@ html.no-cssvariables {
   // header styles
   .header {
     position: absolute;
+    animation-duration: 0s;
+    animation-delay: 0s;
 
     &__left {
       #header-logo-viewport {
-        width: $header-logo-viewport-width;
-        height: $header-logo-viewport-width;
+        width: $header-logo-viewport-width * 5 / 8;
+        height: $header-logo-viewport-width * 5 / 8;
         mix-blend-mode: soft-light;
         border-radius: 50%;
         position: absolute;
-        left: calc(40vw - #{$header-logo-viewport-width / 2});
-        top: calc(50vh - #{$spacing-y} - #{$header-logo-viewport-width / 2});
+        left: calc(45vw - #{($header-logo-viewport-width * 5 / 8) / 2});
+        top: calc(50vh - #{$spacing-y} - #{($header-logo-viewport-width * 5 / 8) / 2});
         z-index: 1000;
         display: block;
         opacity: 1;
@@ -40,6 +42,18 @@ html.no-cssvariables {
         transition-property: opacity;
         transition-duration: 0.2s;
         transition-delay: 0.75s;
+
+        @include mq(md) {
+          width: $header-logo-viewport-width;
+          height: $header-logo-viewport-width;
+          left: calc(45vw - #{$header-logo-viewport-width / 2});
+          top: calc(50vh - #{$spacing-y} - #{$header-logo-viewport-width / 2});
+        }
+
+        // when .container maxes out its width
+        @media (min-width: $container-max-width / 0.9) {
+          left: calc(($container-max-width / 2) - #{$header-logo-viewport-width / 2});
+        }
 
         &::after {
           content: '';
@@ -67,8 +81,8 @@ html.no-cssvariables {
         }
 
         svg {
-          left: calc(40vw - #{$header-logo-width / 2});
-          top: calc(50vh - #{$spacing-y} - #{$header-logo-width / 2});
+          left: calc(45vw - #{($header-logo-width * 5 / 8) / 2});
+          top: calc(50vh - #{$spacing-y} - #{($header-logo-width * 5 / 8) / 2});
           transform: rotate(0);
           opacity: 1;
           transition-timing-function: cubic-bezier(.49,0,.88,.16), linear;
@@ -76,8 +90,18 @@ html.no-cssvariables {
           transition-property: transform, opacity;
           transition-duration: 0.45s, 0.3s;
           transition-delay: 0s, 0.45s;
+
+          @include mq(md) {
+            left: calc(45vw - #{$header-logo-width / 2});
+            top: calc(50vh - #{$spacing-y} - #{$header-logo-width / 2});
+          }
         }
       }
+    }
+
+    &__right {
+      opacity: 0;
+      transition: opacity 0s;
     }
   }
 
@@ -88,28 +112,34 @@ html.no-cssvariables {
 
   // animation initiated on DOMContentLoaded via js
   &.run-interstitial {
-    .header .header__left {
-      #header-logo-viewport {
-        opacity: 0;
+    .header {
+      &__left {
+        #header-logo-viewport {
+          opacity: 0;
 
-        span {
-          animation-duration: 0.3s;
-          // animation-timing-function: cubic-bezier(.14,.28,.38,-0.92);
-          animation-timing-function: cubic-bezier(.33,0,1,0);
-          animation-delay: 0.45s;
-          animation-fill-mode: forwards;
-          animation-name: viewport;
+          span {
+            animation-duration: 0.3s;
+            // animation-timing-function: cubic-bezier(.14,.28,.38,-0.92);
+            animation-timing-function: cubic-bezier(.33,0,1,0);
+            animation-delay: 0.45s;
+            animation-fill-mode: forwards;
+            animation-name: viewport;
+          }
+        }
+
+        .header__logo svg {
+          transform: rotate(720deg);
+          opacity: 0;
+          // animation-duration: 0.25s;
+          // animation-timing-function: cubic-bezier(.1,.14,0,-0.56);
+          // animation-delay: 1s;
+          // animation-fill-mode: forwards;
+          // animation-name: logo;
         }
       }
 
-      .header__logo svg {
-        transform: rotate(720deg);
-        opacity: 0;
-        // animation-duration: 0.25s;
-        // animation-timing-function: cubic-bezier(.1,.14,0,-0.56);
-        // animation-delay: 1s;
-        // animation-fill-mode: forwards;
-        // animation-name: logo;
+      &__right {
+        transition-duration: 0.3s;
       }
     }
   }

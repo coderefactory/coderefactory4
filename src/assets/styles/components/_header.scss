@@ -1,8 +1,17 @@
+@keyframes header {
+  from { transform: opacity(0); }
+  to   { transform: opacity(1); }
+}
+
 .header {
   width: 100%;
   padding: #{$spacing-y / 2} 0;
   position: fixed;
   z-index: 100;
+  animation-duration: 0.3s;
+  animation-delay: 0.2s;
+  animation-fill-mode: forwards;
+  animation-name: header;
 
   @include mq(md) {
     padding: $spacing-y 0;
