@@ -36,19 +36,19 @@ eleventyNavigation:
       <div class="block--story story{{ loop.index }}">
         <div class="story-content">
           <div class="story-content__intro">
-            <h5>{{ story.client }}</h5>
+            <div class="h5">{{ story.client }}</div>
             <h2>{{ story.summary | safe }}</h2>
             <p>{{ story.narrative }}</p>
           </div>
           <div class="story-content__carousel">
-            <button class="open-story">Learn more</button>
-            <button class="close-story">&times;</button>
+            <button aria-label="open this story" class="open-story">Learn more</button>
+            <button aria-label="close this story" class="close-story">&times;</button>
             <div class="story-content__slides">
               <ul>
                 {% for slide in story.slides %}
                   <li>
                     <div class="story-slide__image">
-                      <img src="/assets/images/stories/{{ story.imageDir }}/{{ slide.filename }}" />
+                      <img src="/assets/images/stories/{{ story.imageDir }}/{{ slide.filename }}" alt="{{ slide.alt_text }}" />
                     </div>
                     <div class="story-slide__text">
                       {% for slideText in slide.grafs %}
@@ -58,8 +58,8 @@ eleventyNavigation:
                   </li>
                 {% endfor %}
               </ul>
-              <button class="slide-nav prev-slide" disabled="disabled">{% icon "icon-down-arrow" %}</button>
-              <button class="slide-nav next-slide">{% icon "icon-down-arrow" %}</button>
+              <button aria-label="view previous slide" class="slide-nav prev-slide" disabled="disabled">{% icon "icon-down-arrow" %}</button>
+              <button aria-label="view next slide" class="slide-nav next-slide">{% icon "icon-down-arrow" %}</button>
               <div class="progress-indicator" data-count="{{ story.slides | length }}">
                 <span>slide 1</span>
               </div>

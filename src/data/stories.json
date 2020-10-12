@@ -15,6 +15,7 @@
     "slides": [
       {
         "filename": "prometheus_1.gif",
+        "alt_text": "Before and after screenshots of prometheusapartments.com",
         "grafs": [
           "Founded in 1965, Prometheus is the largest privately owned multifamily developer in the San Francisco Bay Area. Their portfolio includes dozens of properties in the Bay Area, Portland, and Seattle.",
           "These are no garden-variety apartments. Constructed with a curator's eye, they apply a boutique design sensibility, while committing to a larger sense of community.",
@@ -23,6 +24,7 @@
       },
       {
         "filename": "prometheus_2.gif",
+        "alt_text": "Desktop and mobile screenshots of a Prometheus web page",
         "grafs": [
           "Prometheus needed a world-class, immersive experience that would best serve the goal of lead generation. The site is replete with bold photography, both to highlight the design touches and to give the user a truer feel for the properties.",
           "A comprehensive responsive image strategy was employed to keep the site highly performant across all devices without sacrificing visual impact. A super-fast CDN serves images sized and art-directed appropriately for the user's screen."
@@ -30,6 +32,7 @@
       },
       {
         "filename": "prometheus_3.jpg",
+        "alt_text": "Prometheus property search results page with interactive map",
         "grafs": [
           "Apartment hunters know what they want. Any search functionality needs to balance a robust tool set, a visually engaging experience, location awareness, and minimal clutter.",
           "The result was an Airbnb-style interface that checked all the boxes: predictive natural-language search, filter/sort options, image-rich results, a clear information hierarchy, and two-way interactivity with a map. Responsive across all devices."
@@ -37,12 +40,14 @@
       },
       {
         "filename": "prometheus_4.jpg",
+        "alt_text": "Custom CMS allows a user to art direct photography used on the site",
         "grafs": [
           "In order to facilitate easy maintenance of the site, we designed and developed a custom CMS. A bespoke approach meant we could include sophisticated features such as precision control of image weighting for responsive display on the customer-facing web site."
         ]
       },
       {
         "filename": "prometheus_5.jpg",
+        "alt_text": "Screenshot of an interactive tour scheduler for a property",
         "grafs": [
           "For many apartment sites, lead generation ends with a catch-all email address.",
           "Prometheus takes it a step further. We implemented a tour scheduler with real-time appointment availability, providing more qualified prospective renters with an easy-to-use tool for seeing a property up close."
@@ -58,6 +63,7 @@
     "slides": [
       {
         "filename": "bam_1.gif",
+        "alt_text": "Screenshots of the new public site and investor portal",
         "grafs": [
           "BAM, an international asset management company, wanted a more modern expression of their brand online. But how to speak to customers, prospective investors, and potential employees using the same voice?",
           "We partnered with BAM to reassert their unified brand voice, while applying it to different customer experiences."
@@ -65,6 +71,7 @@
       },
       {
         "filename": "bam_2.jpg",
+        "alt_text": "Image of Careers page on the BAM public site",
         "grafs": [
           "The public marketing site and the members-only investor portal are unified by a consistent look and voice, echoing BAM's brand promises: balance, reliability, collaboration, growth.",
           "In particular, the investor portal demonstrates BAM's commitment to providing utility to its customers. Features like watermarked documents benefit the investor with a personalized experience, and contribute to BAM's overall security protocol."
@@ -72,6 +79,7 @@
       },
       {
         "filename": "bam_3.png",
+        "alt_text": "Document download page from the investor portal",
         "grafs": [
           "BAM uses AWS as a repository for hundreds of secure financial documents, with no native system of categorization.",
           "We implemented a naming convention to enable document searching and filtering on the front end without upending BAM's normal workflow.",
@@ -88,6 +96,7 @@
     "slides": [
       {
         "filename": "cf_01.jpg",
+        "alt_text": "Newly redesigned ChefsFeed home page",
         "grafs": [
           "ChefsFeed required quick turnaround on a major rebranding project.",
           "Along with the new look and feel came new features for the web site. It all had to be done within just a few weeks - and it had to tie into legacy systems.",
@@ -96,6 +105,7 @@
       },
       {
         "filename": "cf_02.gif",
+        "alt_text": "Before and after screenshots of the ChefsFeed web site",
         "grafs": [
           "Code Refactory was brought in for a fast-paced turn-around that included new development and requirements to tie in with legacy and 3rd-party systems.",
           "The initial round of work included a wholly new web site and updates to an existing, proprietary CMS."
@@ -103,6 +113,7 @@
       },
       {
         "filename": "cf_03.jpg",
+        "alt_text": "ChefsFeed featured on Best New Apps in the Apple App Store",
         "grafs": [
           "Following a successful deployment, our engagement with ChefsFeed was extended.",
           "The continued work included enhancements to the web site and CMS as well as a senior-level role for an iOS native app."
@@ -110,6 +121,7 @@
       },
       {
         "filename": "cf_04.jpg",
+        "alt_text": "Screenshot of integrated ad placements",
         "grafs": [
           "In addition, Code Refactory spearheaded advertising integration for static and video ads resulting in new opportunities for ChefsFeed revenue."
         ]

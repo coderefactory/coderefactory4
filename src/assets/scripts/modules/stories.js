@@ -136,6 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // progress indicator transition
       progressIndicator.style.width = `${(slide + 1) * coefficient * 100}%`;
+      progressIndicator.innerText = `slide ${slide + 1}`;
     }
 
     const reset = () => {
