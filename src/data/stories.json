@@ -9,7 +9,7 @@
   },
   {
     "client": "Prometheus",
-    "summary": "Premium West Coast apartments.<br/>The only thing easier than the living is the searching.",
+    "summary": "Premium West Coast apartments.<br/>[replace 'The only thing easier...' with something else]",
     "narrative": "Bringing creativity to technology for a leader in luxury rentals.",
     "imageDir": "prometheus",
     "slides": [
@@ -18,13 +18,13 @@
         "grafs": [
           "Founded in 1965, Prometheus is the largest privately owned multifamily developer in the San Francisco Bay Area. Their portfolio includes dozens of properties in the Bay Area, Portland, and Seattle.",
           "These are no garden-variety apartments. Constructed with a curator's eye, they apply a boutique design sensibility, while committing to a larger sense of community.",
-          "We partnered with Cibo to bring a more modern Prometheus web presence to life: new look, new features."
+          "We brought Prometheus's web presence to life: new look, new features, and a sophisticated administrative backend."
         ]
       },
       {
         "filename": "prometheus_2.gif",
         "grafs": [
-          "Cibo intuited that a beautiful, immersive experience would best serve the goal of lead generation. The site is replete with bold photography, both to highlight the design touches and to give the user a truer feel for the properties.",
+          "Prometheus needed a world-class, immersive experience that would best serve the goal of lead generation. The site is replete with bold photography, both to highlight the design touches and to give the user a truer feel for the properties.",
           "A comprehensive responsive image strategy was employed to keep the site highly performant across all devices without sacrificing visual impact. A super-fast CDN serves images sized and art-directed appropriately for the user's screen."
         ]
       },
@@ -59,8 +59,8 @@
       {
         "filename": "bam_1.gif",
         "grafs": [
-          "BAM, an international asset management company, wanted a more modern expression of their brand online. But how to speak to current and prospective investors using the same voice?",
-          "Here again, we partnered with Cibo to reassert BAM's unified brand voice, while applying it to different customer experiences."
+          "BAM, an international asset management company, wanted a more modern expression of their brand online. But how to speak to customers, prospective investors, and potential employees using the same voice?",
+          "We partnered with BAM to reassert their unified brand voice, while applying it to different customer experiences."
         ]
       },
       {
@@ -104,8 +104,8 @@
       {
         "filename": "cf_03.jpg",
         "grafs": [
-          "Code Refactory was brought in for a fast-paced turn-around that included new development and requirements to tie in with legacy and 3rd-party systems.",
-          "The initial round of work included a wholly new web site and updates to an existing, proprietary CMS."
+          "Following a successful deployment, our engagement with ChefsFeed was extended.",
+          "The continued work included enhancements to the web site and CMS as well as a senior-level role for an iOS native app."
         ]
       },
       {
