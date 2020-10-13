@@ -4,7 +4,7 @@
 button,
 [role='button'] {
   @include f_button;
-  color: #fff;
+  color: $white;
   font-size: 0.9375rem;
   line-height: 1.42857;
   letter-spacing: 1px;
@@ -16,7 +16,7 @@ button,
   background-image: none;
   border: 0;
   border-radius: 0;
-  box-shadow: 1px 2px 12px 0px rgba(0,0,0,0.5);
+  box-shadow: 1px 2px 12px 0px rgba($black, 0.5);
   white-space: nowrap;
   display: inline-block;
   user-select: none;
@@ -71,7 +71,7 @@ button,
     width: 8px;
     height: 8px;
     margin: 0 4px;
-    background-color: #ffffff;
+    background-color: $white;
     opacity: 0.5;
 
     @for $i from 1 through 3 {

@@ -30,11 +30,13 @@ $z-layers: (
 //
 // Grayscale
 
+$black: #000000;
 $gray-darkest: #373a3c;
 $gray-dark: #55595c;
 $gray: #818a91;
 $gray-light: #eceeef;
 $gray-lightest: #f7f7f9;
+$white: #ffffff;
 
 // Brand Colors
 
@@ -56,7 +58,7 @@ $hue-rotate-stop5: rgba(58, 32, 32, 0.7);
 
 // Color Mappings
 
-$bg-color: #fff;
+$bg-color: $white;
 $text-color: $gray-darkest;
 $brand-color-primary: $brand-blue;
 // $brand-color-primary-offset: darken($red, 6%);
@@ -104,8 +106,8 @@ $animation-curve-default: $animation-curve-fast-out-slow-in;
 $spacing-x: 2rem;
 $spacing-y: 2rem;
 
-$box-shadow: 0 2px 16px rgba(0, 0, 0, 0.15);
-$box-shadow-elevated: 0 6px 12px 0 rgba(0, 0, 0, 0.1);
+$box-shadow: 0 2px 16px rgba($black, 0.15);
+$box-shadow-elevated: 0 6px 12px 0 rgba($black, 0.1);
 
 $border-radius: 0.25rem;
 

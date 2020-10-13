@@ -18,42 +18,14 @@
 
   {# + Nav Links #}
   <ul class="nav__menu js-nav-menu" id="nav-menu">
-    {#%
-      {%- for item in collections.all | eleventyNavigation -%}
-        {%- set isCurrent = (item.url == page.url) -%}
-        {%- set isParent = item.url != '/' and item.url in page.url -%}
-      {%- endfor -%}
-    %#}
-    <li class="nav__item">
-      <a class="nav__link" href="{% if page.url !== '/' %}/{% endif %}#home" aria-current="true">
-        <span>Home</span>
-        <span class="nav__link__indicator"></span>
-      </a>
-    </li>
-    <li class="nav__item">
-      <a class="nav__link" href="{% if page.url !== '/' %}/{% endif %}#work" aria-current="false">
-        <span>Work</span>
-        <span class="nav__link__indicator"></span>
-      </a>
-    </li>
-    <li class="nav__item">
-      <a class="nav__link" href="{% if page.url !== '/' %}/{% endif %}#experience" aria-current="false">
-        <span>Experience</span>
-        <span class="nav__link__indicator"></span>
-      </a>
-    </li>
-    <li class="nav__item">
-      <a class="nav__link" href="{% if page.url !== '/' %}/{% endif %}#about" aria-current="false">
-        <span>About</span>
-        <span class="nav__link__indicator"></span>
-      </a>
-    </li>
-    <li class="nav__item">
-      <a class="nav__link" href="{% if page.url !== '/' %}/{% endif %}#contact" aria-current="false">
-        <span>Contact</span>
-        <span class="nav__link__indicator"></span>
-      </a>
-    </li>
+    {% for link in navigation %}
+      <li class="nav__item">
+        <a class="nav__link" href="{% if page.url !== '/' %}/{% endif %}#{{ link.hash }}" aria-current="{{ 'false' if loop.index0 else 'true' }}">
+          <span>{{ link.text }}</span>
+          <span class="nav__link__indicator"></span>
+        </a>
+      </li>
+    {%- endfor -%}
   </ul>
   {# / Nav Links #}
 

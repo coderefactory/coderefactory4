@@ -1,7 +1,3 @@
-// @keyframes float {
-//   from { transform: translateY(0); }
-//   to   { transform: translateY(20px); }
-// }
 @keyframes bounce {
   0%, 10%, 25%, 40%, 100% {
     transform: translateY(0);
@@ -48,8 +44,6 @@ $gradient-stop0: rgba(0, 8, 27, 0.27);
         }
 
         &:last-child {
-          // animation: 1.5s ease-in-out 0s infinite alternate float;
-
           svg {
             width: 35px;
             height: auto;

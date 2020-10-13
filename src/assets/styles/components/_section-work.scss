@@ -235,7 +235,7 @@ $preview-width: 70vw;
           right: -11vw;
           width: 0;
           height: 100%;
-          background-color: rgba(0, 0, 0, 0.65);
+          background-color: rgba($black, 0.65);
           z-index: -1;
           transition-timing-function: ease-in-out;
           transition-property: width;
@@ -308,13 +308,13 @@ $preview-width: 70vw;
             height: $slide-nav-btn-width;
             position: absolute;
             top: calc(50% - #{$slide-nav-btn-width / 2});
-            background-color: rgba(255,255,255,0.2);
+            background-color: rgba($white, 0.2);
             border-radius: 50%;
             opacity: 1;
             transition: background-color 0.2s ease-out, opacity 0.2s ease-out;
 
             &:hover {
-              background-color: rgba(255,255,255,0.35);
+              background-color: rgba($white, 0.35);
             }
 
             &[disabled="disabled"] {
@@ -357,19 +357,6 @@ $preview-width: 70vw;
               background-color: rgba(174, 255, 154, 0.6);
               transition: width 0.3s ease-out;
             }
-
-            // border: 1px solid green;
-            // position: absolute;
-            // height: 24px;
-            // width: 120px;
-            // bottom: calc(2rem - 12px);
-            // left: calc(50% - 60px);
-
-            // background-image: radial-gradient(#fafafa 4px, transparent 5px);
-            // background-position: 0 0;
-            // background-repeat-x: repeat;
-            // background-repeat-y: no-repeat;
-            // background-size: 24px 24px;
           }
         }
 

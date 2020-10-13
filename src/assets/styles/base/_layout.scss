@@ -6,18 +6,12 @@ html {
 }
 
 body {
-  // overflow-x: hidden;
   height: 100vh;
   background-color: transparent;
   overflow: hidden;
 
   .layout {
-    // display: flex;
-    // flex-direction: column;
-    // min-height: 100%;
-    // min-height: 100vh;
     background-color: transparent;
-
     position: relative;
 
     &:before {
@@ -67,13 +61,9 @@ body {
     }
 
     .main {
-      // display: flex;
-      // flex-direction: column;
-      // flex: 1 0 auto;
       z-index: 5;
       height: 100vh;
       overflow-x: hidden;
-      // overflow-y: scroll;
       @include scrollable;
       @include custom-scrollbar(rgba(128,128,128,0.5));
       scroll-snap-type: y mandatory;
@@ -111,11 +101,10 @@ body {
 section {
   color: white;
   position: relative;
-  // position: fixed;
-  // top: 100vh;   // below the viewport, out of view
-  // left: 0;
   width: 100vw;
   padding: 150px 0 20px;
+  z-index: 1;
+  scroll-snap-align: start;
 
   // reconfigure for iPhone landscape
   @include phone-landscape {
@@ -136,30 +125,6 @@ section {
       flex: 1;
     }
   }
-
-
-  // @media (min-height: breakpoint-min(lg, $breakpoints)) {
-  //   @include mq(md) {
-  //     padding: 200px 0 100px;
-
-  //   }
-
-  //   @include mq(lg) {
-  //     padding: 250px 0;
-  //   }
-  // }
-
-
-  z-index: 1;
-  // transition-duration: 0s;
-  // transition-timing-function: ease-in-out;
-  // transition-property: top;
-  scroll-snap-align: start;
-
-  // &.transitioning {
-  //   transition-duration: 0.2s;
-  // }
-
 
   // without either CSS variables or filters, 
   // bg color tween effect won't work,
