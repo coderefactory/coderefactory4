@@ -31,6 +31,8 @@
 // partials with local scope to a component
 //--------------------
 
+@import 'components/interstitial';
+
 @import 'components/header';
 @import 'components/nav';
 @import 'components/footer';
@@ -41,5 +43,3 @@
 @import 'components/section-experience';
 @import 'components/section-about';
 @import 'components/section-contact';
-
-@import 'components/interstitial';

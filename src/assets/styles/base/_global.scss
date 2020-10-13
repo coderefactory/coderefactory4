@@ -101,3 +101,20 @@ button,
     }
   }
 }
+
+// error pages
+#error-page {
+  color: white;
+  text-align: center;
+  padding-top: 40vh;
+
+  h1 {
+    font-family: $font-family-sans-serif;
+    width: auto;
+    height: auto;
+    margin-bottom: 3rem;
+    clip: unset;
+    position: relative;
+    overflow: auto;
+  }
+}

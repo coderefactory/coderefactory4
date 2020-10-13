@@ -66,6 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let selectedIndex = 0; // CR logo (#home)
   let isOpen = false;
   const isScrollSnapCapable = document.querySelector('html.scrollsnappoints');
+  const isIndexPage = !window.location.pathname.replace('/', '');
 
   // focus trap
   const focusTrap = createFocusTrap(nav, {
@@ -173,37 +174,50 @@ document.addEventListener('DOMContentLoaded', () => {
   toggleBtn.addEventListener('click', () => toggleMenu());
 
   //  - nav links
+  //     if not on the index page, hrefs are adjusted in the markup
+  //     else, add behaviors
   navLinks.forEach((navLink, i) => {
-    const index = navLinks.indexOf(navLink);
-    navLink.addEventListener('click', e => {
-      // console.log(`index ${index}, selectedIndex ${selectedIndex}`);
-      if (index === selectedIndex) {
-        return false;
-      }
-      if (needsScrollPolyfill) {
-        e.preventDefault();
-      }
-      toggleMenu(false);
-      navigate(index);
-      if (needsScrollPolyfill) {
-        moveTo(index);
-      }
-      updateTitle(navLink);
-    });
+    if (isIndexPage) {
+      const index = navLinks.indexOf(navLink);
+      navLink.addEventListener('click', e => {
+        // console.log(`index ${index}, selectedIndex ${selectedIndex}`);
+        if (index === selectedIndex) {
+          return false;
+        }
+        if (needsScrollPolyfill) {
+          e.preventDefault();
+        }
+        toggleMenu(false);
+        navigate(index);
+        if (needsScrollPolyfill) {
+          moveTo(index);
+        }
+        updateTitle(navLink);
+      });
+    }
   });
 
   //  - logo
-  logo.addEventListener('click', e => {
-    e.preventDefault();
-    const index = 0;
-    if (index === selectedIndex) {
-      return false;
-    }
-    navigate(index);
-    moveTo(index);
-    updateTitle(null);
-    history.pushState(null, document.title, window.location.href.split('#')[0]);
-  });
+  //     if not on the index page, go there - this is just a regular link
+  //     else, add behaviors
+  if (isIndexPage) {
+    logo.addEventListener('click', e => {
+      e.preventDefault();
+      const index = 0;
+      if (index === selectedIndex) {
+        return false;
+      }
+      navigate(index);
+      moveTo(index);
+      updateTitle(null);
+      history.pushState(null, document.title, window.location.href.split('#')[0]);
+    });
+  }
+
+  // if not on the index page, the rest of this doesn't matter
+  if (!isIndexPage) {
+    return;
+  }
 
   //  - waypoints
   //    update nav as user scrolls through sections, 

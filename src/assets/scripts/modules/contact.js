@@ -5,6 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('contact-form');
   const textarea = document.getElementById('contact-form__message');
   const textareaShadow = document.getElementById('contact-form__message-measure');
+  if (!form) {
+    return; 
+  }
   const submitBtn = form.querySelector('button');
   const notification = document.getElementById('contact-form__notification');
 

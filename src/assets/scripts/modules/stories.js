@@ -5,6 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // get elements
   const body = document.body;
   const storyLayout = document.querySelector('.stories__layout');
+  if (!storyLayout) {
+    return; 
+  }
   const stories = Array.from(storyLayout.getElementsByClassName('block--story'));
   const carousels = Array.from(storyLayout.getElementsByClassName('story-content__slides'));
 

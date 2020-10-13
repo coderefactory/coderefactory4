@@ -9,8 +9,11 @@ document.querySelector('html').classList.add((supportsCustomProperties ? 'cssvar
 import 'focus-visible';
 
 // internal modules
+//  - opening interstitial
 import './modules/interstitial';
+//  - navigation
 import './modules/nav';
 import './modules/transitions';
+//  - panel-specific
 import './modules/stories';
 import './modules/contact';
