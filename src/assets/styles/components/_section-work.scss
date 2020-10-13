@@ -284,6 +284,12 @@ $preview-width: 70vw;
 
                 img {
                   max-width: 100%;
+                  opacity: 0;
+                  transition: opacity 0.15s ease-out;
+
+                  &[data-loaded="true"] {
+                    opacity: 1;
+                  }
                 }
               }
 

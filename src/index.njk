@@ -46,7 +46,7 @@ layout: base
                 {% for slide in story.slides %}
                   <li>
                     <div class="story-slide__image">
-                      <img src="/assets/images/stories/{{ story.imageDir }}/{{ slide.filename }}" alt="{{ slide.alt_text }}" />
+                      <img data-src="/assets/images/stories/{{ story.imageDir }}/{{ slide.filename }}" alt="{{ slide.alt_text }}" />
                     </div>
                     <div class="story-slide__text">
                       {% for slideText in slide.grafs %}

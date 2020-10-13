@@ -1,5 +1,6 @@
 import Hammer from 'hammerjs';
 import hotkeys from 'hotkeys-js';
+import lozad from 'lozad';
 
 document.addEventListener('DOMContentLoaded', () => {
   // get elements
@@ -51,10 +52,13 @@ document.addEventListener('DOMContentLoaded', () => {
     stories[previewingPanel].dispatchEvent(new Event('mouseover'));
   };
 
-  const openStory = (e, panel) => {
+  const openStory = (e, panelIndex, observer) => {
     isPanelOpen = true;
-    storyLayout.setAttribute('data-open', panel);
+    storyLayout.setAttribute('data-open', panelIndex + 1);
     body.classList.add(classModalOpen);
+
+    // lazyload images
+    observer.observe();
   };
 
   const closeStory = (e, carouselIndex) => {
@@ -78,10 +82,14 @@ document.addEventListener('DOMContentLoaded', () => {
     story.addEventListener('mouseout', e => clearPreviewStory());
     storyLayout.addEventListener('mouseout', e => previewStory(1));
 
+    // set up lazyloading for this panel
+    const storyImages = carousels[i].querySelectorAll('img');
+    const observer = lozad(storyImages);
+
     // open
     const btnOpenStory = story.getElementsByClassName('open-story')[0];
     fixFocusScroll(btnOpenStory);
-    btnOpenStory.addEventListener('click', e => openStory(e, (i + 1)));
+    btnOpenStory.addEventListener('click', e => openStory(e, i, observer));
 
     // close
     const btnCloseStory = story.getElementsByClassName('close-story')[0];
