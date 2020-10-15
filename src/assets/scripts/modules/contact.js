@@ -63,12 +63,12 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const onSuccess = data => {
-    // console.log(data);
+    console.log(data);
     updateUI('success', `<span>${data}</span>`);
   };
 
   const onError = error => {
-    // console.log(error.statusText);
+    console.log(error.statusText);
     updateUI('error', `<span>Dangit. Error. You can also email us directly at <a href="mailto:info@coderefactory.com">info@coderefactory.com</a>.</span>`);
   };
 
@@ -79,7 +79,6 @@ document.addEventListener('DOMContentLoaded', () => {
     updateUI('loading');
 
     // send
-    console.log('TODO: integrate');
     window.fetch(endpoint, {
       method: 'POST',
       body: new FormData(event.target),
