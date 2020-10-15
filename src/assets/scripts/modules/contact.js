@@ -59,14 +59,15 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log(response);
     updateUI('response');
     if (response.ok) {
-      return response.json();
+      // return response.json();
+      return Promise.resolve(response);
     }
     return Promise.reject(response);
   };
 
   const onSuccess = data => {
     console.log(data);
-    updateUI('success', `<span>${data}</span>`);
+    updateUI('success', `<span>${data.toString()}</span>`);
   };
 
   const onError = error => {

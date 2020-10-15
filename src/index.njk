@@ -116,7 +116,15 @@ layout: base
     <h2 data-revealable>Got an ambitious project in mind?<br />Let's talk.</h2>
     <h3 data-revealable>We can help bring your ideas to market expertly and quickly.</h3>
     <p data-revealable>Tell us about your project, and how we can reach you.</p>
-    <form name="contact" id="contact-form" method="post" data-netlify="true" netlify-honeypot="bot-field" data-revealable>
+    <form
+      name="contact"
+      id="contact-form"
+      method="post"
+      action="/"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      data-revealable
+    >
       <label id="contact-form__label" for="contact-form__message">
         <textarea name="message" id="contact-form__message" required></textarea>
         <span id="contact-form__label-text">Type here</span>
