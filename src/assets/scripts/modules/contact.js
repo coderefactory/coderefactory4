@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const onSuccess = data => {
     // console.log(data);
-    updateUI('success', `<span>Got it, thanks! ✓ We'll get back to you shortly.</span>`);
+    updateUI('success', `<span>Got it, thanks! &nbsp;✓&nbsp; We'll get back to you shortly.</span>`);
   };
 
   const onError = error => {
