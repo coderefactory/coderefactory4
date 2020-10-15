@@ -56,23 +56,21 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const onResponse = response => {
-    console.log(response);
+    // console.log(response);
     updateUI('response');
     if (response.ok) {
-      // return response.json();
       return Promise.resolve(response);
     }
     return Promise.reject(response);
   };
 
   const onSuccess = data => {
-    console.log(data);
-    updateUI('success', `<span>${data.toString()}</span>`);
+    // console.log(data);
+    updateUI('success', `<span>Got it, thanks! ✓ We'll get back to you shortly.</span>`);
   };
 
   const onError = error => {
-    // console.log(error.statusText);
-    console.log(error);
+    // console.log(error);
     updateUI('error', `<span>Dangit. Error. You can also email us directly at <a href="mailto:info@coderefactory.com">info@coderefactory.com</a>.</span>`);
   };
 
@@ -96,6 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
   textarea.addEventListener('input', copyInput);
   textarea.addEventListener('focus', clearHeight);
   textarea.addEventListener('blur', matchHeight);
+  form.addEventListener('reset', clearHeight);
 
   // attach behaviors for form submission
   form.addEventListener('submit', onSubmit);
