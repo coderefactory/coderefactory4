@@ -1,8 +1,12 @@
-# Eleventastic
+# Code Refactory
 
-A simple Eleventy Starter Kit, my base for all new 11ty projects. ([Demo Site](https://eleventastic.netlify.com))
+Repository for [coderefactory.com](https://coderefactory.com) (v4).
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/f78ec52d-8328-4e40-b6da-a0f9164e80d1/deploy-status)](https://app.netlify.com/sites/eleventastic/deploys)
+Scaffolded with [Eleventastic](https://eleventastic.netlify.com), a simple [Eleventy](https://www.11ty.dev/) Starter Kit.
+
+Deploys to [Netlify](https://www.netlify.com/).
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/b39c0019-7775-4e42-820f-dd3fdbf57fe2/deploy-status)](https://app.netlify.com/sites/practical-pare-7c2d6e/deploys)
 
 ## Features
 
@@ -18,17 +22,19 @@ A simple Eleventy Starter Kit, my base for all new 11ty projects. ([Demo Site](h
 To install the necessary packages, run this command in the root folder of the site:
 
 ```sh
-npm install
+yarn
 ```
 
 ### Commands
 
-* Run `npm start` for a development server and live reloading
-* Run `npm run build` to generate a production build
+* Run `yarn start` for a [development server](http://localhost:8080/) and live reloading
+* Run `yarn run build` to generate a production build
 
+<!--
 ## Deploy a fork of this template to Netlify
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/maxboeck/eleventastic)
+-->
 
 ## CSS
 
@@ -47,11 +53,3 @@ For example, if you have a `github.svg` file in that folder, you can display it 
 ## Critical CSS
 
 Currently, critical CSS will only be inlined in the head of the homepage. This is done by using the [critical](https://github.com/addyosmani/critical) package in an automatic transform.
-
-## Credits
-
-My heartfelt thanks to these people, whom I shamelessly copied ideas from:
-
-* Phil Hawksworth: [EleventyOne](https://github.com/philhawksworth/eleventyone)
-* Mike Riethmuller: [Supermaya](https://github.com/MadeByMike/supermaya)
-* Zach Leatherman: [zachleat.com](https://github.com/zachleat/zachleat.com)
