@@ -52,7 +52,7 @@ html.no-cssvariables {
 
         // when .container maxes out its width
         @media (min-width: $container-max-width / 0.9) {
-          left: calc(($container-max-width / 2) - #{$header-logo-viewport-width / 2});
+          left: calc(#{$container-max-width / 2} - #{$header-logo-viewport-width / 2});
         }
 
         &::after {
@@ -94,6 +94,11 @@ html.no-cssvariables {
           @include mq(md) {
             left: calc(45vw - #{$header-logo-width / 2});
             top: calc(50vh - #{$spacing-y} - #{$header-logo-width / 2});
+          }
+
+          // when .container maxes out its width
+          @media (min-width: $container-max-width / 0.9) {
+            left: calc(#{$container-max-width / 2} - #{$header-logo-width / 2});
           }
         }
       }
