@@ -44,6 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
         break;
       case 'success':
         notification.innerHTML = msg;
+        form.reset();
         break;
       case 'error':
         notification.classList.add('error');
@@ -55,6 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const onResponse = response => {
+    console.log(response);
     updateUI('response');
     if (response.ok) {
       return response.json();
@@ -68,7 +70,8 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const onError = error => {
-    console.log(error.statusText);
+    // console.log(error.statusText);
+    console.log(error);
     updateUI('error', `<span>Dangit. Error. You can also email us directly at <a href="mailto:info@coderefactory.com">info@coderefactory.com</a>.</span>`);
   };
 
