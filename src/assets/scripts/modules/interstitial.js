@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const root = document.body.style;
   const layout = document.getElementsByClassName('layout')[0];
   const logoViewport = document.getElementById('header-logo-viewport');
+  const navLinks = Array.from(document.getElementsByClassName('nav__link'));
 
   // class names
   const CLASSES = {
@@ -13,8 +14,14 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   // interstitial suppressed in development unless query string flag is present
+  // also suppressed if there's a valid hash on page load - just go directly there
   const searchParams = new URLSearchParams(window.location.search);
-  const showInterstitial = (process.env.ELEVENTY_ENV !== 'development') || ((process.env.ELEVENTY_ENV === 'development') && searchParams.has('interstitial'));
+  const anchors = navLinks.map(navLink => navLink.getAttribute('href'));
+  const showInterstitial =
+    (
+      (process.env.ELEVENTY_ENV !== 'development') || 
+      ((process.env.ELEVENTY_ENV === 'development') && searchParams.has('interstitial'))
+    ) && (anchors.indexOf(window.location.hash) === -1);
 
   if (showInterstitial) {
     layout.classList.add(CLASSES.setup);

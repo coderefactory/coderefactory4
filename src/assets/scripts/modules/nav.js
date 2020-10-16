@@ -16,39 +16,6 @@ const CLASSES = {
   unrevealed: 'unrevealed'
 }
 
-// class Navigation {
-//   constructor() {
-//     this.isOpen = false;
-
-//     this.nav = document.querySelector(SELECTORS.nav);
-//     this.toggleBtn = this.nav.querySelector(SELECTORS.toggleBtn);
-//     this.focusTrap = createFocusTrap(this.nav);
-
-//     this.toggleBtn.addEventListener('click', () => this.toggleMenu());
-//   }
-
-//   toggleMenu(force) {
-//     this.isOpen = typeof force === 'boolean' ? force : !this.isOpen;
-//     debugger;
-//     this.nav.classList.toggle(CLASSES.open, this.isOpen);
-//     this.toggleBtn.setAttribute('aria-expanded', String(this.isOpen));
-
-//     if (this.isOpen) {
-//       this.focusTrap.activate();
-//     } else {
-//       this.focusTrap.deactivate();
-//       // this.nav.classList.toggle(CLASSES.open, this.isOpen);
-//     }
-//   }
-// }
-
-// if (document.querySelector(SELECTORS.nav)) {
-//   new Navigation();
-// }
-
-
-
-
 document.addEventListener('DOMContentLoaded', () => {
   const needsScrollPolyfill = !('scrollBehavior' in document.documentElement.style);
   smoothscroll.polyfill();
