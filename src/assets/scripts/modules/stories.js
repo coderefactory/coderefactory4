@@ -196,5 +196,7 @@ document.addEventListener('DOMContentLoaded', () => {
       carousel.dispatchEvent(new Event('stories.reset'));
     });
     storyLayout.removeAttribute('data-open');
+    isPanelOpen = false;
+    body.classList.remove(classModalOpen);
   });
 });
