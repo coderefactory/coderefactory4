@@ -155,6 +155,9 @@ document.addEventListener('DOMContentLoaded', () => {
       goto(0);
     };
 
+    fixFocusScroll(btnPrev);
+    fixFocusScroll(btnNext);
+
     // attach behaviors
     btnPrev.addEventListener('click', gotoPrev);
     btnNext.addEventListener('click', gotoNext);
