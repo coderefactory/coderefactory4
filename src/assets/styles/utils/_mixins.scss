@@ -46,6 +46,12 @@
   }
 }
 
+@mixin short-desktop {
+  @media (hover: hover) and (min-width: breakpoint-min(md, $breakpoints)) and (max-height: breakpoint-min(lg, $breakpoints) - 1px) {
+    @content;
+  }
+}
+
 @mixin hover-focus {
   &:hover,
   &:focus {

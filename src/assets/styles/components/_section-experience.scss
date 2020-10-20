@@ -57,11 +57,19 @@
         }
       }
     }
+
+    @include short-desktop {
+      max-height: 360px;
+    }
   }
 
   .block--clients {
     @include mq(md) {
       padding-bottom: 50px;
+
+      ul {
+        padding: 0 10%;
+      }
     }
 
     @include mq(lg) {

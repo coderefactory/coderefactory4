@@ -66,9 +66,17 @@ body {
       overflow-x: hidden;
       @include scrollable;
       @include custom-scrollbar(rgba(128,128,128,0.5));
-      scroll-snap-type: y mandatory;
       background-color: transparent;
       position: relative;
+
+      // scroll-snap behavior
+      //  - under normal viewport conditions:
+      scroll-snap-type: y mandatory;
+      //  - if a landscape orientation gets squeezed vertically,
+      //    abandon the snap and just make sure all content can be viewed
+      @include short-desktop {
+        scroll-snap-type: none;
+      }
 
       &::after {
         content: '';
