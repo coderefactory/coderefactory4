@@ -141,6 +141,10 @@ $preview-width: 70vw;
     transition: 0.2s ease-in-out flex-basis;
     overflow: hidden;
 
+    &:last-child {
+      border-right: none;
+    }
+
     &:before {
       content: '';
       width: 100%;
@@ -151,14 +155,19 @@ $preview-width: 70vw;
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
+      background-image: linear-gradient(rgba(0, 8, 27, 0.87) 0%, transparent 85%);
       border-right: 10px solid rgba(182, 182, 200, 0.7);
       filter: brightness(0.5) saturate(0.2);
       transition: 0.2s linear filter;
       z-index: 1;
     }
 
-    &:last-child {
-      border-right: none;
+    .story-bg-img {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      object-fit: cover;
+      z-index: 0;
     }
 
     .story-content {

@@ -27,11 +27,23 @@ layout: base
   <div class="stories__layout">
     {% for story in stories %}
       <style>
-        #work .block--story.story{{ loop.index }}:before {
-          background-image: linear-gradient(rgba(0, 8, 27, 0.87) 0%, transparent 85%), url(/assets/images/stories/{{ story.imageDir }}/hero.jpg);
+        html.no-object-fit #work .block--story.story{{ loop.index }}:before {
+          background-image: linear-gradient(rgba(0, 8, 27, 0.87) 0%, transparent 85%), url({{ story.hero.url }});
+        }
+        html.no-object-fit #work .block--story.story{{ loop.index }} .story-bg-img {
+          display: none;
         }
       </style>
       <div class="block--story story{{ loop.index }}">
+        {% respimg
+          story.hero.url,
+          story.hero.width,
+          story.hero.height,
+          [480, 680, 768],
+          true,
+          story.hero.alt_text,
+          "story-bg-img"
+        %}
         <div class="story-content">
           <div class="story-content__intro">
             <div class="h5">{{ story.client }}</div>

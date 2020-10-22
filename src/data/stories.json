@@ -4,6 +4,13 @@
     "summary": "Community, News, Activism. With a new face.",
     "narrative": "Building sophisticated, world-class software for civic participation.",
     "imageDir": "dailykos",
+    "hero": {
+      "filename": "stories-dailykos-hero-915x610.jpg",
+      "url": "https://res.cloudinary.com/coderefactory/image/upload/v1603337860/cr4/stories-dailykos-hero-915x610.jpg",
+      "width": 915,
+      "height": 610,
+      "alt_text": "Protesters at a march in 2020"
+    },
     "slides": [
     ]
   },
@@ -12,6 +19,13 @@
     "summary": "Premium West Coast apartments.<br/>Search, view, tour, relax.",
     "narrative": "Bringing creativity to technology for a leader in luxury rentals.",
     "imageDir": "prometheus",
+    "hero": {
+      "filename": "stories-prometheus-hero-2048x1230.jpg",
+      "url": "https://res.cloudinary.com/coderefactory/image/upload/v1603337853/cr4/stories-prometheus-hero-2048x1230.jpg",
+      "width": 2048,
+      "height": 1230,
+      "alt_text": "Interior shot of a Prometheus apartment"
+    },
     "slides": [
       {
         "filename": "prometheus_1.gif",
@@ -60,6 +74,13 @@
     "summary": "Smart investing: telling the story, and providing the tools.",
     "narrative": "Helping a premier asset management company speak to all their audiences.",
     "imageDir": "bam",
+    "hero": {
+      "filename": "stories-bam-hero-2048x1365.jpg",
+      "url": "https://res.cloudinary.com/coderefactory/image/upload/v1603337874/cr4/stories-bam-hero-2048x1365.jpg",
+      "width": 2048,
+      "height": 1365,
+      "alt_text": "Abstract photo of a financial chart"
+    },
     "slides": [
       {
         "filename": "bam_1.gif",
@@ -93,6 +114,13 @@
     "summary": "The hottest restaurants and dishes never looked so good.",
     "narrative": "Connecting the \"Anti-Yelp\"s legacy systems to the modern world.",
     "imageDir": "chefsfeed",
+    "hero": {
+      "filename": "stories-chefsfeed-hero-1440x600.jpg",
+      "url": "https://res.cloudinary.com/coderefactory/image/upload/v1603337868/cr4/stories-chefsfeed-hero-1440x600.jpg",
+      "width": 1440,
+      "height": 600,
+      "alt_text": "Overhead view of a restaurant table"
+    },
     "slides": [
       {
         "filename": "cf_01.jpg",
