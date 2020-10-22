@@ -40,7 +40,7 @@ module.exports = {
     const versionPattern = /(\/v\d+\/)/;
     let _srcset = sizes.map(size => {
       const targetDimension = yAxis ? 'h' : 'w';
-      const transform = `/c_fill,${targetDimension}_${size}`;
+      const transform = `/c_fill,${targetDimension}_${size},f_auto`;
       return `${url.replace(versionPattern, `${transform}$1`)} ${Math.round(size * widthCoefficient)}w`;
     });
     _srcset.push(url);
