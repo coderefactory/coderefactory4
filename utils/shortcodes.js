@@ -16,10 +16,17 @@ module.exports = {
   //  - bool @yAxis: breakpoints are for width (default) or height
   //  - string @classNames: concatenated list of class names to append to the <img>
   respimg: (url, width, height, sizes = [], yAxis = false, alt = '', classNames = '') => {
+    // for inserting cloudinary transforms into the url
+    const versionPattern = /(\/v\d+\/)/;
+
     // validate
     if (!url) { return ''; }
     if (!width || !height) {
-      return `<img class="${classNames}" src="${url}" alt="${alt}" />`;
+      return `<img 
+                src="${url.replace(versionPattern, `/f_auto$1`)}" 
+                alt="${alt}" 
+                class="${classNames}" 
+              />`;
     }
 
     // compose sizes
@@ -37,17 +44,16 @@ module.exports = {
     }
 
     // compose srcset
-    const versionPattern = /(\/v\d+\/)/;
     let _srcset = sizes.map(size => {
       const targetDimension = yAxis ? 'h' : 'w';
       const transform = `/c_fill,${targetDimension}_${size},f_auto`;
       return `${url.replace(versionPattern, `${transform}$1`)} ${Math.round(size * widthCoefficient)}w`;
     });
-    _srcset.push(url);
+    _srcset.push(url.replace(versionPattern, `/f_auto$1`));
 
     // return tag
     return `<img 
-              src="${url}" 
+              src="${url.replace(versionPattern, `/f_auto$1`)}" 
               srcset="${_srcset.join(', ')}" 
               sizes="${_sizes}" 
               alt="${alt}" 
