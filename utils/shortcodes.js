@@ -58,6 +58,8 @@ module.exports = {
               sizes="${_sizes}" 
               alt="${alt}" 
               class="${classNames}" 
+              width="${width}" 
+              height="${height}" 
             />`;
   }
 }
