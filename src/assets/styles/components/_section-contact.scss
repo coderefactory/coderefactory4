@@ -33,9 +33,7 @@
       }
 
       @include mq-down(sm) {
-        br {
-          display: none;
-        }
+        @include br-to-space;
       }
     }
 

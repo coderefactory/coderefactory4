@@ -57,9 +57,7 @@ $gradient-stop0: rgba(0, 8, 27, 0.27);
       }
 
       @include mq-down(md) {
-        br {
-          display: none;
-        }
+        @include br-to-space;
       }
     }
   }
