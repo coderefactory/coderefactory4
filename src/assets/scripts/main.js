@@ -16,4 +16,5 @@ import './modules/nav';
 import './modules/transitions';
 //  - panel-specific
 import './modules/stories';
+import './modules/about';
 import './modules/contact';

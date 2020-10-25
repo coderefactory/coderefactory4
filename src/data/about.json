@@ -1,22 +1,42 @@
 [
   {
     "name": "Gregg Butensky",
-    "bio": "Mauris et fermentum neque. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque rutrum viverra orci, vitae pharetra metus consequat sed. Ut nec fringilla velit, in semper quam.",
-    "headshot": "TEMP-headshot.jpg"
+    "bio": "Following stints as an electrical engineer and an acoustician, Gregg started programming in the early days of multimedia. He's been coding for the web for over 20 years. While he loves the problem solving challenges of engineering, he became passionate about computing when the landscape shifted to be about communication. Engaged travel, photography, and music all contribute to Gregg's love of the wired world and he's thrilled to be able to work in this realm.",
+    "headshot": {
+      "filename": "gbutensky.jpg",
+      "url": "https://res.cloudinary.com/coderefactory/image/upload/f_auto/v1603490198/cr4/about-gbutensky.jpg",
+      "width": 320,
+      "height": 320
+    }
   },
   {
     "name": "Andrew dePasquale",
-    "bio": "Fusce laoreet ipsum sit amet pretium volutpat. Sed sit amet ligula at justo rhoncus lacinia. Nulla ullamcorper sollicitudin ex quis posuere. Duis ac consectetur orci. Suspendisse efficitur lorem eu est pellentesque, sed tincidunt mauris aliquet.",
-    "headshot": "TEMP-headshot.jpg"
-  },
-  {
-    "name": "Fabrice Armisen",
-    "bio": "Sed non justo fringilla ipsum rhoncus rutrum. Donec nec euismod nisl, eget finibus arcu. Pellentesque rutrum gravida placerat. Proin gravida justo in iaculis imperdiet. Curabitur ac molestie ex.",
-    "headshot": "TEMP-headshot.jpg"
+    "bio": "Andrew began his 20-year career in technology hand-coding websites for small and midsize businesses. He balances his engineering chops by bringing strong UX and visual design sensibilities to every engagement. In a past life Andrew wrote copy at a couple of advertising agencies. His offline hours are spent chatting with his new baby, playing guitar, exploring California hikes, and rooting for underperforming New York sports teams.",
+    "headshot": {
+      "filename": "adepasquale.jpg",
+      "url": "https://res.cloudinary.com/coderefactory/image/upload/f_auto/v1603490198/cr4/about-adepasquale.jpg",
+      "width": 320,
+      "height": 320
+    }
   },
   {
     "name": "Lynda Greenberg",
-    "bio": "Donec congue, lorem in convallis accumsan, lorem nibh convallis augue, eget euismod mauris dui sit amet turpis. Aenean commodo libero vel ante rhoncus, vel molestie nunc finibus. Nunc consectetur elementum massa.",
-    "headshot": "TEMP-headshot.jpg"
+    "bio": "Lynda is a seasoned, passionate leader with a proven track record in product storytelling, digital marketing, e-commerce SEM and SEO, paid social, and PPC. More than 25 years' experience guiding a product's life cycle from conception to launch. An expert at seamlessly integrating messaging across all channels with a focus on outstanding acquisition and retention strategy. Lynda loves to spend her spare time hiking, running, or biking on Mt. Tam with her dog Pete.",
+    "headshot": {
+      "filename": "lgreenberg.jpg",
+      "url": "https://res.cloudinary.com/coderefactory/image/upload/f_auto/v1603490198/cr4/about-lgreenberg.jpg",
+      "width": 320,
+      "height": 320
+    }
+  },
+  {
+    "name": "Fabrice Armisen",
+    "bio": "Fabrice has more than 20 years of experience in software engineering and consulting, working with the complete lexicon of software technologies. Renowned for his resourcefulness, Fabrice loves nothing more than being told that something cannot be implemented, and then going away for a couple of hours and doing it.",
+    "headshot": {
+      "filename": "farmisen.jpg",
+      "url": "https://res.cloudinary.com/coderefactory/image/upload/f_auto/v1603490198/cr4/about-farmisen.jpg",
+      "width": 320,
+      "height": 320
+    }
   }
 ]

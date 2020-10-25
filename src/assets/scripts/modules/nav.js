@@ -86,9 +86,14 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    // housekeeping: reset Stories view
+    // housekeeping
+    //  - reset Stories view
     if (toIndex !== 1) {
       document.body.dispatchEvent(new Event('stories.reset'));
+    }
+    //  - reset About view
+    if (toIndex !== 3) {
+      document.body.dispatchEvent(new Event('about.reset'));
     }
 
     // update flags

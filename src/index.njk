@@ -116,11 +116,16 @@ layout: base
     <div class="staff__layout" data-revealable>
       {% for staff in about %}
         <div class="block--staff">
-          <img src="/assets/images/about/{{ staff.headshot }}" alt="{{ staff.name }}" />
-          <h4>{{ staff.name }}</h4>
-          <p>{{ staff.bio }}</p>
+          <div class="block--staff-inner">
+            <div class="block--staff-top-level">
+              <img src="{{ staff.headshot.url }}" alt="{{ staff.name }}" width="{{ staff.headshot.width }}" height="{{ staff.headshot.height }}" />
+              <h4>{{ staff.name }}</h4>
+            </div>
+            <p>{{ staff.bio }}</p>
+          </div>
         </div>
       {% endfor %}
+      <button aria-label="close this story" class="close-story">&times;</button>
     </div>
   </div>
 </section>

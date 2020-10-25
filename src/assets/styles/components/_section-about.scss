@@ -20,78 +20,231 @@
   .staff__layout {
     display: flex;
     flex-wrap: wrap;
+    position: relative;
+
+    &:before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 0%;
+      background-color: rgba($black, 0.65);
+      z-index: 1;
+      transition-timing-function: ease-in-out;
+      transition-property: height;
+      transition-duration: 0.2s;
+      transition-delay: 0.2s;
+    }
+
+    button.close-story {
+      font-size: 2rem;
+      line-height: 1;
+      padding: 7px 18px 9px;
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      z-index: 3;
+      opacity: 0;
+      transition-timing-function: ease-out;
+      transition-property: opacity;
+      transition-duration: 0.2s;
+      transition-delay: 0.2s;
+      display: none;
+    }
   }
 
   .block--staff {
     text-align: center;
     flex: 1 50%;
     padding: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    opacity: 1;
+    transition-timing-function: ease-in-out;
+    transition-property: opacity;
+    transition-duration: 0.2s;
+    transition-delay: 0s;
 
-    @include phone-landscape {
-      flex-basis: 25%;
+    .block--staff-inner {
+      display: flex;
+      flex-direction: column;
+      opacity: 1;
+      transition-timing-function: ease-in-out;
+      transition-property: opacity;
+      transition-duration: 0.2s;
+      transition-delay: 0s;
     }
 
     img {
       border: 4px solid rgba($white, 0.25);
       border-radius: 50%;
       width: 80px;
+      height: 80px;
       margin-bottom: 1rem;
+      position: relative;
+      transform: scale(1);
+      transition-timing-function: ease-in-out;
+      transition-property: transform;
+      transition-duration: 0.2s;
     }
 
-    h3 {
+    h4 {
       margin-bottom: 1rem;
+      position: relative;
     }
 
     p {
       color: lightgray;
-      display: none;
+      position: relative;
+    }
+
+    // media queries
+    @include mq-down(md) {
+      @media (min-height: breakpoint-min(lg, $breakpoints)) {
+        h4 {
+          font-size: 1.375rem;
+        }
+      }
     }
 
     @include mq(md) {
-      padding: 20px;
-
       img {
         width: 120px;
+        height: 120px;
         border-width: 5px;
-      }
-
-      p {
-        display: block;
-        font-size: 0.75rem;
       }
     }
 
     @include mq(lg) {
+      padding: 20px;
+
+      @media (min-height: breakpoint-min(lg, $breakpoints)) {
+        cursor: default;
+      }
+
+      img {
+        width: 120px;
+        height: 120px;
+        border-width: 5px;
+      }
+
+      h4 {
+        @include mq-down(xl) {
+          font-size: 1.375rem;
+        }
+      }
+
+      p {
+        @media (min-height: breakpoint-min(lg, $breakpoints)) {
+          font-size: 0.75rem;
+        }
+      }
+    }
+
+    @include spacious-desktop {
       padding: 30px;
 
       img {
         width: 160px;
+        height: 160px;
         border-width: 7px;
       }
 
       p {
-      font-size: inherit;
+        font-size: inherit;
       }
+    }
+
+    @include phone-landscape {
+      flex-basis: 25%;
     }
 
     @include tablet-landscape {
       padding: 20px;
       flex-basis: 25%;
+      cursor: default;
 
       img {
         width: 120px;
+        height: 120px;
         border-width: 5px;
       }
 
       p {
-        display: block;
         font-size: 0.75rem;
       }
     }
+  }
 
+  // bios appear in a pseudo-modal at certain dimensions when it's too cramped
+  @media 
+    (max-width: breakpoint-min(lg, $breakpoints) - 1px), 
+    (max-height: breakpoint-min(lg, $breakpoints) - 1px),
+    (hover: hover),
+    (orientation: portrait) {
+
+    .block--staff {
+      cursor: pointer;
+
+      p {
+        display: none;
+      }
+
+      &:hover img {
+        transform: scale(1.05);
+      }
+    }
+
+    .staff__layout {
+      &[data-open] {
+        &:before {
+          height: 100%;
+          transition-delay: 0s;
+        }
+
+        button.close-story {
+          display: block;
+          opacity: 1;
+        }
+
+        .block--staff {
+          opacity: 0.3;
+
+          .block--staff-inner {
+            opacity: 0;
+          }
+
+          &.active {
+            opacity: 1;
+            transition-duration: 0s;
+            z-index: 2;
+            cursor: default;
+
+            .block--staff-inner {
+              width: 100%;
+              height: 100%;
+              padding: 30px;
+              flex-direction: row;
+              align-items: center;
+              position: absolute;
+              top: 0;
+              left: 0;
+              opacity: 1;
+            }
+
+            p {
+              text-align: left;
+              margin: 0;
+              padding: 0 60px 0 40px;
+              display: block;
+            }
+
+            &:hover img {
+              transform: none;
+            }
+          }
+        }
+      }
+    }
   }
 }
 
