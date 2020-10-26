@@ -7,19 +7,6 @@
     flex-direction: column;
     height: 100%;
     justify-content: center;
-
-    h2 {
-      margin-bottom: 2rem;
-
-      @include mq(lg) {
-        font-size: 2.75rem;
-      }
-    }
-  }
-
-  .staff__layout {
-    display: flex;
-    flex-wrap: wrap;
     position: relative;
 
     &:before {
@@ -34,7 +21,14 @@
       transition-timing-function: ease-in-out;
       transition-property: height;
       transition-duration: 0.2s;
-      transition-delay: 0.2s;
+    }
+
+    h2 {
+      margin-bottom: 2rem;
+
+      @include mq(lg) {
+        font-size: 2.75rem;
+      }
     }
 
     button.close-story {
@@ -52,6 +46,12 @@
       transition-delay: 0.2s;
       display: none;
     }
+  }
+
+  .staff__layout {
+    display: flex;
+    flex-wrap: wrap;
+    z-index: 2;
   }
 
   .block--staff {
@@ -194,11 +194,15 @@
       }
     }
 
-    .staff__layout {
+    .about__layout {
       &[data-open] {
         &:before {
           height: 100%;
           transition-delay: 0s;
+        }
+
+        h2 {
+          opacity: 0.5;
         }
 
         button.close-story {
@@ -221,14 +225,24 @@
 
             .block--staff-inner {
               width: 100%;
-              height: 100%;
+              height: calc(100% + 3rem);
               padding: 30px;
               flex-direction: row;
               align-items: center;
               position: absolute;
-              top: 0;
+              top: -3rem;
               left: 0;
               opacity: 1;
+
+              @include mq-down(md) {
+                @media (orientation: portrait) {
+                  flex-direction: column;
+
+                  p {
+                    padding: 0;
+                  }
+                }
+              }
             }
 
             p {
@@ -236,6 +250,14 @@
               margin: 0;
               padding: 0 60px 0 40px;
               display: block;
+
+              @include mq-down(md) {
+                font-size: 0.75rem;
+              }
+
+              @include tablet-landscape {
+                font-size: 1rem;
+              }
             }
 
             &:hover img {

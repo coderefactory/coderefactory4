@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   // get elements
   const body = document.body;
-  const layout = document.querySelector('.staff__layout');
+  const layout = document.querySelector('.about__layout');
   const staffMembers = Array.from(layout.getElementsByClassName('block--staff'));
   if (!layout) {
     return; 
