@@ -1,3 +1,5 @@
+import hotkeys from 'hotkeys-js';
+
 document.addEventListener('DOMContentLoaded', () => {
   // get elements
   const body = document.body;
@@ -29,6 +31,12 @@ document.addEventListener('DOMContentLoaded', () => {
     staff.addEventListener('click', openBio);
   });
   btnCloseBio.addEventListener('click', closeBio);
+
+  // ESC closes a bio
+  hotkeys('esc', (e, handler) => {
+    e.preventDefault(); // Prevent the default refresh event under WINDOWS system
+    body.dispatchEvent(new Event('about.reset'));
+  });
 
   // reset the stories if the user has scrolled away
   // define a custom event here and attach to the body, 

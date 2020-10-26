@@ -191,6 +191,12 @@ document.addEventListener('DOMContentLoaded', () => {
     previewNext();
   });
 
+  // ESC closes a story
+  hotkeys('esc', (e, handler) => {
+    e.preventDefault(); // Prevent the default refresh event under WINDOWS system
+    body.dispatchEvent(new Event('stories.reset'));
+  });
+
   // reset the stories if the user has scrolled away
   // define a custom event here and attach to the body, 
   // so the nav module can reference it

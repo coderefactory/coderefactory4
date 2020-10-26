@@ -234,19 +234,32 @@
               left: 0;
               opacity: 1;
 
+              .block--staff-top-level {
+                padding-left: 60px;
+                padding-right: 20px;
+              }
+
               @include mq-down(md) {
                 @media (orientation: portrait) {
                   flex-direction: column;
 
+                  .block--staff-top-level,
                   p {
                     padding: 0;
                   }
+                }
+              }
+
+              @include phone-landscape {
+                .block--staff-top-level {
+                  padding-left: 0;
                 }
               }
             }
 
             p {
               text-align: left;
+              font-size: 1rem;
               margin: 0;
               padding: 0 60px 0 40px;
               display: block;
