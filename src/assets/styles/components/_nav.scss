@@ -18,6 +18,12 @@
   }
 }
 
+@mixin ms-degrade-animation {
+  animation: none;
+  left: calc(50% - 2px);
+  transform: none;
+}
+
 @mixin nav-selected-animation {
   animation-name: nav-selected-stretch, nav-selected-move;
   animation-duration: .3s;
@@ -27,9 +33,11 @@
   animation-iteration-count: 1;
 
   @include ie10plus {
-    animation: none;
-    left: calc(50% - 2px);
-    transform: none;
+    @include ms-degrade-animation;
+  }
+
+  @include ms-edge {
+    @include ms-degrade-animation;
   }
 }
 
