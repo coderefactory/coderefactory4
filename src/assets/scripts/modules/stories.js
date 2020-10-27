@@ -16,14 +16,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const classModalOpen = 'modal-open';
 
   // set flags
-  let previewingPanel = 0;
+  let previewingPanel;
   let isPanelOpen = false;
 
   // define behaviors
   const previewStory = panel => {
-    if (isPanelOpen) {
+    if (isPanelOpen || (previewingPanel === panel)) {
       return;
     }
+    previewingPanel = panel;
     storyLayout.setAttribute('data-preview', panel);
   };
 
@@ -31,30 +32,31 @@ document.addEventListener('DOMContentLoaded', () => {
     if (isPanelOpen) {
       return;
     }
-    storyLayout.removeAttribute('data-preview');
+    // storyLayout.removeAttribute('data-preview');
+    storyLayout.setAttribute('data-preview', 0);
   };
 
   const previewPrevious = () => {
     if (isPanelOpen || previewingPanel <= 0) {
       return;
     }
-    stories[previewingPanel].dispatchEvent(new Event('mouseout'));
+    stories[previewingPanel].dispatchEvent(new CustomEvent('mouseleave'));
     previewingPanel = previewingPanel - 1;
-    stories[previewingPanel].dispatchEvent(new Event('mouseover'));
+    stories[previewingPanel].dispatchEvent(new CustomEvent('mouseover'));
   };
 
   const previewNext = () => {
     if (isPanelOpen || previewingPanel >= stories.length - 1) {
       return;
     }
-    stories[previewingPanel].dispatchEvent(new Event('mouseout'));
+    stories[previewingPanel].dispatchEvent(new CustomEvent('mouseleave'));
     previewingPanel = previewingPanel + 1;
-    stories[previewingPanel].dispatchEvent(new Event('mouseover'));
+    stories[previewingPanel].dispatchEvent(new CustomEvent('mouseover'));
   };
 
   const openStory = (e, panelIndex, observer) => {
     isPanelOpen = true;
-    storyLayout.setAttribute('data-open', panelIndex + 1);
+    storyLayout.setAttribute('data-open', panelIndex);
     body.classList.add(classModalOpen);
 
     // lazyload images
@@ -63,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const closeStory = (e, carouselIndex) => {
     storyLayout.removeAttribute('data-open');
-    carousels[carouselIndex].dispatchEvent(new Event('stories.reset'));
+    carousels[carouselIndex].dispatchEvent(new CustomEvent('stories.reset'));
     isPanelOpen = false;
     body.classList.remove(classModalOpen);
   };
@@ -78,9 +80,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // attach behaviors
   stories.forEach((story, i) => {
     // preview on hover
-    story.addEventListener('mouseover', e => previewStory(i + 1));
-    story.addEventListener('mouseout', e => clearPreviewStory());
-    storyLayout.addEventListener('mouseout', e => previewStory(1));
+    // story.addEventListener('mouseleave', e => clearPreviewStory());
+    storyLayout.addEventListener('mouseleave', e => previewStory(0));
+    story.addEventListener('mouseover', e => previewStory(i));
 
     // set up lazyloading for this panel
     const storyImages = carousels[i].querySelectorAll('img');
@@ -168,7 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // default preview to first story if nothing else has been previewed/opened
-  stories[0].dispatchEvent(new Event('mouseover'));
+  stories[0].dispatchEvent(new CustomEvent('mouseover'));
 
   // add gesture handling
   if (document.querySelector('html').classList.contains('touchevents')) {
@@ -194,7 +196,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ESC closes a story
   hotkeys('esc', (e, handler) => {
     e.preventDefault(); // Prevent the default refresh event under WINDOWS system
-    body.dispatchEvent(new Event('stories.reset'));
+    body.dispatchEvent(new CustomEvent('stories.reset'));
   });
 
   // reset the stories if the user has scrolled away
@@ -202,7 +204,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // so the nav module can reference it
   body.addEventListener('stories.reset', () => {
     carousels.forEach((carousel, i) => {
-      carousel.dispatchEvent(new Event('stories.reset'));
+      carousel.dispatchEvent(new CustomEvent('stories.reset'));
     });
     storyLayout.removeAttribute('data-open');
     isPanelOpen = false;

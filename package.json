@@ -29,6 +29,7 @@
     "@babel/preset-env": "^7.11.0",
     "babel-loader": "^8.1.0",
     "clean-css": "^4.2.3",
+    "core-js": "^3.6.5",
     "critical": "^2.0.3",
     "cssesc": "^3.0.0",
     "del-cli": "^3.0.1",

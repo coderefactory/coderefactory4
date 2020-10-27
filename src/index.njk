@@ -27,14 +27,14 @@ layout: base
   <div class="stories__layout">
     {% for story in stories %}
       <style>
-        html.no-object-fit #work .block--story.story{{ loop.index }}:before {
+        html.no-object-fit #work .block--story.story{{ loop.index0 }}:before {
           background-image: linear-gradient(rgba(0, 8, 27, 0.87) 0%, transparent 85%), url({{ story.hero.url }});
         }
-        html.no-object-fit #work .block--story.story{{ loop.index }} .story-bg-img {
+        html.no-object-fit #work .block--story.story{{ loop.index0 }} .story-bg-img {
           display: none;
         }
       </style>
-      <div class="block--story story{{ loop.index }}">
+      <div class="block--story story{{ loop.index0 }}">
         {% respimg
           story.hero.url,
           story.hero.width,
@@ -144,7 +144,7 @@ layout: base
       netlify-honeypot="bot-field"
       data-revealable
     >
-      <label id="contact-form__label" for="contact-form__message">
+      <label id="contact-form__label" for="contact-form__message" class="focus-within">
         <textarea name="message" id="contact-form__message" required></textarea>
         <span id="contact-form__label-text">Type here</span>
         <textarea id="contact-form__message-measure" disabled readonly></textarea>

@@ -60,6 +60,19 @@
   }
 }
 
+// convenience mixins for targeting IE
+@mixin ie10plus {
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    @content;
+  }
+}
+
+@mixin ie11 {
+  @media all and (-ms-high-contrast: none) {
+    @content;
+  }
+}
+
 @mixin hover-focus {
   &:hover,
   &:focus {

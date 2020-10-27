@@ -5,7 +5,11 @@ import './modernizr';
 const supportsCustomProperties = window.CSS && CSS.supports('color', 'var(--primary)');
 document.querySelector('html').classList.add((supportsCustomProperties ? 'cssvariables' : 'no-cssvariables'));
 
-// focus visible polyfill
+// polyfills
+import './ie-polyfills';
+import 'core-js/features/array/from';
+import 'core-js/features/array/for-each';
+import 'core-js/features/object/assign';
 import 'focus-visible';
 
 // internal modules

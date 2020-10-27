@@ -64,6 +64,10 @@
     transition-duration: 0.2s;
     transition-delay: 0s;
 
+    @include ie10plus {
+      flex-basis: calc(50% - 40px);
+    }
+
     .block--staff-inner {
       display: flex;
       flex-direction: column;

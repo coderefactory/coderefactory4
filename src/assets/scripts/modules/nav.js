@@ -89,11 +89,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // housekeeping
     //  - reset Stories view
     if (toIndex !== 1) {
-      document.body.dispatchEvent(new Event('stories.reset'));
+      document.body.dispatchEvent(new CustomEvent('stories.reset'));
     }
     //  - reset About view
     if (toIndex !== 3) {
-      document.body.dispatchEvent(new Event('about.reset'));
+      document.body.dispatchEvent(new CustomEvent('about.reset'));
     }
 
     // update flags
@@ -197,7 +197,7 @@ document.addEventListener('DOMContentLoaded', () => {
   //    if the user is blowing past sections, don't bother animating
   sections.forEach((section, i) => {
     // set up reveals
-    const revealables = section.querySelectorAll('[data-revealable]');
+    const revealables = Array.from(section.querySelectorAll('[data-revealable]'));
     if (revealables.length > 0) {
       revealables.forEach((revealable, j) => {
         revealable.style.transitionDelay = `${j * 0.15}s`;

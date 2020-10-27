@@ -1,3 +1,16 @@
+@mixin focus-within-styles {
+  &:after {
+    width: 100%;
+    left: 0;
+  }
+
+  #contact-form__message {
+    // min-height: calc(1.625rem * 8);
+    height: calc(1.625rem * 8);
+    background-color: rgba($white, 0.3);
+  }
+}
+
 #contact {
   height: auto;
   min-height: 100vh;
@@ -5,6 +18,10 @@
   display: flex;
   flex-direction: column;
   z-index: 50;
+
+  @include ie10plus {
+    height: 100vh;
+  }
 
   .contact__layout {
     text-align: center;
@@ -137,16 +154,7 @@
       }
 
       &:focus-within {
-        &:after {
-          width: 100%;
-          left: 0;
-        }
-
-        #contact-form__message {
-          // min-height: calc(1.625rem * 8);
-          height: calc(1.625rem * 8);
-          background-color: rgba($white, 0.3);
-        }
+        @include focus-within-styles;
       }
     }
 
@@ -181,4 +189,8 @@ html.no-cssvariables {
   #contact:before {
     background-image: linear-gradient($hue-rotate-stop4 0%, $hue-rotate-stop5 100%);
   }
+}
+
+#contact .contact__layout #contact-form__label.focus-within {
+  @include focus-within-styles;
 }

@@ -25,6 +25,12 @@
   animation-delay: .05s;
   animation-fill-mode: both;
   animation-iteration-count: 1;
+
+  @include ie10plus {
+    animation: none;
+    left: calc(50% - 2px);
+    transform: none;
+  }
 }
 
 .nav {

@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ESC closes a bio
   hotkeys('esc', (e, handler) => {
     e.preventDefault(); // Prevent the default refresh event under WINDOWS system
-    body.dispatchEvent(new Event('about.reset'));
+    body.dispatchEvent(new CustomEvent('about.reset'));
   });
 
   // reset the stories if the user has scrolled away

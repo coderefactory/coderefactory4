@@ -16,5 +16,5 @@ document.addEventListener('DOMContentLoaded', () => {
   main.addEventListener('scroll', scroll, false);
 
   // initialize
-  main.dispatchEvent(new Event('scroll'));
+  main.dispatchEvent(new CustomEvent('scroll'));
 });
