@@ -31,9 +31,9 @@
         "filename": "prometheus_1.gif",
         "alt_text": "Before and after screenshots of prometheusapartments.com",
         "grafs": [
-          "Founded in 1965, Prometheus is the largest privately owned multifamily developer in the San Francisco Bay Area. Their portfolio includes dozens of properties in the Bay Area, Portland, and Seattle.",
-          "These are no garden-variety apartments. Constructed with a curator's eye, they apply a boutique design sensibility, while committing to a larger sense of community.",
-          "We brought Prometheus's web presence to life: new look, new features, and a sophisticated administrative backend."
+          "We brought Prometheus's web presence to life: new look, new features, and a sophisticated administrative backend.",
+          "Prometheus is the largest privately owned multifamily developer in the San Francisco Bay Area. Their portfolio includes dozens of properties in the Bay Area, Portland, and Seattle.",
+          "These are no garden-variety apartments. Constructed with a curator's eye, they apply a boutique design sensibility, while committing to a larger sense of community. They needed a web site consistent with those high standards."
         ]
       },
       {
@@ -135,8 +135,8 @@
         "filename": "cf_02.gif",
         "alt_text": "Before and after screenshots of the ChefsFeed web site",
         "grafs": [
-          "Code Refactory was brought in for a fast-paced turn-around that included new development and requirements to tie in with legacy and 3rd-party systems.",
-          "The initial round of work included a wholly new web site and updates to an existing, proprietary CMS."
+          "Code Refactory was brought in for new development to integrate with ChefsFeed's existing legacy and 3rd-party systems.",
+          "The initial round of work included a new web site built from the ground up as well as updates to an existing, proprietary CMS."
         ]
       },
       {
@@ -144,7 +144,7 @@
         "alt_text": "ChefsFeed featured on Best New Apps in the Apple App Store",
         "grafs": [
           "Following a successful deployment, our engagement with ChefsFeed was extended.",
-          "The continued work included enhancements to the web site and CMS as well as a senior-level role for an iOS native app."
+          "We added enhancements to the web site to address evolving business needs; we continued to add capabilities to the CMS; and we took on a senior-level role advising development on an iOS native app."
         ]
       },
       {

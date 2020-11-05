@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
       ((process.env.ELEVENTY_ENV === 'development') && searchParams.has('interstitial'))
     ) && (anchors.indexOf(window.location.hash) === -1);
 
-console.log(showInterstitial);
+  // console.log(showInterstitial);
   if (showInterstitial) {
     layout.classList.add(CLASSES.setup);
   }

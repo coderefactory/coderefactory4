@@ -54,6 +54,16 @@ $gradient-stop0: rgba(0, 8, 27, 0.27);
             }
           }
         }
+
+        // &.sub {
+        //   font-size: 2rem;
+        //   font-family: $font-family-base;
+        // }
+      }
+
+      em {
+        font-style: normal;
+        color: $green;
       }
 
       @include mq-down(md) {
