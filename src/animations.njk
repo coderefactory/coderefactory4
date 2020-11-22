@@ -1,0 +1,55 @@
+---
+layout: base
+---
+
+<div id="animations">
+  <section class="container">
+    <div id="animation-gears">
+      <div class="animation" id="gear-box">
+        <div class="gear gear1">
+          <div class="gear-face gear-front"></div>
+          <div class="gear-face gear-back"></div>
+          <div class="cogs">
+            {% for i in range(0, 12) -%}
+              <div class="cog">
+                <div class="cog-face"></div>
+                <div class="cog-top"></div>
+                <div class="cog-left"></div>
+                <div class="cog-right"></div>
+              </div>
+            {%- endfor %}
+          </div>
+        </div>
+        <div class="gear gear2">
+          <div class="gear-face gear-front"></div>
+          <div class="gear-face gear-back"></div>
+          <div class="cogs">
+            {% for i in range(0, 12) -%}
+              <div class="cog">
+                <div class="cog-face"></div>
+                <div class="cog-top"></div>
+                <div class="cog-left"></div>
+                <div class="cog-right"></div>
+              </div>
+            {%- endfor %}
+          </div>
+        </div>
+        <div class="gear gear3">
+          <div class="gear-face gear-front"></div>
+          <div class="gear-face gear-back"></div>
+          <div class="cogs">
+            {% for i in range(0, 12) -%}
+              <div class="cog">
+                <div class="cog-face"></div>
+                <div class="cog-top"></div>
+                <div class="cog-left"></div>
+                <div class="cog-right"></div>
+              </div>
+            {%- endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+

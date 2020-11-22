@@ -1,0 +1,240 @@
+$gear-face: #a1a2b4;
+$gear-mid: #5a5b5d;
+$gear-shadow: #2a2b2d;
+
+@keyframes crank {
+  0% {
+    transform: translateZ(1px) rotateZ(0deg);
+  }
+  25%, 100% {
+    transform: translateZ(1px) rotateZ(360deg);
+  }
+}
+
+@keyframes crank-reverse {
+  0%, 75% {
+    transform: translateZ(1px) rotateZ(0deg);
+  }
+  100% {
+    transform: translateZ(1px) rotateZ(360deg);
+  }
+}
+
+#animations {
+  padding-top: 200px;
+
+  section {
+    height: auto;
+    min-height: unset;
+    padding: 50px;
+    margin-bottom: 50px;
+    border: 1px solid #f1f2f4;
+  }
+
+  .animation {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+  }
+
+  #animation-gears {
+    width: 486px;
+    height: 363px;
+    margin: 0 auto;
+    position: relative;
+    perspective: 100vmin;
+
+    &:before {
+      content: '';
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      // background: url(/assets/images/gears.png);
+      background-color: aqua;
+      opacity: 0.5;
+    }
+
+    #gear-box {
+      transform-style: preserve-3d;
+
+      .gear {
+        position: absolute;
+        transform-style: preserve-3d;
+
+        .gear-face {
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          position: absolute;
+          top: 0;
+          left: 0;
+
+          &.gear-front {
+            background: radial-gradient(circle at center, transparent 54%, $gear-face 55%);
+            z-index: 10;
+            transform: translateZ(9px);
+          }
+
+          &.gear-back {
+            background: radial-gradient(circle at center, transparent 50%, $gear-shadow 51%);
+            z-index: 0;
+            transform: translateZ(-9px);
+
+            &:before {
+              content: '';
+              width: 100%;
+              height: 100%;
+              border-radius: 50%;
+              position: absolute;
+              top: 10px;
+              left: 0;
+              background: radial-gradient(circle at center, transparent 50%, $gear-shadow 51%);
+            }
+          }
+        }
+
+        .cogs {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 5;
+          transform: translateZ(1px) rotateZ(0deg);
+          transform-style: preserve-3d;
+          // animation: 4s ease-in-out infinite crank;
+        }
+
+        .cog {
+          width: 20px;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: calc(50% - 10px);
+          transform-style: preserve-3d;
+
+          @for $i from 1 through 12 {
+            &:nth-child(#{$i}) {
+              transform: rotateZ(#{($i - 1) * 360 / 12}deg);
+            }
+          }
+
+          .cog-face {
+            width: 100%;
+            height: 18px;
+            position: absolute;
+            top: -14px;
+            left: 0;
+            background-color: $gear-face;
+            transform: translateZ(9px);
+          }
+
+          .cog-top {
+            width: 100%;
+            height: 18px;
+            position: absolute;
+            top: -23px;
+            left: 0;
+            background-color: $gear-shadow;
+            transform: rotateX(90deg);
+            backface-visibility: hidden;
+          }
+
+          .cog-left {
+            width: 14px;
+            height: 18px;
+            position: absolute;
+            top: -16px;
+            left: -7px;
+            background-color: $gear-mid;
+            transform: rotateX(90deg) rotateY(-90deg);
+          }
+
+          .cog-right {
+            width: 14px;
+            height: 18px;
+            position: absolute;
+            top: -16px;
+            left: 13px;
+            background-color: $gear-mid;
+            transform: rotateX(90deg) rotateY(90deg);
+          }
+        } // .cog
+
+        &.gear1 {
+          width: 180px;
+          height: 180px;
+          top: 20%;
+          left: 10%;
+          transform: rotateX(-50deg) rotateY(35deg) translateZ(0);
+          z-index: 20;
+        }
+
+        &.gear2 {
+          width: 100px;
+          height: 100px;
+          top: 40%;
+          left: 63%;
+          transform: rotateX(-50deg) rotateY(35deg) translateZ(-146px);
+          z-index: 16;
+
+          .gear-face {
+            &.gear-front {
+              background: radial-gradient(circle at center, transparent 47%, $gear-face 48%);
+            }
+
+            &.gear-back {
+              transform: translateZ(-6px);
+            }
+          }
+
+          .cogs {
+            animation-name: crank-reverse;
+            animation-direction: reverse;
+          }
+
+          .cog {
+            width: 14px;
+            left: calc(50% - 7px);
+
+            .cog-right {
+              left: 7px;
+            }
+          }
+        }
+
+        &.gear3 {
+          width: 190px;
+          height: 190px;
+          top: 97%;
+          left: 105%;
+          transform: rotateX(-50deg) rotateY(35deg) rotateZ(9deg) translateZ(-460px);
+          z-index: 12;
+
+          .gear-face {
+            &.gear-front {
+              background: radial-gradient(circle at center, transparent 51%, $gear-face 52%);
+            }
+
+            &.gear-back {
+              transform: translateZ(-7px);
+            }
+          }
+
+          .cog {
+            width: 18px;
+            left: calc(50% - 9px);
+
+            .cog-right {
+              left: 11px;
+            }
+          }
+        }
+      } // .gear
+    }
+  }
+}
