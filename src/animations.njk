@@ -3,53 +3,41 @@ layout: base
 ---
 
 <div id="animations">
+
+  <!-- + monitor -->
   <section class="container">
-    <div id="animation-gears">
-      <div class="animation" id="gear-box">
-        <div class="gear gear1">
-          <div class="gear-face gear-front"></div>
-          <div class="gear-face gear-back"></div>
-          <div class="cogs">
-            {% for i in range(0, 12) -%}
-              <div class="cog">
-                <div class="cog-face"></div>
-                <div class="cog-top"></div>
-                <div class="cog-left"></div>
-                <div class="cog-right"></div>
-              </div>
-            {%- endfor %}
-          </div>
-        </div>
-        <div class="gear gear2">
-          <div class="gear-face gear-front"></div>
-          <div class="gear-face gear-back"></div>
-          <div class="cogs">
-            {% for i in range(0, 12) -%}
-              <div class="cog">
-                <div class="cog-face"></div>
-                <div class="cog-top"></div>
-                <div class="cog-left"></div>
-                <div class="cog-right"></div>
-              </div>
-            {%- endfor %}
-          </div>
-        </div>
-        <div class="gear gear3">
-          <div class="gear-face gear-front"></div>
-          <div class="gear-face gear-back"></div>
-          <div class="cogs">
-            {% for i in range(0, 12) -%}
-              <div class="cog">
-                <div class="cog-face"></div>
-                <div class="cog-top"></div>
-                <div class="cog-left"></div>
-                <div class="cog-right"></div>
-              </div>
-            {%- endfor %}
-          </div>
-        </div>
+    <div id="animation-monitor">
+      <div class="animation" id="monitor-box">
+        <div class="screen"></div>
+        <div class="base"></div>
       </div>
     </div>
   </section>
-</div>
+  <!-- / monitor -->
 
+  <!-- + gears -->
+  <section class="container">
+    <div id="animation-gears">
+      <div class="animation" id="gear-box">
+        {% for i in range(0, 3) -%}
+        <div class="gear gear{{ i + 1 }}">
+          <div class="gear-face gear-front"></div>
+          <div class="gear-face gear-back"></div>
+          <div class="cogs">
+            {% for j in range(0, 12) -%}
+              <div class="cog">
+                <div class="cog-face"></div>
+                <div class="cog-top"></div>
+                <div class="cog-left"></div>
+                <div class="cog-right"></div>
+              </div>
+            {%- endfor %}
+          </div>
+        </div>
+        {%- endfor %}
+      </div>
+    </div>
+  </section>
+  <!-- / gears -->
+
+</div>

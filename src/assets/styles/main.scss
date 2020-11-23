@@ -25,7 +25,6 @@
 @import 'base/screenreader';
 @import 'base/animation';
 @import 'base/global';
-@import 'base/animations';
 
 //--------------------
 // COMPONENTS
@@ -44,3 +43,5 @@
 @import 'components/section-experience';
 @import 'components/section-about';
 @import 'components/section-contact';
+
+@import 'components/animations';

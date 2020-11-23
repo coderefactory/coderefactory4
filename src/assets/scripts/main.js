@@ -22,3 +22,5 @@ import './modules/transitions';
 import './modules/stories';
 import './modules/about';
 import './modules/contact';
+
+import './modules/animations';

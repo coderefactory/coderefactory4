@@ -4032,6 +4032,10 @@ growl@1.10.5:
   resolved "https://registry.yarnpkg.com/growl/-/growl-1.10.5.tgz#f2735dc2283674fa67478b10181059355c369e5e"
   integrity sha512-qBr4OuELkhPenW6goKVXiv47US3clb3/IbuWF9KNKEijAy9oeHxU9IgzjvJhHkUzhaj7rOUD7+YGWqUjLp5oSA==
 
+gsap@./src/assets/gsap-bonus.tgz:
+  version "3.2.6"
+  resolved "./src/assets/gsap-bonus.tgz#d20a1eb7da39db7f3636045e294fb1fd29375eb4"
+
 hamljs@^0.6.2:
   version "0.6.2"
   resolved "https://registry.yarnpkg.com/hamljs/-/hamljs-0.6.2.tgz#7b7116cf6dbe7278e42b3f6ef8725a33e177c8e3"
