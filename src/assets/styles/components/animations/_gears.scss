@@ -140,6 +140,7 @@ $gear-shadow: #2a2b2d;
           left: -7px;
           background-color: $gear-mid;
           transform: rotateX(90deg) rotateY(-90deg);
+          backface-visibility: hidden;
         }
 
         .cog-right {
@@ -150,6 +151,7 @@ $gear-shadow: #2a2b2d;
           left: 13px;
           background-color: $gear-mid;
           transform: rotateX(90deg) rotateY(90deg);
+          backface-visibility: hidden;
         }
       } // .cog
 
