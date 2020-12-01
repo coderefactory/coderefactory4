@@ -2,32 +2,11 @@
 layout: base
 ---
 
-<div id="animations">
+<style>
+  main { scroll-snap-type: none !important; }
+</style>
 
-  <!-- + monitor -->
-  <section class="container">
-    <div id="animation-monitor">
-      <div class="animation" id="monitor-box">
-        <div class="screen">
-          <div class="screen-face"></div>
-          <div class="screen-right"></div>
-          <div class="screen-bottom"></div>
-        </div>
-        <div class="base">
-          <div class="neck">
-            <div class="neck-face"></div>
-            <div class="neck-right"></div>
-          </div>
-          <div class="foot">
-            <div class="foot-face"></div>
-            <div class="foot-front"></div>
-            <div class="foot-right"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- / monitor -->
+<div id="animations">
 
   <!-- + gears -->
   <section class="container">
@@ -53,5 +32,52 @@ layout: base
     </div>
   </section>
   <!-- / gears -->
+
+  <!-- + jigsaw -->
+  <section class="container">
+    <div id="animation-jigsaw">
+      <div class="animation" id="jigsaw-box">
+        {% include "../src/assets/images/animations/icon-chat-bubble-right.svg" %}
+        {% include "../src/assets/images/animations/icon-chat-bubble-left.svg" %}
+        {% include "../src/assets/images/animations/icon-chat-bubble-right.svg" %}
+        {% include "../src/assets/images/animations/icon-chat-bubble-left.svg" %}
+      </div>
+    </div>
+  </section>
+  <!-- / jigsaw -->
+
+  <!-- + monitor -->
+  <section class="container">
+    <div id="animation-monitor">
+      <div class="animation" id="monitor-box">
+        <div class="screen">
+          <div class="screen-face"></div>
+          <div class="screen-right"></div>
+          <div class="screen-bottom"></div>
+        </div>
+        <div class="base">
+          <div class="neck">
+            <div class="neck-face"></div>
+            <div class="neck-right"></div>
+          </div>
+          <div class="foot">
+            <div class="foot-face"></div>
+            <div class="foot-front"></div>
+            <div class="foot-right"></div>
+          </div>
+        </div>
+        <div class="gem">
+          {% for i in range(0, 6) -%}
+          <div class="face">
+            <div class="face-top"></div>
+            <div class="face-bottom"></div>
+          </div>
+          {%- endfor %}
+          <div class="gem-top"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- / monitor -->
 
 </div>

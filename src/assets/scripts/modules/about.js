@@ -4,10 +4,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // get elements
   const body = document.body;
   const layout = document.querySelector('.about__layout');
-  const staffMembers = Array.from(layout.getElementsByClassName('block--staff'));
   if (!layout) {
     return; 
   }
+  const staffMembers = Array.from(layout.getElementsByClassName('block--staff'));
   const btnCloseBio = layout.querySelector('.close-story');
 
   // define behaviors for viewing bios (at certain smaller sizes)

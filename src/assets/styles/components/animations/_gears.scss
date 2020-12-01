@@ -93,8 +93,9 @@ $gear-shadow: #2a2b2d;
         z-index: 5;
         transform: translateZ(1px) rotateZ(0deg);
         transform-style: preserve-3d;
-        animation: 4s ease-in-out infinite crank;
+        animation: 4s ease-in-out crank;
         animation-play-state: paused;
+        animation-iteration-count: 1;
       }
 
       .cog {
