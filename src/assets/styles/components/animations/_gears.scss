@@ -21,10 +21,11 @@ $gear-shadow: #2a2b2d;
 }
 
 #animation-gears {
-  width: 486px;
-  height: 363px;
-  margin: 0 auto;
+  width: 400px;
+  height: 400px;
+  // margin: 0 auto;
   position: relative;
+  flex: 1;
 
   &:before {
     content: '';
@@ -37,6 +38,7 @@ $gear-shadow: #2a2b2d;
     // background: url(/assets/images/gears.png);
     background-color: aqua;
     opacity: 0.5;
+    display: none;
   }
 
   #gear-box {
@@ -157,19 +159,19 @@ $gear-shadow: #2a2b2d;
       } // .cog
 
       &.gear1 {
-        width: 180px;
-        height: 180px;
+        width: 45%;
+        height: 45%;
         top: 0%;
-        left: 5%;
+        left: -3%;
         // transform: rotateX(-50deg) rotateY(35deg);
         z-index: 20;
       }
 
       &.gear2 {
-        width: 100px;
-        height: 100px;
-        top: 16%;
-        left: 47%;
+        width: 25%;
+        height: 25%;
+        top: 15%;
+        left: 48%;
         // transform: rotateX(-50deg) rotateY(35deg) translateZ(-146px);
         // transform: translate3d(0px, 0px, -146px) rotateX(-50deg) rotateY(35deg);
         transform: translateZ(160px);
@@ -208,10 +210,10 @@ $gear-shadow: #2a2b2d;
       }
 
       &.gear3 {
-        width: 190px;
-        height: 190px;
+        width: 47.5%;
+        height: 47.5%;
         top: 42%;
-        left: 58%;
+        left: 54%;
         // transform: rotateX(-50deg) rotateY(35deg) rotateZ(9deg) translateZ(-460px);
         // transform: translate3d(0px, 0px, -460px) rotateX(-50deg) rotateY(35deg) rotateZ(9deg);
         transform: translateZ(160px);

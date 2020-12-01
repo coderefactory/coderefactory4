@@ -3,10 +3,13 @@
 // $gear-shadow: #2a2b2d;
 
 #animation-monitor {
-  width: 486px;
-  height: 363px;
-  margin: 0 auto;
+  // width: 486px;
+  // height: 363px;
+  width: 400px;
+  height: 400px;
+  // margin: 0 auto;
   position: relative;
+  flex: 1;
 
   &:before {
     content: '';
@@ -18,21 +21,23 @@
     z-index: -1;
     background-color: aqua;
     opacity: 0.5;
+    display: none;
   }
 
   #monitor-box {
     transform-style: preserve-3d;
-    transform: rotateX(12deg) rotateY(-35deg) rotateZ(0deg);
+    // transform: rotateX(12deg) rotateY(-35deg) rotateZ(0deg);
+    transform: rotateX(0deg) rotateY(0deg);
     perspective: 100vmin;
 
     .screen {
-      width: 60%;
-      height: 50%;
+      width: 72.9%;
+      height: 45.375%;
       background: linear-gradient(to top, darkgray 11%, #000000 11%);
       border-radius: 4px;
       position: relative;
       top: 20%;
-      left: 20%;
+      left: 13.55%;
       z-index: 10;
 
       .screen-face {
@@ -81,8 +86,8 @@
     } // .screen
 
     .base {
-      width: 70px;
-      height: 25%;
+      width: 17.5%;
+      height: 22.6875%;
       position: absolute;
       top: 57%;
       left: calc(50% - 35px);
@@ -162,14 +167,15 @@
     } // .base
 
     .gem {
-      width: 24%;
-      height: 32%;
+      width: 29%;
+      height: 29%;
       position: absolute;
       top: 32%;
-      left: 38%;
+      left: 41%;
       z-index: 20;
       transform: translateZ(80px);
       transform-style: preserve-3d;
+      display: none;
 
       .face {
         width: 50%;
