@@ -1,0 +1,136 @@
+#approach {
+  z-index: 15;
+
+  .approach__layout {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    position: relative;
+  }
+
+  .block--benefits {
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+
+    h2 {
+      line-height: 1;
+      margin: 0;
+      flex: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+
+      & > span {
+        position: relative;
+
+        span {
+          color: $green;
+          position: relative;
+          opacity: 0;
+          transition-property: opacity;
+          transition-duration: 0.01s;
+          transition-delay: 0.7s;
+        }
+
+        &:after {
+          content: attr(data-content);
+          color: $green;
+          width: 100%;
+          position: absolute;
+          opacity: 0;
+          transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+          transition-property: opacity, top, left;
+          transition-duration: 0.4s;
+        }
+      }
+    }
+
+    p {
+      flex: 1;
+      font-size: 1.25rem;
+      position: relative;
+      top: 30px;
+      opacity: 0;
+      transition-timing-function: ease-out;
+      transition-property: opacity, top;
+      transition-duration: 0.4s;
+    }
+
+    .block--benefit {
+      width: 33.33333%;
+      padding: 30px;
+
+      &:nth-child(1) {
+        order: 1;
+
+        & > span:after {
+          top: -70vh;
+          left: -15vw;
+        }
+      }
+      &:nth-child(2) {
+        order: 4;
+        transition-delay: 0.3s;
+      }
+      &:nth-child(3) {
+        order: 2;
+
+        & > span:after {
+          top: -70vh;
+          left: 0;
+          transition-delay: 0.1s;
+        }
+      }
+      &:nth-child(4) {
+        order: 5;
+        transition-delay: 0.4s;
+      }
+      &:nth-child(5) {
+        order: 3;
+
+        & > span:after {
+          top: -70vh;
+          left: 15vw;
+          transition-delay: 0.2s;
+        }
+      }
+      &:nth-child(6) {
+        order: 6;
+        transition-delay: 0.5s;
+      }
+    }
+  }
+
+  // define animated state
+  &.animated {
+    .block--benefits {
+      h2.block--benefit > span {
+        span {
+          opacity: 1;
+        }
+
+        &:after {
+          top: 0;
+          left: 0;
+          opacity: 1;
+        }
+      }
+
+      p.block--benefit {
+        top: 0;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+// fallback for no-cssfilters and no-cssvariables
+html.no-cssfilters,
+html.no-cssvariables {
+  #approach:before {
+    background-image: linear-gradient($hue-rotate-stop1 0%, $hue-rotate-stop2 100%);
+  }
+}

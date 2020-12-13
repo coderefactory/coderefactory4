@@ -456,7 +456,7 @@ html.no-cssfilters,
 html.no-cssvariables {
   #work {
     &:before {
-      background-image: linear-gradient($hue-rotate-stop1 0%, $hue-rotate-stop2 100%);
+      background-image: linear-gradient($hue-rotate-stop2 0%, $hue-rotate-stop2 100%);
     }
 
     .block--story {
