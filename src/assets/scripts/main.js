@@ -19,6 +19,7 @@ import './modules/interstitial';
 import './modules/nav';
 import './modules/transitions';
 //  - panel-specific
+import './modules/approach';
 import './modules/stories';
 import './modules/about';
 import './modules/contact';

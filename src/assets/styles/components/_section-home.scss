@@ -63,7 +63,7 @@ $gradient-stop0: rgba(0, 8, 27, 0.27);
 
       em {
         font-style: normal;
-        color: $green;
+        color: $green-light;
       }
 
       @include mq-down(md) {

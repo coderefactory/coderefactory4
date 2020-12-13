@@ -1,5 +1,6 @@
 [
   { "hash": "home", "text": "Home" },
+  { "hash": "approach", "text": "Approach" },
   { "hash": "work", "text": "Work" },
   { "hash": "experience", "text": "Experience" },
   { "hash": "about", "text": "About" },
