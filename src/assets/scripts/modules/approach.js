@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // set up for animation
-  section.classList.remove('animated');
   const wpApproach = new Waypoint({
     context: main,
     element: section,

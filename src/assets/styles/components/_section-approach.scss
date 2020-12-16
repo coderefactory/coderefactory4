@@ -15,114 +15,299 @@
     display: flex;
     flex-wrap: wrap;
 
-    h2 {
-      line-height: 1;
-      margin: 0;
-      flex: none;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-
-      & > span {
-        position: relative;
-
-        span {
-          color: $green;
-          position: relative;
-          opacity: 0;
-          transition-property: opacity;
-          transition-duration: 0.01s;
-          transition-delay: 0.7s;
-        }
-
-        &:after {
-          content: attr(data-content);
-          color: $green;
-          width: 100%;
-          position: absolute;
-          opacity: 0;
-          transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
-          transition-property: opacity, top, left;
-          transition-duration: 0.4s;
-        }
-      }
-    }
-
-    p {
-      flex: 1;
-      font-size: 1.25rem;
-      position: relative;
-      top: 30px;
-      opacity: 0;
-      transition-timing-function: ease-out;
-      transition-property: opacity, top;
-      transition-duration: 0.4s;
-    }
-
     .block--benefit {
       width: 33.33333%;
       padding: 30px;
 
+      &.benefit-header {
+        line-height: 1;
+        margin: 0;
+        padding-bottom: 0;
+        flex: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+
+        span {
+          color: $orange;
+          position: relative;
+          opacity: 0;
+          transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+          transition-property: opacity, top, left;
+          transition-duration: 0s;
+          position: relative;
+        }
+      } // .benefit-header
+
+      &.benefit-content {
+        position: relative;
+        top: 30px;
+        opacity: 0;
+        transition-timing-function: ease-out;
+        transition-property: opacity, top;
+        transition-duration: 0.4s;
+
+        .benefit-animation {
+          width: 200px;
+          height: 200px;
+          margin: 0 auto;
+          position: relative;
+        }
+
+        p {
+          flex: 1;
+          font-size: 1.25rem;
+        }
+      } // .benefit-content
+
+      // "craftsmanship"
       &:nth-child(1) {
         order: 1;
 
-        & > span:after {
+        span {
           top: -70vh;
           left: -15vw;
         }
       }
+
       &:nth-child(2) {
         order: 4;
         transition-delay: 0.3s;
+
+        .benefit-content > * {
+          transition-delay: 0.3s;
+        }
       }
+
+      // "close collaboration"
       &:nth-child(3) {
         order: 2;
 
-        & > span:after {
+        span {
           top: -70vh;
           left: 0;
           transition-delay: 0.1s;
         }
       }
+
       &:nth-child(4) {
         order: 5;
         transition-delay: 0.4s;
+
+        // & > * {
+        //   transition-delay: 0.4s;
+        // }
       }
+
+      // "high-value"
       &:nth-child(5) {
         order: 3;
 
-        & > span:after {
+        span {
           top: -70vh;
           left: 15vw;
           transition-delay: 0.2s;
         }
       }
+
       &:nth-child(6) {
         order: 6;
         transition-delay: 0.5s;
       }
+    } // .block--benefit
+  } // .block--benefits
+
+  // chat bubble
+  $chat-bubble-front: #1f97f6;
+  $chat-bubble-back: #1dbb47;
+
+  .chat-bubbles-container {
+    width: 100%;
+    height: 100%;
+    perspective: 100vw;
+    position: relative;
+    top: 30px;
+    transition-timing-function: cubic-bezier(0.175, 0.885, 0.315, 1.650);
+    transition-property: top;
+    transition-duration: 0.2s;
+    transition-delay: 0.5s;
+
+    .chat-bubble {
+      width: 75%;
+      height: 55%;
+      position: absolute;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &:after {
+        content: '';
+        width: 45%;
+        height: 30%;
+        position: absolute;
+        bottom: -29%;
+        left: 7px;
+        clip-path: polygon(0 100%, 30% 0, 100% 0, 0 100%);
+      }
+
+      .chat-bubble-ellipses {
+        width: 60%;
+        height: 20%;
+        background: radial-gradient(circle at center, white 0%, white 52%, transparent 56%);
+        background-size: 33%;
+        background-repeat: repeat-x;
+        background-position: center;
+      }
+
+      &.chat-bubble-front {
+        left: 0;
+        top: 10%;
+        background-color: $chat-bubble-front;
+        z-index: 20;
+        filter: drop-shadow(1px 1px 9px rgba(34, 49, 62, 0.6));
+        transform: scale(0);
+        transition-timing-function: cubic-bezier(0.175, 0.885, 0.315, 1.650);
+        transition-property: transform;
+        transition-duration: 0.25s;
+        transition-delay: 1.05s;
+
+        &:after {
+          background-color: $chat-bubble-front;
+        }
+      }
+
+      &.chat-bubble-back {
+        right: 0;
+        top: 30%;
+        background-color: $chat-bubble-back;
+        z-index: 10;
+        transform: rotateY(180deg) translateZ(0px);
+        transition-timing-function: ease-in-out;
+        transition-property: transform;
+        transition-duration: 0.15s;
+        transition-delay: 1.05s;
+
+        &:after {
+          background-color: $chat-bubble-back;
+        }
+      }
+    }
+  }
+
+  // gem
+  .gem-container {
+    width: 100%;
+    height: 100%;
+    perspective: 100vw;
+  }
+
+  .gem {
+    width: 70%;
+    height: 70%;
+    position: absolute;
+    top: 10%;
+    left: 15%;
+    z-index: 20;
+    transform: rotateX(12deg) rotateY(275deg) rotateZ(0deg);
+    transform-style: preserve-3d;
+    transition-timing-function: cubic-bezier(0.060, 0.995, 0.300, 1.000);
+    transition-property: transform;
+    transition-duration: 0.7s;
+    transition-delay: 0.6s;
+
+    .face {
+      width: 50%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 25%;
+      transform-style: preserve-3d;
+      transform-origin: bottom center;
+
+      @for $i from 1 through 6 {
+        &:nth-child(#{$i}) {
+          transform: rotateY(#{($i - 1) * 60}deg);
+        }
+      }
+
+      .face-top {
+        width: 100%;
+        height: 25%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(215, 239, 255, 0.5);
+        clip-path: polygon(15% 0, 85% 0, 99% 99%, 1% 99%);
+        transform: translate3d(0px, 24px, 44px) rotateX(32deg);
+        transform-origin: top center;
+      }
+
+      .face-bottom {
+        width: 100%;
+        height: 75%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(215, 239, 255, 0.5);
+        clip-path: polygon(1% 0, 99% 0, 50% 99%);
+        transform: rotateX(-37deg);
+        transform-origin: bottom center;
+      }
+
+      &:nth-child(1) > * {
+        filter: brightness(1.5);
+      }
+
+      &:nth-child(2) > * {
+        filter: brightness(1.25);
+      }
+    }
+
+    .gem-top {
+      width: 71%;
+      height: 62%;
+      position: absolute;
+      top: -15%;
+      left: 15%;
+      background-color: rgba(215, 239, 255, 0.5);
+      clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+      transform: rotateX(90deg);
     }
   }
 
   // define animated state
   &.animated {
-    .block--benefits {
-      h2.block--benefit > span {
-        span {
-          opacity: 1;
-        }
-
-        &:after {
-          top: 0;
-          left: 0;
-          opacity: 1;
-        }
+    .block--benefits .block--benefit {
+      &.benefit-header span {
+        top: 0;
+        left: 0;
+        opacity: 1;
+        transition-duration: 0.4s;
       }
 
-      p.block--benefit {
+      &.benefit-content {
         top: 0;
         opacity: 1;
       }
+    }
+
+    .chat-bubbles-container {
+      top: 0;
+
+      .chat-bubble {
+        &.chat-bubble-front {
+          transform: scale(1);
+        }
+
+        &.chat-bubble-back {
+          transform: rotateY(180deg) translateZ(400px);
+        }
+      }
+    }
+
+    .gem {
+      transform: rotateX(12deg) rotateY(-35deg) rotateZ(0deg);
     }
   }
 }
