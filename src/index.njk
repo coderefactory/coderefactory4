@@ -15,23 +15,99 @@ layout: base
         <br/>
         <em>high-value</em> software.
       </span>
-      <!-- <span class="sub" data-revealable>
-        We work from concepting through launch 
-        <br/>
-        to anticipate opportunities and roadblocks, 
-        <br/>
-        strengthening your design and architecture 
-        <br/>
-        while keeping costs low.
-      </span>
-      <span class="sub" data-revealable>
-        The result: elegant, durable interfaces that 
-        <br/>
-        meet your business goals and respect your budgets.
-      </span> -->
       <span data-revealable>This is how we solve problems.</span>
       <span data-revealable>{% icon "icon-down-arrow" %}</span>
     </h2>
+  </div>
+</section>
+
+<section id="approach" data-anchor="approach">
+  <div class="approach__layout container">
+    <div class="block--benefits">
+      <!-- + craftsmanship / devices -->
+      <h2 class="block--benefit benefit-header">
+        <span>craftsmanship</span>
+      </h2>
+      <div class="block--benefit benefit-content">
+        <div class="benefit-animation">
+          <div class="devices-container">
+            <!-- + desktop monitor -->
+            <div class="desktop-screen">
+              <div class="screen">
+                <div class="screen-face">
+                  <div class="gauge">
+                    {% include "../src/assets/images/approach/icon-gauge.svg" %}
+                    <span>20</span>
+                  </div>
+                </div>
+                <div class="screen-right"></div>
+                <div class="screen-bottom"></div>
+              </div>
+              <div class="base">
+                <div class="neck">
+                  <div class="neck-face"></div>
+                  <div class="neck-right"></div>
+                </div>
+                <div class="foot">
+                  <div class="foot-face"></div>
+                  <div class="foot-front"></div>
+                  <div class="foot-right"></div>
+                </div>
+              </div>
+            </div>
+            <!-- / desktop monitor -->
+            <!-- + ipad -->
+            <div class="mobile-screen">
+              <div class="screen">
+                <div class="screen-face">
+                  <div class="gauge">
+                    {% include "../src/assets/images/approach/icon-gauge.svg" %}
+                    <span>20</span>
+                  </div>
+                </div>
+                <div class="screen-left"></div>
+              </div>
+            </div>
+            <!-- / ipad -->
+          </div>
+        </div>
+        <p>Responsive, accessible, and engaging UIs. Scalable and performant systems. Technology decisions to match your priorities.</p>
+      </div>
+      <!-- / craftsmanship / devices -->
+
+      <!-- + close collaboration / chat bubbles -->
+      <h2 class="block--benefit benefit-header">
+        <span>close collaboration</span>
+      </h2>
+      <div class="block--benefit benefit-content">
+        <div class="benefit-animation">
+          <div class="chat-bubbles-container">
+            <div class="chat-bubble chat-bubble-back"><div class="chat-bubble-ellipses"></div></div>
+            <div class="chat-bubble chat-bubble-front"><div class="chat-bubble-ellipses"></div></div>
+          </div>
+        </div>
+        <p>We work from concepting through launch to anticipate opportunities and roadblocks, keeping the design airtight and costs low.</p>
+      </div>
+      <!-- / close collaboration / chat bubbles -->
+
+      <!-- + high-value / stars -->
+      <h2 class="block--benefit benefit-header">
+        <span>high-value</span>
+      </h2>
+      <div class="block--benefit benefit-content">
+        <div class="benefit-animation">
+          <div class="stars-container">
+            <div class="stars">
+              {% for i in range(0, 5) -%}
+                {% include "../src/assets/images/approach/icon-star.svg" %}
+              {%- endfor %}
+            </div>
+          </div>
+        </div>
+        <p>The result: elegant, durable interfaces that meet your business goals and respect your budgets.</p>
+      </div>
+      <!-- / high-value / stars -->
+    </div>
   </div>
 </section>
 
