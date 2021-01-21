@@ -13,31 +13,31 @@
     },
     "slides": [
       {
-        "filename": "prometheus_1.gif",
-        "alt_text": "TK",
+        "filename": "dailykos_1.jpg",
+        "alt_text": "Home page of DailyKos.com",
         "grafs": [
           "We developed a robust suite of user and administrative tools for the hyper-engaged Daily Kos community.",
           "Daily Kos provides a platform for civic engagement through information sharing and activism. We worked with design and engineering to develop interfaces for community management, integrated real-time election results, and tools for advertisement administration."
         ]
       },
       {
-        "filename": "prometheus_2.gif",
-        "alt_text": "TK",
+        "filename": "dailykos_2.jpg",
+        "alt_text": "Screenshot of a Daily Kos blog homepage",
         "grafs": [
           "Daily Kos's self-publishing platform includes groups, article tagging, author following, and other capabilities.",
           "We handled development for a complete redesign of these capabilities while at the same time transitioning the codebase to more modern front-end technologies."
         ]
       },
       {
-        "filename": "prometheus_3.jpg",
-        "alt_text": "TK",
+        "filename": "dailykos_3.jpg",
+        "alt_text": "Test election results on a DailyKos.com page",
         "grafs": [
           "The 2020 US elections were a prime focus for the Daily Kos community. We developed management and integration tools for the client to embed real-time election results throughout their site."
         ]
       },
       {
-        "filename": "prometheus_4.jpg",
-        "alt_text": "TK",
+        "filename": "dailykos_4.png",
+        "alt_text": "Admin screens for various ad templates",
         "grafs": [
           "Daily Kos is supported in part by an advertising model. They rely on a sophisticated set of backend tools to manage ads across the web site, allowing them to respond quickly when issues from third-party vendors arise.",
           "We extended Daily Kos's custom internal tool to handle new advertisment templates, allowing their ad revenue to scale."
