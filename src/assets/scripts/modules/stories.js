@@ -18,10 +18,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // set flags
   let previewingPanel;
   let isPanelOpen = false;
+  let pausePreviews = false;
 
   // define behaviors
   const previewStory = panel => {
-    if (isPanelOpen || (previewingPanel === panel)) {
+    if (isPanelOpen || (previewingPanel === panel) || pausePreviews) {
       return;
     }
     previewingPanel = panel;
@@ -68,6 +69,17 @@ document.addEventListener('DOMContentLoaded', () => {
     carousels[carouselIndex].dispatchEvent(new CustomEvent('stories.reset'));
     isPanelOpen = false;
     body.classList.remove(classModalOpen);
+
+    // Sometimes when the user clicks the close button, their cursor will be hovered 
+    //  over another panel, which triggers a preview of that panel somewhat unexpectedly.
+    // Keep the panel they just closed in "preview" state for a second, 
+    //  so they aren't disoriented.
+    // see https://coderefactory.atlassian.net/browse/CR-5
+    pausePreviews = true;
+    const _st = setTimeout(() => {
+      pausePreviews = false;
+      clearTimeout(_st);
+    }, 1000);
   };
 
   const fixFocusScroll = el => {
