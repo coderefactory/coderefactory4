@@ -247,6 +247,7 @@
         position: relative;
         top: 12%;
         left: 0;
+        transform-style: preserve-3d;
         z-index: 10;
 
         .screen-face {
@@ -514,7 +515,7 @@
         width: 60%;
         height: 20%;
         background: radial-gradient(circle at center, white 0%, white 52%, transparent 56%);
-        background-size: 33%;
+        background-size: 33% 100%;
         background-repeat: repeat-x;
         background-position: center;
       }
@@ -584,10 +585,11 @@
 
     .icon-star {
       width: 16%;
-      height: auto;
+      height: 16%;
       margin: 0 2%;
       position: relative;
       top: 0;
+      overflow: visible;
       animation-duration: 0.25s;
       animation-direction: alternate;
       animation-iteration-count: 2;
