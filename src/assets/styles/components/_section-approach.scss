@@ -19,7 +19,7 @@
     }
 
     .block--benefit {
-      padding: 12px 30px;
+      padding: 12px;
 
       @include mq(lg) {
         width: 33.33333%;
@@ -61,8 +61,13 @@
         transition-duration: 0.4s;
 
         .benefit-animation {
-          width: 160px;
-          height: 160px;
+          width: 100px;
+          height: 100px;
+
+          @include mq(sm) {
+            width: 160px;
+            height: 160px;
+          }
 
           @include mq(lg) {
             width: 200px;
@@ -75,8 +80,12 @@
 
         p {
           flex: 1;
-          font-size: 1.125rem;
+          font-size: 1rem;
           max-width: 660px;
+
+          @include mq(sm) {
+            font-size: 1.125rem;
+          }
 
           @include mq(lg) {
             font-size: 1.25rem;
@@ -164,8 +173,7 @@
 
         @include mq-down(lg) {
           .benefit-animation {
-            height: 80px;
-            top: -10px;
+            height: 60px;
           }
         }
       }

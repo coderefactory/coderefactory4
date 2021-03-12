@@ -101,9 +101,13 @@ section {
   color: white;
   position: relative;
   width: 100vw;
-  padding: 150px 0 20px;
+  padding: 90px 0 20px;
   z-index: 1;
   scroll-snap-align: start;
+
+  @include mq(md) {
+    padding-top: 150px;
+  }
 
   // reconfigure for iPhone landscape
   @include phone-landscape {
