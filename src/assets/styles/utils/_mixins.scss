@@ -52,6 +52,12 @@
   }
 }
 
+@mixin very-short-desktop {
+  @media (hover: hover) and (min-width: breakpoint-min(md, $breakpoints)) and (max-height: breakpoint-min(md, $breakpoints) - 1px) {
+    @content;
+  }
+}
+
 @mixin spacious-desktop {
   @media (hover: hover) {
     @media (min-width: breakpoint-min(xl, $breakpoints)) and (min-height: breakpoint-min(xl, $breakpoints)) {
