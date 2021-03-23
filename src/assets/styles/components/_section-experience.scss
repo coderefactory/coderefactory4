@@ -14,7 +14,7 @@
     flex-direction: column;
     height: 100%;
     justify-content: space-around;
-    padding-bottom: 120px;
+    // padding-bottom: 120px;
 
     @include mq(sm) {
       padding-bottom: 0;
@@ -82,6 +82,10 @@
     }
 
     @include tablet-landscape {
+      padding-bottom: 50px;
+    }
+
+    @include very-short-screen {
       padding-bottom: 50px;
     }
   }

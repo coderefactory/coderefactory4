@@ -4,6 +4,7 @@ $preview-width: 70vw;
 #work {
   // height matters with this slide
   height: 100vh; // only slide where fixed height is required
+
   @include short-desktop {
     min-height: breakpoint-min(lg, $breakpoints);
   }
@@ -199,6 +200,15 @@ $preview-width: 70vw;
       display: flex;
       flex-direction: column;
 
+      @include touchscreen {
+        @media (orientation: portrait) {
+          height: calc(100% - 50vw);
+        }
+        @media (orientation: landscape) {
+          height: calc(100% - 25vw);
+        }
+      }
+
       @include short-desktop {
         height: calc(100% - 200px);
         top: 150px;
@@ -248,11 +258,13 @@ $preview-width: 70vw;
 
       // make some room on iPhone landscape
       @include phone-landscape {
-        width: calc(100% - 10vw);
-        left: 5vw;
-
         .story-content__intro {
-          padding-top: 2.2rem;
+          padding-top: 1.2rem;
+
+          h2,
+          .h5 {
+            margin-bottom: 0.3rem;
+          }
 
           p {
             margin-bottom: 1.2rem;
