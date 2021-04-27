@@ -59,7 +59,7 @@
 }
 
 @mixin very-short-screen {
-  @media (max-height: breakpoint-min(sm, $breakpoints) - 1px) {
+  @media (orientation: landscape) and (max-height: breakpoint-min(sm, $breakpoints) - 1px) {
     @content;
   }
 }
