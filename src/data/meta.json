@@ -3,5 +3,6 @@
   "description": "Hand-crafted software from San Francisco, California.",
   "url": "https://coderefactory.com",
   "lang": "en",
-  "locale": "en_us"
+  "locale": "en_us",
+  "image": "/assets/images/cr-logo.png"
 }
