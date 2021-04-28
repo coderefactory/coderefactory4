@@ -40,6 +40,12 @@
   }
 }
 
+@mixin touchscreen {
+  @media (hover: none) and (pointer: coarse) {
+    @content;
+  }
+}
+
 @mixin short-touchscreen {
   @media (hover: none) and (pointer: coarse) and (max-height: breakpoint-min(lg, $breakpoints) - 1px) {
     @content;
@@ -48,6 +54,12 @@
 
 @mixin short-desktop {
   @media (hover: hover) and (min-width: breakpoint-min(md, $breakpoints)) and (max-height: breakpoint-min(lg, $breakpoints) - 1px) {
+    @content;
+  }
+}
+
+@mixin very-short-screen {
+  @media (orientation: landscape) and (max-height: breakpoint-min(sm, $breakpoints) - 1px) {
     @content;
   }
 }

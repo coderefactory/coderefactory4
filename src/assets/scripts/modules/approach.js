@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
       stars.dispatchEvent(new CustomEvent('stars.convert'));
 
-      // destory this instance so changes persist for this page load
+      // destroy this instance so changes persist for this page load
       wpApproach.destroy();
     },
     offset: '10vh'

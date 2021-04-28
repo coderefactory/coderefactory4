@@ -3,12 +3,20 @@
 html {
   overflow-y: hidden;
   background-color: #17172f;
+
+  @include touchscreen {
+    height: -webkit-fill-available;
+  }
 }
 
 body {
-  height: 100vh;
+  min-height: 100vh;
   background-color: transparent;
   overflow: hidden;
+
+  @include touchscreen {
+    min-height: -webkit-fill-available;
+  }
 
   .layout {
     background-color: transparent;
@@ -65,7 +73,7 @@ body {
       scroll-snap-type: y mandatory;
       //  - if a landscape orientation gets squeezed vertically,
       //    abandon the snap and just make sure all content can be viewed
-      @include short-desktop {
+      @include very-short-screen {
         scroll-snap-type: none;
       }
 
@@ -149,5 +157,12 @@ html.no-cssfilters,
 html.no-cssvariables {
   section:before {
     display: block;
+  }
+}
+
+// https://allthingssmitty.com/2020/05/11/css-fix-for-100vh-in-mobile-webkit/
+.touchscreen-vertical-fill {
+  @include touchscreen {
+    min-height: -webkit-fill-available;
   }
 }

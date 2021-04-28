@@ -30,7 +30,6 @@ html.no-cssvariables {
       #header-logo-viewport {
         width: $header-logo-viewport-width * 5 / 8;
         height: $header-logo-viewport-width * 5 / 8;
-        mix-blend-mode: soft-light;
         border-radius: 50%;
         position: absolute;
         left: calc(45vw - #{($header-logo-viewport-width * 5 / 8) / 2});
@@ -63,15 +62,30 @@ html.no-cssvariables {
           width: 100vw;
           height: 100vh;
           z-index: -1;
-          background-color: currentColor;
+          background-color: rgba(0, 20, 29, 0.6); // approximation of mix-blend-mode result
         }
 
         span {
           width: 100%;
           height: 100%;
-          background-color: white;
+          background-color: rgba(173, 190, 255, 0.4); // approximation of mix-blend-mode result
           border-radius: 50%;
           display: block;
+        }
+
+        // override with proper mix-blend-mode rules, but ONLY for browsers that handle properly
+        // e.g., IE doesn't handle at all; Safari 14 has partial support, and should theoretically render this properly, but doesn't
+        // so we skip them both
+        @supports (mix-blend-mode: soft-light) and (not (-webkit-hyphens:none)) {
+          mix-blend-mode: soft-light;
+
+          &::after {
+            background-color: currentColor;
+          }
+
+          span {
+            background-color: white;
+          }
         }
       }
 
@@ -90,6 +104,7 @@ html.no-cssvariables {
           transition-property: transform, opacity;
           transition-duration: 0.45s, 0.3s;
           transition-delay: 0s, 0.45s;
+          z-index: 1001;
 
           @include mq(md) {
             left: calc(45vw - #{$header-logo-width / 2});
