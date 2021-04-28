@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     (
       (process.env.ELEVENTY_ENV !== 'development') || 
       ((process.env.ELEVENTY_ENV === 'development') && searchParams.has('interstitial'))
-    ) && (anchors.indexOf(window.location.hash) === -1);
+    ) && (anchors.indexOf(window.location.hash) === -1) && (!window.location.pathname.match(/^\/[A-z0-9]+/));
 
   // console.log(showInterstitial);
   if (showInterstitial) {
