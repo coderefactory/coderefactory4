@@ -13,15 +13,20 @@ document.addEventListener('DOMContentLoaded', () => {
     run: 'run-interstitial'
   };
 
-  // interstitial suppressed in development unless query string flag is present
-  // also suppressed if there's a valid hash on page load - just go directly there
+  // interstitial suppressed for the following conditions:
+  //  - in development, unless query string flag is present
+  //  - there's a valid hash on page load (just go directly there)
+  //  - any page not at the root is requested
+  //  - touchscreen devices (messes with mobile performance metrics)
   const searchParams = new URLSearchParams(window.location.search);
   const anchors = navLinks.map(navLink => navLink.getAttribute('href'));
   const showInterstitial =
     (
       (process.env.ELEVENTY_ENV !== 'development') || 
       ((process.env.ELEVENTY_ENV === 'development') && searchParams.has('interstitial'))
-    ) && (anchors.indexOf(window.location.hash) === -1) && (!window.location.pathname.match(/^\/[A-z0-9]+/));
+    ) && (anchors.indexOf(window.location.hash) === -1) 
+      && (!window.location.pathname.match(/^\/[A-z0-9]+/))
+      && (document.getElementsByTagName('html')[0].classList.contains('no-touchevents'));
 
   // console.log(showInterstitial);
   if (showInterstitial) {
