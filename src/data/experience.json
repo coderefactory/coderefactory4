@@ -16,9 +16,11 @@
     { "filename": "js",         "title": "JavaScript" },
     { "filename": "nodejs",     "title": "NodeJS" },
     { "filename": "eleventy",   "title": "Eleventy" },
+    { "filename": "netlify",    "title": "Netlify" },
     { "filename": "rails",      "title": "Ruby on Rails" },
     { "filename": "html5",      "title": "HTML5" },
     { "filename": "css3",       "title": "CSS3" },
-    { "filename": "contentful", "title": "Contentful" }
+    { "filename": "contentful", "title": "Contentful" },
+    { "filename": "cloudinary", "title": "Cloudinary" }
   ]
 }
