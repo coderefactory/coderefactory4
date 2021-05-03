@@ -17,7 +17,7 @@
         "alt_text": "Home page of DailyKos.com",
         "grafs": [
           "We developed a robust suite of user and administrative tools for the hyper-engaged Daily Kos community.",
-          "Daily Kos provides a platform for civic engagement through information sharing and activism. We worked with Design and Engineering to develop interfaces for community management, integrated real-time election results, and tools for advertisement administration."
+          "Daily Kos provides a platform for civic engagement through information sharing and activism. We worked with Design and Engineering to develop features such as interfaces for community management, integrated real-time election results, and tools for advertisement administration."
         ]
       },
       {
@@ -39,7 +39,7 @@
         "filename": "dailykos_4.png",
         "alt_text": "Admin screens for various ad templates",
         "grafs": [
-          "Daily Kos is supported in part by an advertising model. They rely on a sophisticated set of backend tools to manage ads across the web site, allowing them to respond quickly when issues from third-party vendors arise.",
+          "Daily Kos is supported in part by an advertising model. Administrators rely on a sophisticated set of backend tools to manage ads across the web site, allowing them to respond quickly when issues from third-party vendors arise.",
           "We extended Daily Kos's custom internal tool to handle new advertisment templates, allowing their ad revenue to scale."
         ]
       }
@@ -64,14 +64,14 @@
         "grafs": [
           "We brought Prometheus's web presence to life: new look, new features, and a sophisticated administrative backend.",
           "Prometheus is the largest privately owned multifamily developer in the San Francisco Bay Area. Their portfolio includes dozens of properties in the Bay Area, Portland, and Seattle.",
-          "These are no garden-variety apartments. Constructed with a curator's eye, they apply a boutique design sensibility, while committing to a larger sense of community. They needed a web site consistent with those high standards."
+          "These are no garden-variety apartments. Constructed with a curator's eye, they apply a boutique design sensibility, while committing to a larger sense of community. Prometheus needed a web site consistent with those high standards."
         ]
       },
       {
         "filename": "prometheus_2.gif",
         "alt_text": "Desktop and mobile screenshots of a Prometheus web page",
         "grafs": [
-          "Prometheus needed a world-class, immersive experience that would best serve the goal of lead generation. The site is replete with bold photography, both to highlight the design touches and to give the user a truer feel for the properties.",
+          "Prometheus needed a world-class, immersive experience that would best serve the goal of lead generation. The site is replete with bold photography to highlight the design touches, while the inclusion of 3D media gives the user a truer feel for the properties.",
           "A comprehensive responsive image strategy was employed to keep the site highly performant across all devices without sacrificing visual impact. A super-fast CDN serves images sized and art-directed appropriately for the user's screen."
         ]
       },
@@ -79,7 +79,7 @@
         "filename": "prometheus_3.jpg",
         "alt_text": "Prometheus property search results page with interactive map",
         "grafs": [
-          "Apartment hunters know what they want. Any search functionality needs to balance a robust tool set, a visually engaging experience, location awareness, and minimal clutter.",
+          "Apartment hunters know what they want. Any search functionality needs to balance a robust tool set, a visually engaging experience, and minimal clutter.",
           "The result was an Airbnb-style interface that checked all the boxes: predictive natural-language search, filter/sort options, image-rich results, a clear information hierarchy, and two-way interactivity with a map. Responsive across all devices."
         ]
       },
@@ -182,7 +182,7 @@
         "filename": "cf_04.jpg",
         "alt_text": "Screenshot of integrated ad placements",
         "grafs": [
-          "In addition, Code Refactory spearheaded advertising integration for static and video ads resulting in new opportunities for ChefsFeed revenue."
+          "In addition, Code Refactory spearheaded advertising integration for static and video ads, resulting in new revenue opportunities for ChefsFeed."
         ]
       }
     ]
