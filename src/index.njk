@@ -28,7 +28,8 @@ layout: base
       </h2>
       <div class="block--benefit benefit-content">
         <div class="benefit-animation">
-          <div class="devices-container">
+          <div class="benefit-animation__inner devices-container">
+            <img class="fallback" src="/assets/images/approach/graphic-craftsmanship.png" />
             <!-- + desktop monitor -->
             <div class="desktop-screen">
               <div class="screen">
@@ -79,7 +80,8 @@ layout: base
       </h2>
       <div class="block--benefit benefit-content">
         <div class="benefit-animation">
-          <div class="chat-bubbles-container">
+          <div class="benefit-animation__inner chat-bubbles-container">
+            <img class="fallback" src="/assets/images/approach/graphic-collaboration.png" />
             <div class="chat-bubble chat-bubble-back"><div class="chat-bubble-ellipses"></div></div>
             <div class="chat-bubble chat-bubble-front"><div class="chat-bubble-ellipses"></div></div>
           </div>
@@ -94,7 +96,8 @@ layout: base
       </h2>
       <div class="block--benefit benefit-content">
         <div class="benefit-animation">
-          <div class="stars-container">
+          <div class="benefit-animation__inner stars-container">
+            <img class="fallback" src="/assets/images/approach/graphic-value.png" />
             <div class="stars">
               {% for i in range(0, 5) -%}
                 {% include "../src/assets/images/approach/icon-star.svg" %}

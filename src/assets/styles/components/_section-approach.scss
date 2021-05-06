@@ -89,6 +89,29 @@
           }
 
           position: relative;
+
+          // polite degradation for IE
+          .benefit-animation__inner > img.fallback {
+            display: none;
+          }
+
+          @include ie10plus {
+            .benefit-animation__inner > img.fallback {
+              display: block;
+
+              & ~ * {
+                display: none;
+              }
+            }
+
+            .benefit-animation__inner > img.fallback {
+              width: auto;
+              height: 100%;
+              position: relative;
+              left: 50%;
+              transform: translateX(-50%);
+            }
+          }
         }
 
         p {
