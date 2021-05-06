@@ -2182,6 +2182,11 @@ cheerio@^0.22.0:
     lodash.reject "^4.4.0"
     lodash.some "^4.4.0"
 
+child-node-remove-polyfill@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/child-node-remove-polyfill/-/child-node-remove-polyfill-1.0.1.tgz#e933bafad1ae5c9e139f7c8a5b898c534ef85ddc"
+  integrity sha512-Sq/iwWKLQemWLqwTcETlQWfpTsvWcQZZ4N6+tJACHk/c8fh2xSFLdIw+59yqmmRU0zz3iZ+Gw5pbDczhAeqUrw==
+
 chokidar@^2.1.8:
   version "2.1.8"
   resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-2.1.8.tgz#804b3a7b6a99358c3c5c61e71d8728f041cff917"

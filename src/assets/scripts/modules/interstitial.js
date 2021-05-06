@@ -1,4 +1,5 @@
 import 'url-search-params-polyfill';
+import 'child-node-remove-polyfill';
 
 document.addEventListener('DOMContentLoaded', () => {
   // get elements
