@@ -71,6 +71,10 @@ body {
       // scroll-snap behavior
       //  - under normal viewport conditions:
       scroll-snap-type: y mandatory;
+      //  - Chrome has a stupid scrollwheel bug; see https://coderefactory.atlassian.net/browse/CR-14
+      @include chrome {
+        scroll-snap-type: y proximity;
+      }
       //  - if a landscape orientation gets squeezed vertically,
       //    abandon the snap and just make sure all content can be viewed
       @include very-short-screen {

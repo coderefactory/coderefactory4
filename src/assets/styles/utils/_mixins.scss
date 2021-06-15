@@ -91,6 +91,12 @@
   }
 }
 
+@mixin chrome {
+  @media screen and (-webkit-min-device-pixel-ratio:0) and (min-resolution:.001dpcm) {
+    @content;
+  }
+}
+
 @mixin hover-focus {
   &:hover,
   &:focus {
