@@ -8,24 +8,28 @@ document.addEventListener('DOMContentLoaded', () => {
   const logoViewport = document.getElementById('header-logo-viewport');
   const navLinks = Array.from(document.getElementsByClassName('nav__link'));
 
-  // class names
+  // class/var names
   const CLASSES = {
     setup: 'setup-interstitial',
     run: 'run-interstitial'
   };
+  const lsVisited = 'coderefactory.interstitial';
 
   // interstitial suppressed for the following conditions:
   //  - in development, unless query string flag is present
   //  - there's a valid hash on page load (just go directly there)
+  //  - prior visit detected in localStorage
   //  - any page not at the root is requested
   //  - touchscreen devices (messes with mobile performance metrics)
   const searchParams = new URLSearchParams(window.location.search);
   const anchors = navLinks.map(navLink => navLink.getAttribute('href'));
+  const hasSeenInterstitial = localStorage.getItem(lsVisited);
   const showInterstitial =
     (
       (process.env.ELEVENTY_ENV !== 'development') || 
       ((process.env.ELEVENTY_ENV === 'development') && searchParams.has('interstitial'))
     ) && (anchors.indexOf(window.location.hash) === -1) 
+      && !hasSeenInterstitial
       && (!window.location.pathname.match(/^\/[A-z0-9]+/))
       && (document.getElementsByTagName('html')[0].classList.contains('no-touchevents'));
 
@@ -53,5 +57,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // start animation
     layout.classList.add(CLASSES.run);
     window.clearTimeout(st);
+
+    // mark as viewed
+    localStorage.setItem(lsVisited, '1');
   }, 1000);
 });
