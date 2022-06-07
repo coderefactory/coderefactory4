@@ -1,8 +1,9 @@
 {
   "clients": [
     { "filename": "prometheus", "title": "Prometheus Apartments" },
-    { "filename": "dailykos",   "title": "Daily Kos" },
+    { "filename": "sequoia",    "title": "Sequoia Capital" },
     { "filename": "ge",         "title": "GE" },
+    { "filename": "dailykos",   "title": "Daily Kos" },
     { "filename": "bam",        "title": "Balyasny Asset Management" },
     { "filename": "anki",       "title": "Anki" },
     { "filename": "themelt",    "title": "The Melt" },
