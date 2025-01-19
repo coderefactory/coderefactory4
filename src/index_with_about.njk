@@ -1,0 +1,254 @@
+---
+layout: base
+---
+
+<section id="home" class="unrevealed" data-anchor="home">
+  <div class="intro__layout container">
+    <h1>{{ build.orgName }}</h1>
+    <h2>
+      <span data-revealable>
+        Code Refactory emphasizes <em>craftsmanship</em> 
+        <br/>
+        and <em>close collaboration</em> in delivering 
+        <br/>
+        <em>high-value</em> software.
+      </span>
+      <span data-revealable>This is how we solve problems.</span>
+      <span data-revealable>{% icon "icon-down-arrow" %}</span>
+    </h2>
+  </div>
+</section>
+
+<section id="approach" data-anchor="approach">
+  <div class="approach__layout container">
+    <div class="block--benefits">
+      <!-- + craftsmanship / devices -->
+      <h2 class="block--benefit benefit-header">
+        <span>craftsmanship</span>
+      </h2>
+      <div class="block--benefit benefit-content">
+        <div class="benefit-animation">
+          <div class="benefit-animation__inner devices-container">
+            <img class="fallback" src="/assets/images/approach/graphic-craftsmanship.png" />
+            <!-- + desktop monitor -->
+            <div class="desktop-screen">
+              <div class="screen">
+                <div class="screen-face">
+                  <div class="gauge">
+                    {% include "../src/assets/images/approach/icon-gauge.svg" %}
+                    <span>20</span>
+                  </div>
+                </div>
+                <div class="screen-right"></div>
+                <div class="screen-bottom"></div>
+              </div>
+              <div class="base">
+                <div class="neck">
+                  <div class="neck-face"></div>
+                  <div class="neck-right"></div>
+                </div>
+                <div class="foot">
+                  <div class="foot-face"></div>
+                  <div class="foot-front"></div>
+                  <div class="foot-right"></div>
+                </div>
+              </div>
+            </div>
+            <!-- / desktop monitor -->
+            <!-- + ipad -->
+            <div class="mobile-screen">
+              <div class="screen">
+                <div class="screen-face">
+                  <div class="gauge">
+                    {% include "../src/assets/images/approach/icon-gauge.svg" %}
+                    <span>20</span>
+                  </div>
+                </div>
+                <div class="screen-left"></div>
+              </div>
+            </div>
+            <!-- / ipad -->
+          </div>
+        </div>
+        <p>Responsive, accessible, and engaging UIs. Scalable and performant systems. Technology decisions to match your priorities.</p>
+      </div>
+      <!-- / craftsmanship / devices -->
+
+      <!-- + close collaboration / chat bubbles -->
+      <h2 class="block--benefit benefit-header">
+        <span>close collaboration</span>
+      </h2>
+      <div class="block--benefit benefit-content">
+        <div class="benefit-animation">
+          <div class="benefit-animation__inner chat-bubbles-container">
+            <img class="fallback" src="/assets/images/approach/graphic-collaboration.png" />
+            <div class="chat-bubble chat-bubble-back"><div class="chat-bubble-ellipses"></div></div>
+            <div class="chat-bubble chat-bubble-front"><div class="chat-bubble-ellipses"></div></div>
+          </div>
+        </div>
+        <p>We work from concepting through launch to anticipate opportunities and roadblocks, keeping the design airtight and costs low.</p>
+      </div>
+      <!-- / close collaboration / chat bubbles -->
+
+      <!-- + high-value / stars -->
+      <h2 class="block--benefit benefit-header">
+        <span>high-value</span>
+      </h2>
+      <div class="block--benefit benefit-content">
+        <div class="benefit-animation">
+          <div class="benefit-animation__inner stars-container">
+            <img class="fallback" src="/assets/images/approach/graphic-value.png" />
+            <div class="stars">
+              {% for i in range(0, 5) -%}
+                {% include "../src/assets/images/approach/icon-star.svg" %}
+              {%- endfor %}
+            </div>
+          </div>
+        </div>
+        <p>The result: elegant, durable interfaces that meet your business goals and respect your budgets.</p>
+      </div>
+      <!-- / high-value / stars -->
+    </div>
+  </div>
+</section>
+
+<section id="work" data-anchor="work">
+  <div class="stories__layout">
+    {% for story in stories %}
+      <style>
+        html.no-object-fit #work .block--story.story{{ loop.index0 }}:before {
+          background-image: linear-gradient(rgba(0, 8, 27, 0.87) 0%, transparent 85%), url({{ story.hero.url }});
+        }
+        html.no-object-fit #work .block--story.story{{ loop.index0 }} .story-bg-img {
+          display: none;
+        }
+      </style>
+      <div class="block--story story{{ loop.index0 }}">
+        {% respimg
+          story.hero.url,
+          story.hero.width,
+          story.hero.height,
+          [480, 680, 768],
+          true,
+          story.hero.alt_text,
+          "story-bg-img"
+        %}
+        <div class="story-content">
+          <div class="story-content__intro">
+            <div class="h5">{{ story.client }}</div>
+            <h2>{{ story.summary | safe }}</h2>
+            <p>{{ story.narrative }}</p>
+          </div>
+          <div class="story-content__carousel">
+            <button aria-label="open this story" class="open-story">Learn more</button>
+            <button aria-label="close this story" class="close-story">&times;</button>
+            <div class="story-content__slides">
+              <ul>
+                {% for slide in story.slides %}
+                  <li>
+                    <div class="story-slide__image">
+                      <img data-src="/assets/images/stories/{{ story.imageDir }}/{{ slide.filename }}" alt="{{ slide.alt_text }}" />
+                    </div>
+                    <div class="story-slide__text">
+                      <div class="story-slide__text-inner">
+                        {% for slideText in slide.grafs %}
+                          <p>{{ slideText | safe }}</p>
+                        {% endfor %}
+                      </div>
+                    </div>
+                  </li>
+                {% endfor %}
+              </ul>
+              <button aria-label="view previous slide" class="slide-nav prev-slide" disabled="disabled">{% icon "icon-down-arrow" %}</button>
+              <button aria-label="view next slide" class="slide-nav next-slide">{% icon "icon-down-arrow" %}</button>
+              <div class="progress-indicator" data-count="{{ story.slides | length }}">
+                <span>slide 1</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section id="experience" data-anchor="experience" class="touchscreen-vertical-fill">
+  <div class="experience__layout container">
+    <div class="block--clients">
+      <h2 class="h3" data-revealable>We've built things for</h2>
+      <ul data-revealable>
+        {% for clientLogo in experience.clients %}
+          <li>
+            {% include "../src/assets/images/logos/" + clientLogo.filename + ".svg" %}
+            <span class="sr-only">{{ clientLogo.title }}</span>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="block--tools">
+      <h2 class="h3" data-revealable>Using tools like</h2>
+      <ul data-revealable>
+        {% for toolLogo in experience.tools %}
+          <li>
+            {% include "../src/assets/images/logos/" + toolLogo.filename + ".svg" %}
+            <span class="sr-only">{{ toolLogo.title }}</span>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="about" data-anchor="about" class="touchscreen-vertical-fill">
+  <div class="about__layout container">
+    <h2 class="h3" data-revealable>Experienced, adaptable, local. <br />Meet your team.</h2>
+    <div class="staff__layout" data-revealable>
+      {% for staff in about %}
+        <div class="block--staff">
+          <div class="block--staff-inner">
+            <div class="block--staff-top-level">
+              <img src="{{ staff.headshot.url }}" alt="{{ staff.name }}" width="{{ staff.headshot.width }}" height="{{ staff.headshot.height }}" />
+              <h4>{{ staff.name }}</h4>
+            </div>
+            <p>{{ staff.bio }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    <button aria-label="close this story" class="close-story">&times;</button>
+  </div>
+</section>
+
+<section id="contact" data-anchor="contact">
+  <div class="contact__layout container">
+    <h2 data-revealable>Got an ambitious project in mind?<br />Let's talk.</h2>
+    <h3 data-revealable>We can help bring your ideas to market expertly and quickly.</h3>
+    <p data-revealable>Tell us about your project, and how we can reach you.</p>
+    <form
+      name="contact"
+      id="contact-form"
+      method="post"
+      action="/"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      data-revealable
+    >
+      <label id="contact-form__label" for="contact-form__message" class="focus-within">
+        <textarea name="message" id="contact-form__message" required></textarea>
+        <span id="contact-form__label-text">Type here</span>
+        <textarea id="contact-form__message-measure" disabled readonly></textarea>
+      </label>
+      <p hidden aria-hidden="true">
+        <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+      </p>
+      <div class="contact-form-cta">
+        <button type="submit" class="has-loading-animation">
+          <span class="button-text">Send</span>
+          {% include "loading-animation.njk" %}
+        </button>
+        <div id="contact-form__notification"></div>
+      </div>
+    </form>
+  </div>
+  {% include "footer.njk" %}
+</section>

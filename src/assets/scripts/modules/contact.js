@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const onError = error => {
     // console.log(error);
-    updateUI('error', `<span>Dangit. Error. You can also email us directly at <a href="mailto:info@coderefactory.com">info@coderefactory.com</a>.</span>`);
+    updateUI('error', `<span>Dangit. Error. You can also email us directly at <a href="mailto:gregg@coderefactory.com">gregg@coderefactory.com</a>.</span>`);
   };
 
   const onSubmit = e => {
