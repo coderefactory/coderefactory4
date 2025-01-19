@@ -199,26 +199,6 @@ layout: base
   </div>
 </section>
 
-<section id="about" data-anchor="about" class="touchscreen-vertical-fill">
-  <div class="about__layout container">
-    <h2 class="h3" data-revealable>Experienced, adaptable, local. <br />Meet your team.</h2>
-    <div class="staff__layout" data-revealable>
-      {% for staff in about %}
-        <div class="block--staff">
-          <div class="block--staff-inner">
-            <div class="block--staff-top-level">
-              <img src="{{ staff.headshot.url }}" alt="{{ staff.name }}" width="{{ staff.headshot.width }}" height="{{ staff.headshot.height }}" />
-              <h4>{{ staff.name }}</h4>
-            </div>
-            <p>{{ staff.bio }}</p>
-          </div>
-        </div>
-      {% endfor %}
-    </div>
-    <button aria-label="close this story" class="close-story">&times;</button>
-  </div>
-</section>
-
 <section id="contact" data-anchor="contact">
   <div class="contact__layout container">
     <h2 data-revealable>Got an ambitious project in mind?<br />Let's talk.</h2>
